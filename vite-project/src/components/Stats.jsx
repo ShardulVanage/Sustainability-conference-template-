@@ -41,7 +41,7 @@ export default function StatsSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-b bg-gradient-to-br from-green-50 to-blue-50 p-6 ">
+    <section ref={sectionRef} className="pb-12 bg-gradient-to-br from-green-50 to-blue-50 p-6 ">
       <div className="container mx-auto px-4">
         <motion.h2 
           initial={{ opacity: 0, y: -20 }}
