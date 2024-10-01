@@ -16,6 +16,11 @@ const objectives = [
     title: "Foster Collaboration",
     description: "Build partnerships between academics, industry professionals, and researchers to drive innovative solutions"
   },
+  // {
+  //   id: 3,
+  //   title: "Address Global Challenges",
+  //   description: "Tackle pressing issues like climate change, resource depletion, and social inequality through collaborative innovation."
+  // },
 ]
 
 const objectives2 = [
@@ -29,6 +34,11 @@ const objectives2 = [
     title: "Enhance Research Visibility",
     description: "Provide a platform for researchers to present their work and gain recognition in their fields."
   },
+  //  {
+  //   id: 3,
+  //   title: "Encourage Multidisciplinary Approaches",
+  //   description: "Explore the intersection of sustainability and innovation through diverse perspectives and expertise."
+  // },
 ]
 
 
@@ -152,14 +162,7 @@ export default function ObjectivesSection() {
           </div>
         </div>
 
-        <motion.div 
-        className="objective-item bg-white px-6 py-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 sm:w-3/6 justify-end items-end mx-auto mt-8 sm:text-center"
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.98 }}
-        >
-            <h3 className="text-2xl font-bold text-green-800 mb-3">Encourage Multidisciplinary Approaches</h3>
-            <p className="text-gray-600">Explore the intersection of sustainability and innovation through diverse perspectives and expertise</p>
-        </motion.div>
+  
       </div>
     </section>
   )

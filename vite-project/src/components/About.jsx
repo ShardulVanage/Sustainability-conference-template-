@@ -57,7 +57,7 @@ export default function AboutSection() {
           animate={controls}
           className="text-5xl font-bold text-center text-green-900 mb-12"
         >
-          About Zep Research
+          About Conference
         </motion.h2>
         <div className="flex flex-col-reverse lg:flex-row items-center justify-evenly mx-auto gap-8">
           <div className="content lg:w-1/3 space-y-4">
