@@ -46,6 +46,7 @@ export default function Footer() {
       name: "Cancellation Policy",
       content:
         "Cancellations made 30 days prior to the event are eligible for a full refund. Cancellations made within 30 days of the event are non-refundable but transferable to another attendee.",
+      link: "/cancellation-policy",
     },
     {
       name: "Privacy Policy",
@@ -151,16 +152,18 @@ export default function Footer() {
                   whileHover={{ x: 5 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <button
-                    onClick={() =>
-                      setActiveSection(
-                        activeSection === section.name ? null : section.name
-                      )
-                    }
-                    className="text-green-200 hover:text-white transition-colors text-left"
-                  >
-                    {section.name}
-                  </button>
+                  <a href={section.link}>
+                    <button
+                      onClick={() =>
+                        setActiveSection(
+                          activeSection === section.name ? null : section.name
+                        )
+                      }
+                      className="text-green-200 hover:text-white transition-colors text-left"
+                    >
+                      {section.name}
+                    </button>
+                  </a>
                 </motion.li>
               ))}
             </ul>

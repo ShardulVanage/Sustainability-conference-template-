@@ -38,7 +38,7 @@ export default function Form() {
                     name="name"
                     id="name"
                     autoComplete="given-name"
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -56,7 +56,7 @@ export default function Form() {
                     name="Number"
                     id="Number"
                     autoComplete="Number"
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -74,7 +74,7 @@ export default function Form() {
                     name="email"
                     type="email"
                     autoComplete="email"
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -92,7 +92,7 @@ export default function Form() {
                     name="country"
                     type="text"
                     autoComplete="country-name"
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -110,7 +110,7 @@ export default function Form() {
                     name="Author_Name"
                     type="text"
                     autoComplete="Author_Name"
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -128,7 +128,7 @@ export default function Form() {
                     name="Co_Author_Name"
                     type="text"
                     autoComplete="Co_Author_Name"
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -146,7 +146,7 @@ export default function Form() {
                     name="Paper_Title"
                     type="text"
                     autoComplete="Paper_Title"
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -164,7 +164,7 @@ export default function Form() {
                     name="Department"
                     type="text"
                     autoComplete="Department"
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
+                    className="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -182,7 +182,7 @@ export default function Form() {
                     name="University_Organization"
                     type="text"
                     autoComplete="University_Organization"
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -217,7 +217,7 @@ export default function Form() {
                         id="Abstract"
                         name="Abstract"
                         type="radio"
-                        className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        className="h-4 w-4 px-2 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                       />
                       <label
                         htmlFor="Abstract"
@@ -231,7 +231,7 @@ export default function Form() {
                         id="Full_Paper"
                         name="Full_Paper"
                         type="radio"
-                        className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        className="h-4 w-4 px-2 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                       />
                       <label
                         htmlFor="Full_Paper"
@@ -242,6 +242,25 @@ export default function Form() {
                     </div>
                   </div>
                 </fieldset>
+              </div>
+              <br />
+              <div className="sm:sm:col-span-3">
+                <label
+                  htmlFor="Department"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Presentation Type
+                </label>
+                <div className="mt-2">
+                  <input
+                    placeholder="Virtual/Physical - Oral/Poster"
+                    id="Department"
+                    name="Department"
+                    type="text"
+                    autoComplete="Department"
+                    className="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
+                  />
+                </div>
               </div>
               <div className="sm:col-span-7">
                 <label
@@ -256,8 +275,39 @@ export default function Form() {
                     name="Message"
                     type="text"
                     autoComplete="Message"
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400    sm:text-sm sm:leading-6"
+                    className="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400    sm:text-sm sm:leading-6"
                   />
+                </div>
+                <br />
+                <div className="w-1/2">
+                  <label
+                    htmlFor="conference-source"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    How this conference came to be known to you
+                  </label>
+                  <div className="mt-2">
+                    <select
+                      id="conference-source"
+                      name="conference-source"
+                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                    >
+                      <option value="">Select an option</option>
+                      <option value="conference-alerts">
+                        Conference Alerts
+                      </option>
+                      <option value="email">Email</option>
+                      <option value="friend-colleague-supervisor">
+                        Friend, Colleague or Supervisor
+                      </option>
+                      <option value="conference-alarm">Conference Alarm</option>
+                      <option value="facebook">Facebook</option>
+                      <option value="google-search">Google Search</option>
+                      <option value="eventbrite">Eventbrite</option>
+                      <option value="linkedin">LinkedIn</option>
+                      <option value="others">Others</option>
+                    </select>
+                  </div>
                 </div>
               </div>
             </div>

@@ -72,30 +72,27 @@ export default function Hero() {
   return (
     <div
       ref={heroRef}
-      className="sm:h-full  w-full flex flex-col-reverse lg:flex-row items-center justify-center mx-auto bg-gradient-to-tr from-green-50 to-blue-50 p-6  px-24"
+      className="sm:h-full  w-full flex flex-col-reverse lg:flex-row items-center justify-center mx-auto bg-gradient-to-tr from-green-50 to-blue-50 p-6 pt-24  sm:px-24"
     >
       <div className="space-y-6 mb-12 lg:mb-0">
         <motion.h1
-          className="text-4xl lg:text-6xl font-bold text-green-800"
+          className="text-3xl lg:text-5xl font-bold text-green-800 max-w-3xl "
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Innovate Today, <br />
-          Sustain Tomorrow
+          International Conference on Sustainability, Innovation and Future
+          Technologies
         </motion.h1>
         <motion.p
-          className="text-xl text-green-700 max-w-2xl"
+          className="sm:text-xl text-base text-green-700 max-w-2xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Join us in shaping a greener future for our planet, and explore the
-          latest advancements in sustainable technologies and future-focused
-          research. This conference serves as a dynamic platform where
-          academics, industry professionals, and innovators converge to explore
-          the latest advancements in sustainable technologies and future-focused
-          research.
+          "Join us to shape a greener future. Explore sustainable technologies
+          and future-focused research at our conference, connecting academics,
+          professionals, and innovators.
         </motion.p>
 
         <div className="flex flex-row gap-5 items-center">
@@ -116,19 +113,60 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <IconCalendarMonth className="text-green-800 mr-2 " />
-            February 27th-28th, 2024
+            February 27th-28th, 2025
           </motion.p>
         </div>
-        <motion.button
-          className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Register Now
-        </motion.button>
+        <div className="flex flex-row items-center justify-start gap-3 px-4">
+          <img
+            src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1728043047/yqhbu4xrrwcab48qtpfw.png"
+            alt=""
+            className="h-12 "
+          />
+          <img
+            src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1728043732/dpwtq9cenauyctsvd9vg.png"
+            alt=""
+            className="h-12 "
+          />
+        </div>
+
+        <div className="flex flex-col sm:flex-row items-center justify-start gap-3">
+          <a href="/pricing">
+            <motion.button
+              className="bg-green-600 mt-4 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Register Now
+            </motion.button>
+          </a>
+          <a href="/submission">
+            <motion.button
+              className="bg-green-600 mt-4 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Submit your Paper
+            </motion.button>
+          </a>
+          <a href="#">
+            <motion.button
+              className="bg-green-600 mt-4 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Download Brochure
+            </motion.button>
+          </a>
+        </div>
       </div>
       <div className="lg:w-1/2 h-[400px] lg:h-[550px]  ">
         <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>

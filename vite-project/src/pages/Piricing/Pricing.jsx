@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import NormalPass from "./components/NormalPass";
 import DarkHeadingSection from "../DarkHeader";
 import StudentPass from "./components/StudentPass";
+import RegistrationProcess from "./components/Process";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -97,6 +98,7 @@ export default function Pricing() {
           </motion.div>
           <NormalPass />
           <StudentPass />
+          <RegistrationProcess />
         </div>
       </div>
     </>

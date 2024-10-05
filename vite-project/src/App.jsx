@@ -30,16 +30,21 @@ import Gallery from "./pages/Gallery/Gallery";
 import Schedule from "./pages/Schedule/Schedule";
 import Pricing from "./pages/Piricing/Pricing";
 import Submission from "./pages/Submission/Submission";
+import Award from "./pages/Award/Award";
+import SponserShip from "./pages/Sponsership/SponserShip";
+import CancellationPolicy from "./pages/Cancellation Policy/CancellationPolicy";
+import DetailVenue from "./pages/Venue/DetailVenue";
+import SpeakerSection from "./components/Speakers";
 
 // Import new components for routes
 
 const links = [
   {
-    title: "About",
+    title: "Home",
     icon: (
       <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
     ),
-    href: "/about",
+    href: "/home",
   },
   {
     title: "Committee",
@@ -56,7 +61,7 @@ const links = [
     href: "/gallery",
   },
   {
-    title: "Zep Research",
+    title: "AboutUs",
     icon: (
       <img
         src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1726731577/il2wr5yxd2w1sarnj3it.svg"
@@ -75,7 +80,7 @@ const links = [
     href: "/schedule",
   },
   {
-    title: "Pricing",
+    title: "Registration",
     icon: (
       <IconBrandCashapp className="h-full w-full text-neutral-500 dark:text-neutral-300" />
     ),
@@ -97,10 +102,11 @@ function MainContent() {
       <StatsSection />
       <AboutSection />
       <ObjectivesSection />
-      <Timeline />
+      <SpeakerSection />
       <CtaRegister />
-      <ContactUs />
+      <Timeline />
       <VenueSection />
+      <ContactUs />
     </>
   );
 }
@@ -117,13 +123,18 @@ function App() {
       </div>
       <Routes>
         <Route path="/" element={<MainContent />} />
-        <Route path="/about" element={<Aboutme />} />
+        <Route path="/home" element={<Aboutme />} />
         <Route path="/committee" element={<Committe />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/pricing" element={<Pricing />} />
-
         <Route path="/submission" element={<Submission />} />
+
+        <Route path="/awards" element={<Award />} />
+        <Route path="/sponsorship" element={<SponserShip />} />
+        <Route path="/cancellation-policy" element={<CancellationPolicy />} />
+        <Route path="/venue" element={<DetailVenue />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
