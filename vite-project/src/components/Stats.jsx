@@ -50,7 +50,7 @@ export default function StatsSection() {
   return (
     <section
       ref={sectionRef}
-      className="flex justify-start items-start bg-gradient-to-br from-green-50 to-blue-50 p-6 "
+      className="flex justify-start items-start bg-gradient-to-br from-green-50 to-blue-50 p-6 py-12 "
     >
       <div className="container mx-auto px-4">
         <motion.h2

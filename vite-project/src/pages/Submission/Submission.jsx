@@ -8,6 +8,7 @@ function Submission() {
     <div>
       <HeadingSection />
       <Form />
+
       <Guideline />
     </div>
   );

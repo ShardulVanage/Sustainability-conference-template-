@@ -82,7 +82,7 @@ export default function AboutSection() {
   }, [controls]);
 
   return (
-    <section ref={sectionRef} className="py-16 bg-green-100 sm:py-36">
+    <section ref={sectionRef} className="py-16 bg-green-200 sm:py-36">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
@@ -92,9 +92,9 @@ export default function AboutSection() {
           About Conference
         </motion.h2>
         <div className="flex flex-col-reverse lg:flex-row items-center justify-evenly mx-auto gap-8">
-          <div className="content lg:w-1/3 space-y-4">
+          <div className=" lg:w-1/3 space-y-4">
             <motion.p
-              className="text-green-800 leading-relaxed text-lg sm:text-xl"
+              className="text-green-800 leading-relaxed text-base sm:text-lg"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -106,27 +106,37 @@ export default function AboutSection() {
               publication opportunities.
             </motion.p>
             <motion.p
-              className="text-green-800 leading-relaxed text-balance sm:text-lg"
+              className="text-green-800 leading-relaxed text-balance sm:text-base"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-            >
-              Our services extend beyond conference organization, offering
-              expert peer review, research grant assistance, and publication
-              management. At Zep Research, we aim to facilitate meaningful
-              academic interactions and empower researchers to contribute to
-              cutting-edge developments in their fields.
-            </motion.p>
-            <motion.p
+            ></motion.p>
+
+            {/* <motion.p
               className="text-green-800 leading-relaxed text-base"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
             >
-              With a global presence and a strong commitment to quality, we are
-              dedicated to advancing research, collaboration, and innovation.
+               Our services extend beyond conference organization, offering
+              expert peer review, research grant assistance, and publication
+              management. At Zep Research, we aim to facilitate meaningful
+              academic interactions and empower researchers to contribute to
+              cutting-edge developments in their fields.
             </motion.p>
+            */}
+            <a href="/home">
+              <motion.p
+                className="text-green-800 leading-relaxed text-base font-bold underline underline-offset-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+              >
+                Read more...
+              </motion.p>
+            </a>
           </div>
+
           <div className="image lg:w-1/3 p-8 ">
             <motion.img
               src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1727429207/imov05ja3gtwvvwduqek.png"

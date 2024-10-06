@@ -81,7 +81,7 @@ const SpeakerCard = ({ name, role, image }) => (
     className="bg-green-50 rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105"
     whileHover={{ y: -5 }}
   >
-    <img src={image} alt={name} className="w-full h-96  object-cover" />
+    <img src={image} alt={name} className="w-full h-72  object-cover" />
     <div className="p-4">
       <h3 className="text-xl font-semibold text-green-800">{name}</h3>
       <p className="text-green-600">{role}</p>

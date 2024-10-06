@@ -72,11 +72,21 @@ export default function Hero() {
   return (
     <div
       ref={heroRef}
-      className="sm:h-full  w-full flex flex-col-reverse lg:flex-row items-center justify-center mx-auto bg-gradient-to-tr from-green-50 to-blue-50 p-6 pt-24  sm:px-24"
+      className="sm:h-full  w-full flex flex-col-reverse lg:flex-row items-center justify-center mx-auto bg-gradient-to-r from-emerald-500 to-lime-300 p-6 py-36  sm:px-24"
     >
       <div className="space-y-6 mb-12 lg:mb-0">
+        <div className="flex flex-row items-center   gap-1">
+          <img
+            src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1726731577/il2wr5yxd2w1sarnj3it.svg"
+            className="sm:h-20 h-12 "
+            alt=""
+          />
+          <h1 className="text-xl lg:text-3xl font-bold text-white max-w-3xl  ">
+            Zep Research
+          </h1>
+        </div>
         <motion.h1
-          className="text-3xl lg:text-5xl font-bold text-green-800 max-w-3xl "
+          className="text-3xl lg:text-5xl font-bold text-green-50 max-w-3xl "
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -85,29 +95,29 @@ export default function Hero() {
           Technologies
         </motion.h1>
         <motion.p
-          className="sm:text-xl text-base text-green-700 max-w-2xl"
+          className="sm:text-xl text-base text-green-100 max-w-2xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          "Join us to shape a greener future. Explore sustainable technologies
+          Join us to shape a greener future. Explore sustainable technologies
           and future-focused research at our conference, connecting academics,
           professionals, and innovators.
         </motion.p>
 
         <div className="flex flex-row gap-5 items-center">
           <motion.p
-            className="text-xl text-green-800 max-w-2xl font-mono inline-flex"
+            className="text-xl text-green-100 max-w-2xl font-mono inline-flex drop-shadow-md"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <IconMapPin className="text-green-800 mr-2" />
+            <IconMapPin className="text-green-900 mr-2" />
             Manila, Philippines
           </motion.p>
 
           <motion.p
-            className="text-xl text-green-800 max-w-2xl font-mono inline-flex"
+            className="text-xl text-green-100 max-w-2xl font-mono inline-flex drop-shadow-md"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -120,19 +130,19 @@ export default function Hero() {
           <img
             src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1728043047/yqhbu4xrrwcab48qtpfw.png"
             alt=""
-            className="h-12 "
+            className="h-12 drop-shadow-lg  "
           />
           <img
             src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1728043732/dpwtq9cenauyctsvd9vg.png"
             alt=""
-            className="h-12 "
+            className="h-12 drop-shadow-lg "
           />
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-start gap-3">
           <a href="/pricing">
             <motion.button
-              className="bg-green-600 mt-4 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105"
+              className="bg-green-900 mt-4 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -144,7 +154,7 @@ export default function Hero() {
           </a>
           <a href="/submission">
             <motion.button
-              className="bg-green-600 mt-4 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105"
+              className="bg-green-900 mt-4 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -156,7 +166,7 @@ export default function Hero() {
           </a>
           <a href="#">
             <motion.button
-              className="bg-green-600 mt-4 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105"
+              className="bg-green-900 mt-4 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -175,7 +185,7 @@ export default function Hero() {
           <Suspense fallback={<Loader />}>
             <Model />
           </Suspense>
-          <OrbitControls enableZoom={false} />
+          <OrbitControls enableZoom={false} enablePan={false} />
           <Environment preset="forest" />
         </Canvas>
       </div>

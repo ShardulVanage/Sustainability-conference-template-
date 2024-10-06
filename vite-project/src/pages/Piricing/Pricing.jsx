@@ -6,6 +6,7 @@ import NormalPass from "./components/NormalPass";
 import DarkHeadingSection from "../DarkHeader";
 import StudentPass from "./components/StudentPass";
 import RegistrationProcess from "./components/Process";
+import CancleCTA from "./components/canclepolicy";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -98,6 +99,7 @@ export default function Pricing() {
           </motion.div>
           <NormalPass />
           <StudentPass />
+          <CancleCTA />
           <RegistrationProcess />
         </div>
       </div>

@@ -41,23 +41,17 @@ import SpeakerSection from "./components/Speakers";
 const links = [
   {
     title: "Home",
-    icon: (
-      <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-    ),
-    href: "/home",
+    icon: <IconHome className="h-full w-full text-neutral-50" />,
+    href: "/",
   },
   {
     title: "Committee",
-    icon: (
-      <IconUsersGroup className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-    ),
+    icon: <IconUsersGroup className="h-full w-full text-neutral-50" />,
     href: "/committee",
   },
   {
     title: "Gallery",
-    icon: (
-      <IconPhoto className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-    ),
+    icon: <IconPhoto className="h-full w-full text-neutral-50" />,
     href: "/gallery",
   },
   {
@@ -70,27 +64,21 @@ const links = [
         alt="Aceternity Logo"
       />
     ),
-    href: "/",
+    href: "/home",
   },
   {
     title: "Schedule",
-    icon: (
-      <Calendar className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-    ),
+    icon: <Calendar className="h-full w-full text-neutral-50" />,
     href: "/schedule",
   },
   {
     title: "Registration",
-    icon: (
-      <IconBrandCashapp className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-    ),
+    icon: <IconBrandCashapp className="h-full w-full text-neutral-50" />,
     href: "/pricing",
   },
   {
     title: "Submission",
-    icon: (
-      <IconLicense className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-    ),
+    icon: <IconLicense className="h-full w-full text-neutral-50" />,
     href: "/submission",
   },
 ];

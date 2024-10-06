@@ -76,7 +76,6 @@ export default function VenueSection() {
       <div className="absolute inset-0 bg-green-900 bg-opacity-30 z-10" />
       <div className="relative z-20 container mx-auto px-4 py-24 flex flex-col justify-center items-center min-h-screen">
         <motion.h2
-          ref={titleRef}
           className="text-5xl md:text-7xl font-bold mb-8 text-center text-green-100"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
