@@ -65,7 +65,7 @@ export default function RegistrationProcess() {
           Registration Process
         </h1>
         <p className="text-xl text-green-200 max-w-3xl mx-auto">
-          Join us in shaping a sustainable future. Follow these simple steps to
+          Help us shape a sustainable future. Follow these easy steps to
           register for the conference.
         </p>
       </motion.div>

@@ -82,9 +82,9 @@ function NormalPass() {
           Conference Pass
         </h3>
         <p className="mt-6 text-base leading-7 text-gray-900">
-          Immerse yourself in three days of inspiring talks, workshops, and
-          networking events. All focused on creating a more sustainable world
-          through innovation and collaboration.
+          Experience three days of inspiring talks, workshops, and networking
+          events focused on building a sustainable world through innovation and
+          collaboration.
         </p>
         <div className="mt-10 flex items-center gap-x-4">
           <h4 className="flex-none text-sm font-semibold leading-6 text-green-800">

@@ -92,9 +92,9 @@ export default function Pricing() {
               ref={descriptionRef}
               className="mt-6 text-lg leading-8 text-gray-100"
             >
-              Be part of the change. Our conference brings together thought
-              leaders, innovators, and changemakers to shape a more sustainable
-              future. Your attendance makes a difference.
+              Be part of the change. Our conference brings together leaders,
+              innovators, and changemakers to create a more sustainable future.
+              Your participation makes a difference
             </p>
           </motion.div>
           <NormalPass />
