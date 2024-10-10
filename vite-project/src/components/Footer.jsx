@@ -69,7 +69,7 @@ export default function Footer() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              ZEP Research
+              icsift
             </motion.h2>
             <p className="text-green-200">
               Advancing knowledge through innovative conferences
@@ -210,9 +210,7 @@ export default function Footer() {
           )}
         </AnimatePresence>
         <div className="mt-12 pt-8 border-t border-green-600 text-center text-green-300">
-          <p>
-            &copy; {new Date().getFullYear()} ZEP Research. All rights reserved.
-          </p>
+          <p>&copy; {new Date().getFullYear()} icsift. All rights reserved.</p>
         </div>
       </div>
     </footer>

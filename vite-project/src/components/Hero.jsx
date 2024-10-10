@@ -77,13 +77,13 @@ export default function Hero() {
     >
       <div className="space-y-6 mb-12 lg:mb-0">
         <div className="flex flex-row items-center gap-1">
-          <img
+          {/* <img
             src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1726731577/il2wr5yxd2w1sarnj3it.svg"
             className="sm:h-20 h-12"
             alt=""
-          />
+          /> */}
           <h1 className="text-xl lg:text-3xl font-bold text-white max-w-3xl">
-            Zep Research
+            icsift
           </h1>
         </div>
         <motion.h1
