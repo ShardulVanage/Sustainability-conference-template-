@@ -4,19 +4,19 @@ import { Leaf, Award, Users, TreePine } from "lucide-react";
 import { GraduationCap } from "lucide-react";
 const awards = [
   {
-    title: "BEST PRESENTATION AWARD",
+    title: "BEST PAPER  PRESENTATION AWARD",
     description:
       "Recognizing outstanding research presentation and communication skills",
     icon: <Award className="w-12 h-12" />,
   },
   {
-    title: "SESSION'S BEST AWARD",
+    title: "BEST PAPER AWARD",
     description:
       "Honoring the most impactful presentation in each conference session",
     icon: <Users className="w-12 h-12" />,
   },
   {
-    title: "BEST STUDENT PRESENTATION AWARD",
+    title: "BEST INTERPRETATION STUDENT PRESENTATION AWARD",
     description: "Celebrating exceptional presentations by student researchers",
     icon: <GraduationCap className="w-12 h-12" />,
   },
