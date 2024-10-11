@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@headlessui/react": "^2.1.8",
     "@heroicons/react": "^2.1.5",
+    "@paypal/react-paypal-js": "^8.7.0",
     "@react-three/drei": "^9.114.0",
     "@react-three/fiber": "^8.17.8",
     "@tabler/icons-react": "^3.19.0",

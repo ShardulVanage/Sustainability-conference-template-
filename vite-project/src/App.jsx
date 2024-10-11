@@ -35,6 +35,7 @@ import SponserShip from "./pages/Sponsership/SponserShip";
 import CancellationPolicy from "./pages/Cancellation Policy/CancellationPolicy";
 import DetailVenue from "./pages/Venue/DetailVenue";
 import SpeakerSection from "./components/Speakers";
+import ConferenceHighlights from "./components/ConferenceHighlights";
 
 // Import new components for routes
 
@@ -90,6 +91,7 @@ function MainContent() {
       <StatsSection />
       <AboutSection />
       <ObjectivesSection />
+      <ConferenceHighlights />
       <SpeakerSection />
       <CtaRegister />
       <Timeline />
