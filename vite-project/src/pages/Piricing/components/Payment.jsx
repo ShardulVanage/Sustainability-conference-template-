@@ -33,7 +33,9 @@ export default function PaymentButton() {
         paymentData
       );
       const { encRequest, accessCode } = response.data;
-      const URL = `https://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction&merchant_id=${paymentData.merchant_id}&encRequest=${encRequest}&access_code=${accessCode}`;
+      //https://secure.ccavenue.com
+      //https://test.ccavenue.com
+      const URL = `https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction&merchant_id=${paymentData.merchant_id}&encRequest=${encRequest}&access_code=${accessCode}`;
       window.location.href = URL;
     } catch (error) {
       console.error("Error initiating payment:", error);
