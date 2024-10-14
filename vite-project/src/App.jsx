@@ -36,6 +36,8 @@ import CancellationPolicy from "./pages/Cancellation Policy/CancellationPolicy";
 import DetailVenue from "./pages/Venue/DetailVenue";
 import SpeakerSection from "./components/Speakers";
 import ConferenceHighlights from "./components/ConferenceHighlights";
+import Success from "./pages/Piricing/components/Success";
+import Failed from "./pages/Piricing/components/Failed";
 
 // Import new components for routes
 
@@ -126,6 +128,9 @@ function App() {
         <Route path="/venue" element={<DetailVenue />} />
 
         <Route path="*" element={<NotFound />} />
+
+        <Route path="/Success" element={<Success />} />
+        <Route path="/Failed" element={<Failed />} />
       </Routes>
       <Footer />
     </Router>

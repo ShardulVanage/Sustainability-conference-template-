@@ -1,2 +1,0 @@
-# Sustainability-conference-template-
-template 

@@ -1,4 +1,66 @@
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+
 export default function Form() {
+  // template_tky806n
+  const form = useRef();
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setStatus("Sending...");
+
+    const formData = new FormData(form.current);
+    const templateParams = Object.fromEntries(formData);
+
+    // Add radio button value
+    templateParams.Paper_Type =
+      document.querySelector('input[name="Paper_Type"]:checked')?.value || "";
+
+    // Get the file
+    const fileInput = document.querySelector('input[type="file"]');
+    const file = fileInput.files[0];
+
+    if (file) {
+      templateParams.uploaded_paper_name = file.name;
+
+      // Convert file to base64
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function () {
+        templateParams.uploaded_paper = reader.result;
+        sendEmail(templateParams);
+      };
+      reader.onerror = function (error) {
+        console.log("Error: ", error);
+        setStatus("Failed to process file. Please try again.");
+      };
+    } else {
+      sendEmail(templateParams);
+    }
+  };
+
+  const sendEmail = (templateParams) => {
+    emailjs
+      .send(
+        "service_k0vmj0o",
+        "template_tky806n",
+        templateParams,
+        "6Go2235EEKikAwNMK"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setStatus("Form submitted successfully!");
+          form.current.reset();
+        },
+        (error) => {
+          console.log(error.text);
+          setStatus("Failed to submit form. Please try again.");
+        }
+      );
+  };
+
   return (
     <section
       id="form"
@@ -22,7 +84,11 @@ export default function Form() {
           />
         </div>
 
-        <form className="bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
+        <form
+          ref={form}
+          onSubmit={handleSubmit}
+          className="bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2"
+        >
           <div className="px-4 py-6 sm:p-8">
             <div className="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-3">
@@ -187,19 +253,18 @@ export default function Form() {
                 </div>
               </div>
 
-              <div className="sm:sm:col-span-4">
+              <div className="sm:col-span-4">
                 <label
-                  htmlFor="Paper_Title"
+                  htmlFor="uploaded_paper"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
                   Upload your paper
                 </label>
                 <div className="mt-2">
                   <input
-                    id="Paper_Title"
-                    name="Paper_Title"
+                    id="uploaded_paper"
+                    name="uploaded_paper"
                     type="file"
-                    autoComplete="Paper_Title"
                     className="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -319,6 +384,7 @@ export default function Form() {
               value={"Submit"}
             />
           </div>
+          {status && <p className="mt-4 text-center">{status}</p>}
         </form>
       </div>
     </section>

@@ -2,14 +2,71 @@ import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import NormalPass from "./components/NormalPass";
 import DarkHeadingSection from "../DarkHeader";
-import StudentPass from "./components/StudentPass";
 import RegistrationProcess from "./components/Process";
 import CancleCTA from "./components/canclepolicy";
+import PricingCard from "./components/NormalPass";
 
 gsap.registerPlugin(ScrollTrigger);
-
+const pricingTiers = [
+  {
+    title: "Starter Pass",
+    description:
+      "Perfect for individuals looking to experience the basics of our sustainable conference.",
+    price: "299",
+    features: [
+      "Access to keynote speeches",
+      "Basic networking opportunities",
+      "Digital conference materials",
+      "Carbon-neutral certificate",
+    ],
+    priceSubtext: "Begin your sustainable journey",
+    theme: {
+      primary: "blue",
+      secondary: "gray",
+      accent: "white",
+    },
+  },
+  {
+    title: "Professional Pass",
+    description:
+      "Ideal for professionals seeking comprehensive conference experience with added benefits.",
+    price: "599",
+    features: [
+      "All Starter Pass features",
+      "VIP networking sessions",
+      "Workshop participation",
+      "Exclusive Q&A sessions",
+      "Premium catering",
+    ],
+    priceSubtext: "Elevate your experience",
+    theme: {
+      primary: "green",
+      secondary: "gray",
+      accent: "white",
+    },
+  },
+  {
+    title: "Enterprise Pass",
+    description:
+      "The ultimate conference experience with exclusive benefits and premium features.",
+    price: "999",
+    features: [
+      "All Professional Pass features",
+      "Private meeting room access",
+      "1-on-1 sessions with speakers",
+      "Priority seating",
+      "Executive networking dinner",
+      "Full conference recordings",
+    ],
+    priceSubtext: "Maximum impact",
+    theme: {
+      primary: "purple",
+      secondary: "gray",
+      accent: "white",
+    },
+  },
+];
 export default function Pricing() {
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
@@ -97,8 +154,9 @@ export default function Pricing() {
               Your participation makes a difference
             </p>
           </motion.div>
-          <NormalPass />
-          <StudentPass />
+          {pricingTiers.map((tier, index) => (
+            <PricingCard key={tier.title} {...tier} delay={index * 0.2} />
+          ))}
           <CancleCTA />
           <RegistrationProcess />
         </div>
