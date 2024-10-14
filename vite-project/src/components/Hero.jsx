@@ -83,7 +83,8 @@ export default function Hero() {
             alt=""
           /> */}
           <h1 className="text-xl lg:text-3xl font-bold text-white max-w-3xl">
-            icsift
+            icsift -{" "}
+            <span className="text-base">by Coreresearch Private limited</span>
           </h1>
         </div>
         <motion.h1
@@ -137,6 +138,11 @@ export default function Hero() {
             src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1728043732/dpwtq9cenauyctsvd9vg.png"
             alt=""
             className="h-12 drop-shadow-lg"
+          />
+          <img
+            src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1728886962/hvzsycdbkdnjry9bnsiw.png"
+            alt=""
+            className="h-28 drop-shadow-lg"
           />
         </div>
 
