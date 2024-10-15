@@ -20,7 +20,7 @@ const sendContactEmail = async (formData) => {
 
     await resend.emails.send({
       from: 'icsift|Zepresearch <info@icsift.com>',
-      to: 'info@zepresearch.com',
+      to: 'info@icsift.com',
       subject: 'New Contact Form Submission',
       html: html
     });
@@ -54,7 +54,7 @@ const sendPaperSubmissionNotification = async (formData) => {
 
     await resend.emails.send({
       from: 'icsift|Zepresearch <info@icsift.com>',
-      to: 'info@zepresearch.com',
+      to: 'info@icsift.com',
       subject: 'New Paper Submission',
       html: html
     });
