@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper Submission Confirmation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #ffffff;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .field {
+            margin-bottom: 15px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 12px 15px;
+        }
+
+        .label {
+            font-weight: 600;
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .value {
+            color: #34495e;
+        }
+
+        .pdf-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .pdf-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(56, 239, 125, 0.4);
+        }
+
+        .footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Paper Submission Confirmation</h1>
+        </div>
+        <div class="content">
+            <p>Dear {{name}},</p>
+            <p>Thank you for submitting your paper. We have received the following details:</p>
+
+            <div class="field">
+                <span class="label">Name:</span>
+                <span class="value">{{name}}</span>
+            </div>
+            <div class="field">
+                <span class="label">Phone / WhatsApp:</span>
+                <span class="value">{{number}}</span>
+            </div>
+            <div class="field">
+                <span class="label">Email:</span>
+                <span class="value">{{email}}</span>
+            </div>
+            <div class="field">
+                <span class="label">Country:</span>
+                <span class="value">{{country}}</span>
+            </div>
+            <div class="field">
+                <span class="label">Author Name:</span>
+                <span class="value">{{authorName}}</span>
+            </div>
+            <div class="field">
+                <span class="label">Co-Author Name:</span>
+                <span class="value">{{coAuthorName}}</span>
+            </div>
+            <div class="field">
+                <span class="label">Paper Title:</span>
+                <span class="value">{{paperTitle}}</span>
+            </div>
+            <div class="field">
+                <span class="label">Department:</span>
+                <span class="value">{{department}}</span>
+            </div>
+            <div class="field">
+                <span class="label">University / Organization:</span>
+                <span class="value">{{universityOrganization}}</span>
+            </div>
+            <div class="field">
+                <span class="label">Paper Type:</span>
+                <span class="value">{{paperType}}</span>
+            </div>
+            <div class="field">
+                <span class="label">Presentation Type:</span>
+                <span class="value">{{presentationType}}</span>
+            </div>
+            <div class="field">
+                <span class="label">Message:</span>
+                <span class="value">{{message}}</span>
+            </div>
+            <div class="field">
+                <span class="label">How you learned about the conference:</span>
+                <span class="value">{{conferenceSource}}</span>
+            </div>
+
+            {{#if pdfUrl}}
+            <div class="field">
+                <span class="label">Submitted PDF:</span>
+                <a href="{{pdfUrl}}" class="pdf-link" target="_blank">View PDF</a>
+            </div>
+            {{/if}}
+
+            <p>We will review your submission and get back to you soon.</p>
+        </div>
+        <div class="footer">
+            <p>Best regards,<br>ICSIFT | ZepResearch</p>
+        </div>
+    </div>
+</body>
+
+</html>

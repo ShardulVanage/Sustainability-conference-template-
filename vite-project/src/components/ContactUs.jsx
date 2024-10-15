@@ -1,6 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function ContactUs() {
+  const [formData, setFormData] = useState({
+    name: "",
+    number: "",
+    email: "",
+    country: "",
+    message: "",
+  });
+
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/contact",
+        formData
+      );
+      setSubmitStatus("success");
+      setFormData({
+        name: "",
+        number: "",
+        email: "",
+        country: "",
+        message: "",
+      });
+      toast.success("Message sent successfully!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmitStatus("error");
+      toast.error("Error sending message. Please try again.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
+
   return (
     <section
       id="form"
@@ -25,7 +81,10 @@ export default function ContactUs() {
             />
           </div>
 
-          <form className="bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
+          <form
+            onSubmit={handleSubmit}
+            className="bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2"
+          >
             <div className="px-4 py-6 sm:p-8">
               <div className="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div className="sm:col-span-3">
@@ -40,8 +99,10 @@ export default function ContactUs() {
                       type="text"
                       name="name"
                       id="name"
-                      autoComplete="given-name"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400   sm:text-sm sm:leading-6"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="mt-1 py-1.5 px-2 block w-full rounded-md drop-shadow-sm border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     />
                   </div>
                 </div>
@@ -55,11 +116,13 @@ export default function ContactUs() {
                   </label>
                   <div className="mt-2">
                     <input
-                      type="Text"
-                      name="Number"
-                      id="Number"
-                      autoComplete="Number"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400   sm:text-sm sm:leading-6"
+                      type="text"
+                      name="number"
+                      id="number"
+                      value={formData.number}
+                      onChange={handleChange}
+                      required
+                      className="mt-1 block w-full py-1.5 px-2 rounded-md drop-shadow-sm border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     />
                   </div>
                 </div>
@@ -73,11 +136,13 @@ export default function ContactUs() {
                   </label>
                   <div className="mt-2">
                     <input
-                      id="email"
-                      name="email"
                       type="email"
-                      autoComplete="email"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400   sm:text-sm sm:leading-6"
+                      name="email"
+                      id="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="mt-1 block w-full py-1.5 px-2 rounded-md drop-shadow-sm border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     />
                   </div>
                 </div>
@@ -91,12 +156,34 @@ export default function ContactUs() {
                   </label>
                   <div className="mt-2">
                     <input
-                      id="country"
-                      name="country"
                       type="text"
-                      autoComplete="country-name"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400   sm:text-sm sm:leading-6"
+                      name="country"
+                      id="country"
+                      value={formData.country}
+                      onChange={handleChange}
+                      required
+                      className="mt-1 block w-full rounded-md py-1.5 px-2 drop-shadow-sm border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     />
+                  </div>
+                </div>
+
+                <div className="sm:col-span-7">
+                  <label
+                    htmlFor="Message"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Message
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      name="message"
+                      id="message"
+                      rows="4"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                      className="mt-1 block w-full rounded-md py-1.5 px-2 drop-shadow-sm border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                    ></textarea>
                   </div>
                 </div>
                 {/* <div className="mt-2">
@@ -111,23 +198,6 @@ export default function ContactUs() {
                     <option>Mexico</option>
                   </select>
                 </div> */}
-                <div className="sm:col-span-7">
-                  <label
-                    htmlFor="Message"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Message
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="Message"
-                      name="Message"
-                      type="text"
-                      autoComplete="Message"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400   sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
               </div>
             </div>
             <div className="flex items-center justify-start gap-x-6 border-t border-gray-900/10 px-4 py-4 sm:px-8">
@@ -138,9 +208,30 @@ export default function ContactUs() {
                 Submit
               </button>
             </div>
+            {/* {submitStatus === "success" && (
+              <p className="mt-4 text-green-600">
+                Your message has been sent successfully!
+              </p>
+            )}
+            {submitStatus === "error" && (
+              <p className="mt-4 text-red-600">
+                There was an error sending your message. Please try again.
+              </p>
+            )} */}
           </form>
         </div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </section>
   );
 }

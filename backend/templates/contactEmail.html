@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Contact Form Submission</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: #ffffff;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .field {
+            margin-bottom: 20px;
+            background-color: #f8fafc;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s ease;
+            border-left: 4px solid #6366f1;
+        }
+
+        .field:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .label {
+            font-weight: 600;
+            color: #4b5563;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .value {
+            color: #1f2937;
+            font-size: 16px;
+        }
+
+        .message {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .footer {
+            background-color: #1f2937;
+            color: #e5e7eb;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        .cta {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(99, 102, 241, 0.4);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                width: calc(100% - 20px);
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .field {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>New Contact Form Submission</h1>
+        </div>
+        <div class="content">
+            <div class="field">
+                <span class="label">Name:</span>
+                <span class="value">{{name}}</span>
+            </div>
+            <div class="field">
+                <span class="label">Phone / WhatsApp:</span>
+                <span class="value">{{number}}</span>
+            </div>
+            <div class="field">
+                <span class="label">Email:</span>
+                <span class="value">{{email}}</span>
+            </div>
+            <div class="field">
+                <span class="label">Country:</span>
+                <span class="value">{{country}}</span>
+            </div>
+            <div class="field">
+                <span class="label">Message:</span>
+                <span class="value message">{{message}}</span>
+            </div>
+
+            <p>Please respond to this inquiry as soon as possible.</p>
+
+            <a href="mailto:{{email}}" class="cta">Reply to Inquiry</a>
+        </div>
+        <div class="footer">
+            <p>&copy; ICSIFT | ZepResearch . All rights reserved.</p>
+        </div>
+    </div>
+</body>
+
+</html>

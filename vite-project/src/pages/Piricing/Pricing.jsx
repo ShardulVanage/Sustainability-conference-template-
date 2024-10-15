@@ -10,6 +10,24 @@ import PricingCard from "./components/NormalPass";
 gsap.registerPlugin(ScrollTrigger);
 const pricingTiers = [
   {
+    title: "Testing Pass",
+    description:
+      "Perfect for individuals looking to experience the basics of our sustainable conference.",
+    price: "1",
+    features: [
+      "Access to keynote speeches",
+      "Basic networking opportunities",
+      "Digital conference materials",
+      "Carbon-neutral certificate",
+    ],
+    priceSubtext: "Begin your sustainable journey",
+    theme: {
+      primary: "blue",
+      secondary: "gray",
+      accent: "white",
+    },
+  },
+  {
     title: "Starter Pass",
     description:
       "Perfect for individuals looking to experience the basics of our sustainable conference.",

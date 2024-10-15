@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Paper Submission</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .field {
+            margin-bottom: 20px;
+            background-color: #f8fafc;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .field:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .label {
+            font-weight: 500;
+            color: #4a5568;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .value {
+            color: #2d3748;
+            font-size: 16px;
+        }
+
+        .pdf-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .pdf-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .footer {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                width: calc(100% - 20px);
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .field {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>New Paper Submission</h1>
+        </div>
+        <div class="content">
+            <div class="field">
+                <span class="label">Name:</span>
+                <span class="value">{{name}}</span>
+            </div>
+            <div class="field">
+                <span class="label">Phone / WhatsApp:</span>
+                <span class="value">{{number}}</span>
+            </div>
+            <div class="field">
+                <span class="label">Email:</span>
+                <span class="value">{{email}}</span>
+            </div>
+            <div class="field">
+                <span class="label">Country:</span>
+                <span class="value">{{country}}</span>
+            </div>
+            <div class="field">
+                <span class="label">Author Name:</span>
+                <span class="value">{{authorName}}</span>
+            </div>
+            <div class="field">
+                <span class="label">Co-Author Name:</span>
+                <span class="value">{{coAuthorName}}</span>
+            </div>
+            <div class="field">
+                <span class="label">Paper Title:</span>
+                <span class="value">{{paperTitle}}</span>
+            </div>
+            <div class="field">
+                <span class="label">Department:</span>
+                <span class="value">{{department}}</span>
+            </div>
+            <div class="field">
+                <span class="label">University / Organization:</span>
+                <span class="value">{{universityOrganization}}</span>
+            </div>
+            <div class="field">
+                <span class="label">Paper Type:</span>
+                <span class="value">{{paperType}}</span>
+            </div>
+            <div class="field">
+                <span class="label">Presentation Type:</span>
+                <span class="value">{{presentationType}}</span>
+            </div>
+            <div class="field">
+                <span class="label">Message:</span>
+                <span class="value">{{message}}</span>
+            </div>
+            <div class="field">
+                <span class="label">How they learned about the conference:</span>
+                <span class="value">{{conferenceSource}}</span>
+            </div>
+
+            {{#if pdfUrl}}
+            <div class="field">
+                <span class="label">Submitted PDF:</span>
+                <a href="{{pdfUrl}}" class="pdf-link" target="_blank">View PDF</a>
+            </div>
+            {{/if}}
+
+            <p>Please review this submission at your earliest convenience.</p>
+        </div>
+        <div class="footer">
+            <p>&copy; ICSIFT | ZepResearch. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+
+</html>

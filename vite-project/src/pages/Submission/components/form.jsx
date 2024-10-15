@@ -1,64 +1,143 @@
-import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
+import React, { useState } from "react";
+import axios from "axios";
+import { useDropzone } from "react-dropzone";
+import { Cloudinary } from "@cloudinary/url-gen";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const cld = new Cloudinary({
+  cloud: {
+    cloudName: "dwlhesiyi",
+  },
+});
+const CLOUDINARY_UPLOAD_PRESET = "ml_default";
+const CLOUDINARY_CLOUD_NAME = "dwlhesiyi";
 
 export default function Form() {
-  // template_tky806n
-  const form = useRef();
-  const [status, setStatus] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    number: "",
+    email: "",
+    country: "",
+    authorName: "",
+    coAuthorName: "",
+    paperTitle: "",
+    department: "",
+    universityOrganization: "",
+    paperType: "",
+    presentationType: "",
+    message: "",
+    conferenceSource: "",
+    pdfUrl: "",
+  });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setStatus("Sending...");
+  const [submitStatus, setSubmitStatus] = useState(null);
+  const [pdfFile, setPdfFile] = useState(null);
 
-    const formData = new FormData(form.current);
-    const templateParams = Object.fromEntries(formData);
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-    // Add radio button value
-    templateParams.Paper_Type =
-      document.querySelector('input[name="Paper_Type"]:checked')?.value || "";
+  const onDrop = (acceptedFiles) => {
+    setPdfFile(acceptedFiles[0]);
+  };
 
-    // Get the file
-    const fileInput = document.querySelector('input[type="file"]');
-    const file = fileInput.files[0];
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept: { "application/pdf": [".pdf"] },
+    multiple: false,
+  });
 
-    if (file) {
-      templateParams.uploaded_paper_name = file.name;
+  const uploadToCloudinary = async (file) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
 
-      // Convert file to base64
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = function () {
-        templateParams.uploaded_paper = reader.result;
-        sendEmail(templateParams);
-      };
-      reader.onerror = function (error) {
-        console.log("Error: ", error);
-        setStatus("Failed to process file. Please try again.");
-      };
-    } else {
-      sendEmail(templateParams);
+    try {
+      const response = await axios.post(
+        `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/upload`,
+        formData,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
+      console.log("Cloudinary response:", response.data);
+      return response.data.secure_url;
+    } catch (error) {
+      console.error("Error uploading to Cloudinary:", error);
+      if (error.response) {
+        console.error("Error response:", error.response.data);
+      }
+      throw error;
     }
   };
 
-  const sendEmail = (templateParams) => {
-    emailjs
-      .send(
-        "service_k0vmj0o",
-        "template_tky806n",
-        templateParams,
-        "6Go2235EEKikAwNMK"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          setStatus("Form submitted successfully!");
-          form.current.reset();
-        },
-        (error) => {
-          console.log(error.text);
-          setStatus("Failed to submit form. Please try again.");
-        }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      let pdfUrl = "";
+      if (pdfFile) {
+        console.log("Uploading file:", pdfFile);
+        pdfUrl = await uploadToCloudinary(pdfFile);
+      }
+
+      const dataToSubmit = {
+        ...formData,
+        pdfUrl: pdfUrl,
+      };
+
+      console.log("Submitting data:", dataToSubmit);
+
+      const response = await axios.post(
+        "http://localhost:5000/api/paper-submission",
+        dataToSubmit
       );
+      console.log("Submission response:", response.data);
+
+      setSubmitStatus("success");
+      setFormData({
+        name: "",
+        number: "",
+        email: "",
+        country: "",
+        authorName: "",
+        coAuthorName: "",
+        paperTitle: "",
+        department: "",
+        universityOrganization: "",
+        paperType: "",
+        presentationType: "",
+        message: "",
+        conferenceSource: "",
+        pdfUrl: "",
+      });
+      setPdfFile(null);
+
+      // Show success toast
+      toast.success("Form submitted successfully!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmitStatus("error");
+
+      // Show error toast
+      toast.error("Error submitting form. Please try again.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   };
 
   return (
@@ -85,7 +164,6 @@ export default function Form() {
         </div>
 
         <form
-          ref={form}
           onSubmit={handleSubmit}
           className="bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2"
         >
@@ -103,7 +181,9 @@ export default function Form() {
                     type="text"
                     name="name"
                     id="name"
-                    autoComplete="given-name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
                     className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -118,11 +198,13 @@ export default function Form() {
                 </label>
                 <div className="mt-2">
                   <input
-                    type="Text"
-                    name="Number"
-                    id="Number"
-                    autoComplete="Number"
-                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
+                    type="text"
+                    name="number"
+                    id="number"
+                    value={formData.number}
+                    onChange={handleChange}
+                    required
+                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -136,11 +218,13 @@ export default function Form() {
                 </label>
                 <div className="mt-2">
                   <input
-                    id="email"
-                    name="email"
                     type="email"
-                    autoComplete="email"
-                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
+                    name="email"
+                    id="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -154,10 +238,12 @@ export default function Form() {
                 </label>
                 <div className="mt-2">
                   <input
-                    id="country"
-                    name="country"
                     type="text"
-                    autoComplete="country-name"
+                    name="country"
+                    id="country"
+                    value={formData.country}
+                    onChange={handleChange}
+                    required
                     className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -172,11 +258,13 @@ export default function Form() {
                 </label>
                 <div className="mt-2">
                   <input
-                    id="Author_Name"
-                    name="Author_Name"
                     type="text"
-                    autoComplete="Author_Name"
-                    className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
+                    name="authorName"
+                    id="authorName"
+                    value={formData.authorName}
+                    onChange={handleChange}
+                    required
+                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -190,10 +278,11 @@ export default function Form() {
                 </label>
                 <div className="mt-2">
                   <input
-                    id="Co_Author_Name"
-                    name="Co_Author_Name"
                     type="text"
-                    autoComplete="Co_Author_Name"
+                    name="coAuthorName"
+                    id="coAuthorName"
+                    value={formData.coAuthorName}
+                    onChange={handleChange}
                     className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -208,11 +297,13 @@ export default function Form() {
                 </label>
                 <div className="mt-2">
                   <input
-                    id="Paper_Title"
-                    name="Paper_Title"
                     type="text"
-                    autoComplete="Paper_Title"
-                    className="block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                    name="paperTitle"
+                    id="paperTitle"
+                    value={formData.paperTitle}
+                    onChange={handleChange}
+                    required
+                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -226,11 +317,13 @@ export default function Form() {
                 </label>
                 <div className="mt-2">
                   <input
-                    id="Department"
-                    name="Department"
                     type="text"
-                    autoComplete="Department"
-                    className="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
+                    name="department"
+                    id="department"
+                    value={formData.department}
+                    onChange={handleChange}
+                    required
+                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -244,16 +337,18 @@ export default function Form() {
                 </label>
                 <div className="mt-2">
                   <input
-                    id="University_Organization"
-                    name="University_Organization"
                     type="text"
-                    autoComplete="University_Organization"
-                    className="block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                    name="universityOrganization"
+                    id="universityOrganization"
+                    value={formData.universityOrganization}
+                    onChange={handleChange}
+                    required
+                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
 
-              <div className="sm:col-span-4">
+              {/* <div className="sm:col-span-4">
                 <label
                   htmlFor="uploaded_paper"
                   className="block text-sm font-medium leading-6 text-gray-900"
@@ -268,6 +363,37 @@ export default function Form() {
                     className="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                   />
                 </div>
+              </div> */}
+              <br />
+              <div className="sm:col-span-4">
+                <label
+                  htmlFor="uploaded_paper"
+                  className="block text-sm font-medium leading-6 text-gray-900 "
+                >
+                  Upload your paper
+                </label>
+                <div
+                  {...getRootProps()}
+                  className="dropzone border-2 border-dashed border-gray-300 rounded-md p-4 text-center cursor-pointer mt-2"
+                >
+                  <input
+                    {...getInputProps()}
+                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                  />
+                  {isDragActive ? (
+                    <p>Drop the PDF file here ...</p>
+                  ) : (
+                    <p>Drag 'n' drop a PDF file here, or click to select one</p>
+                  )}
+                </div>
+                {pdfFile && (
+                  <p className="mt-2 font-medium">
+                    Selected file:{" "}
+                    <span className="font-normal underline underline-offset-4">
+                      {pdfFile.name}
+                    </span>
+                  </p>
+                )}
               </div>
               <br />
               <div className="sm:sm:col-span-4">
@@ -279,9 +405,11 @@ export default function Form() {
                   <div className="space-y-4 sm:flex sm:items-center sm:space-x-10 sm:space-y-0">
                     <div className="flex items-center">
                       <input
-                        id="Abstract"
-                        name="Abstract"
                         type="radio"
+                        name="paperType"
+                        value="Abstract"
+                        checked={formData.paperType === "Abstract"}
+                        onChange={handleChange}
                         className="h-4 w-4 px-2 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                       />
                       <label
@@ -293,9 +421,11 @@ export default function Form() {
                     </div>
                     <div className="flex items-center">
                       <input
-                        id="Full_Paper"
-                        name="Full_Paper"
                         type="radio"
+                        name="paperType"
+                        value="Full Paper"
+                        checked={formData.paperType === "Full Paper"}
+                        onChange={handleChange}
                         className="h-4 w-4 px-2 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                       />
                       <label
@@ -311,19 +441,21 @@ export default function Form() {
               <br />
               <div className="sm:sm:col-span-3">
                 <label
-                  htmlFor="Department"
+                  htmlFor="presentationType"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
                   Presentation Type
                 </label>
                 <div className="mt-2">
                   <input
-                    placeholder="Virtual/Physical - Oral/Poster"
-                    id="Department"
-                    name="Department"
                     type="text"
-                    autoComplete="Department"
-                    className="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
+                    name="presentationType"
+                    id="presentationType"
+                    value={formData.presentationType}
+                    onChange={handleChange}
+                    placeholder="Virtual/Physical - Oral/Poster"
+                    required
+                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -336,12 +468,13 @@ export default function Form() {
                 </label>
                 <div className="mt-2">
                   <textarea
-                    id="Message"
-                    name="Message"
-                    type="text"
-                    autoComplete="Message"
-                    className="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400    sm:text-sm sm:leading-6"
-                  />
+                    name="message"
+                    id="message"
+                    rows="4"
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="mt-1 block w-full drop-shadow-md rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  ></textarea>
                 </div>
                 <br />
                 <div className="w-1/2">
@@ -353,9 +486,12 @@ export default function Form() {
                   </label>
                   <div className="mt-2">
                     <select
-                      id="conference-source"
-                      name="conference-source"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                      name="conferenceSource"
+                      id="conferenceSource"
+                      value={formData.conferenceSource}
+                      onChange={handleChange}
+                      required
+                      className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                     >
                       <option value="">Select an option</option>
                       <option value="conference-alerts">
@@ -384,9 +520,27 @@ export default function Form() {
               value={"Submit"}
             />
           </div>
-          {status && <p className="mt-4 text-center">{status}</p>}
+          {/* {submitStatus === "success" && (
+            <p className="mt-4 text-green-600">Paper submitted successfully!</p>
+          )}
+          {submitStatus === "error" && (
+            <p className="mt-4 text-red-600">
+              Error submitting paper. Please try again.
+            </p>
+          )} */}
         </form>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </section>
   );
 }

@@ -6,7 +6,11 @@ export default defineConfig({
   plugins: [react()],
   assetsInclude: ['**/*.glb'],
   define: {
-    'process.env': {}
-  }
+    'process.env': {},
+     
 
+  },
+ server: {
+    port: 3000, // Set the port to 3000
+  },
 })
