@@ -22,7 +22,7 @@ export default function ContactUs() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/contact",
+        "https://icsift.onrender.com/api/contact",
         formData
       );
       setSubmitStatus("success");

@@ -34,7 +34,7 @@ export default function RegistrationDialog({
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const backendHost = "http://localhost:5000"; //change this to your backend host
+  const backendHost = "https://icsift.onrender.com"; //change this to your backend host
 
   const paymentCCAvenue = async () => {
     let paymentData = {

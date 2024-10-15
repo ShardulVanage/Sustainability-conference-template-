@@ -89,7 +89,7 @@ export default function Form() {
       console.log("Submitting data:", dataToSubmit);
 
       const response = await axios.post(
-        "http://localhost:5000/api/paper-submission",
+        "https://icsift.onrender.com/api/paper-submission",
         dataToSubmit
       );
       console.log("Submission response:", response.data);
