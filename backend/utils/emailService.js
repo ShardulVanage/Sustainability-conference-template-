@@ -19,8 +19,8 @@ const sendContactEmail = async (formData) => {
     const html = template(formData);
 
     await resend.emails.send({
-      from: 'Zepresearch <admin@icsift.com>',
-      to: 'zepresearch2024@gmail.com',
+      from: 'icsift|Zepresearch <info@icsift.com>',
+      to: 'info@zepresearch.com',
       subject: 'New Contact Form Submission',
       html: html
     });
@@ -36,7 +36,7 @@ const sendPaperSubmissionEmail = async (formData) => {
     const html = template(formData);
 
     await resend.emails.send({
-      from: 'Zepresearch <admin@icsift.com>',
+      from: 'icsift|Zepresearch <info@icsift.com>',
       to: formData.email,
       subject: 'Paper Submission Confirmation',
       html: html
@@ -53,8 +53,8 @@ const sendPaperSubmissionNotification = async (formData) => {
     const html = template(formData);
 
     await resend.emails.send({
-      from: 'Zepresearch <admin@icsift.com>',
-      to: 'zepresearch2024@gmail.com',
+      from: 'icsift|Zepresearch <info@icsift.com>',
+      to: 'info@zepresearch.com',
       subject: 'New Paper Submission',
       html: html
     });
