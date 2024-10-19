@@ -4,6 +4,8 @@ import { useDropzone } from "react-dropzone";
 import { Cloudinary } from "@cloudinary/url-gen";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const cld = new Cloudinary({
   cloud: {
@@ -37,7 +39,9 @@ export default function Form() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+  const handlePhoneChange = (value) => {
+    setFormData({ ...formData, number: value });
+  };
   const onDrop = (acceptedFiles) => {
     setPdfFile(acceptedFiles[0]);
   };
@@ -123,6 +127,16 @@ export default function Form() {
         draggable: true,
         progress: undefined,
       });
+      toast.success("Our coordinator will contact you within 24-48 hours", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
     } catch (error) {
       console.error("Error submitting form:", error);
       setSubmitStatus("error");
@@ -169,19 +183,19 @@ export default function Form() {
         >
           <div className="px-4 py-6 sm:p-8">
             <div className="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-              <div className="sm:col-span-3">
+              <div className="sm:sm:col-span-3">
                 <label
-                  htmlFor="name"
+                  htmlFor="Author_Name"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
-                  Name
+                  Author Name
                 </label>
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="name"
-                    id="name"
-                    value={formData.name}
+                    name="authorName"
+                    id="authorName"
+                    value={formData.authorName}
                     onChange={handleChange}
                     required
                     className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
@@ -197,14 +211,13 @@ export default function Form() {
                   Phone / Whatsapp.no
                 </label>
                 <div className="mt-2">
-                  <input
-                    type="text"
-                    name="number"
-                    id="number"
+                  <PhoneInput
+                    country={"us"}
                     value={formData.number}
-                    onChange={handleChange}
+                    onChange={handlePhoneChange}
+                    inputClass="!w-full !py-1.5 !px-2 !rounded-md !border-0 !shadow-sm !ring-1 !ring-inset !ring-gray-300"
+                    containerClass="!w-full"
                     required
-                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -242,26 +255,6 @@ export default function Form() {
                     name="country"
                     id="country"
                     value={formData.country}
-                    onChange={handleChange}
-                    required
-                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                  />
-                </div>
-              </div>
-
-              <div className="sm:sm:col-span-3">
-                <label
-                  htmlFor="Author_Name"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Author Name
-                </label>
-                <div className="mt-2">
-                  <input
-                    type="text"
-                    name="authorName"
-                    id="authorName"
-                    value={formData.authorName}
                     onChange={handleChange}
                     required
                     className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
@@ -447,16 +440,17 @@ export default function Form() {
                   Presentation Type
                 </label>
                 <div className="mt-2">
-                  <input
-                    type="text"
+                  <select
                     name="presentationType"
                     id="presentationType"
                     value={formData.presentationType}
                     onChange={handleChange}
-                    placeholder="Virtual/Physical - Oral/Poster"
                     required
                     className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                  />
+                  >
+                    <option value="Poster">Poster</option>
+                    <option value="Oral">Oral</option>
+                  </select>
                 </div>
               </div>
               <div className="sm:col-span-7">

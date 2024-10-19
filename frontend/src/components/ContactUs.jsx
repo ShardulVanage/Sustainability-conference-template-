@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -16,6 +18,10 @@ export default function ContactUs() {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handlePhoneChange = (value) => {
+    setFormData({ ...formData, number: value });
   };
 
   const handleSubmit = async (e) => {
@@ -115,14 +121,13 @@ export default function ContactUs() {
                     Phone / Whatsapp.no
                   </label>
                   <div className="mt-2">
-                    <input
-                      type="text"
-                      name="number"
-                      id="number"
+                    <PhoneInput
+                      country={"us"}
                       value={formData.number}
-                      onChange={handleChange}
+                      onChange={handlePhoneChange}
+                      inputClass="!w-full !py-1.5 !px-2 !rounded-md !drop-shadow-sm !border-gray-300 !shadow-sm focus:!border-indigo-300 focus:!ring focus:!ring-indigo-200 focus:!ring-opacity-50"
+                      containerClass="!w-full"
                       required
-                      className="mt-1 block w-full py-1.5 px-2 rounded-md drop-shadow-sm border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     />
                   </div>
                 </div>
@@ -186,18 +191,6 @@ export default function ContactUs() {
                     ></textarea>
                   </div>
                 </div>
-                {/* <div className="mt-2">
-                  <select
-                    id="country"
-                    name="country"
-                    autoComplete="country-name"
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300  focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                  >
-                    <option>United States</option>
-                    <option>Canada</option>
-                    <option>Mexico</option>
-                  </select>
-                </div> */}
               </div>
             </div>
             <div className="flex items-center justify-start gap-x-6 border-t border-gray-900/10 px-4 py-4 sm:px-8">
@@ -208,16 +201,6 @@ export default function ContactUs() {
                 Submit
               </button>
             </div>
-            {/* {submitStatus === "success" && (
-              <p className="mt-4 text-green-600">
-                Your message has been sent successfully!
-              </p>
-            )}
-            {submitStatus === "error" && (
-              <p className="mt-4 text-red-600">
-                There was an error sending your message. Please try again.
-              </p>
-            )} */}
           </form>
         </div>
       </div>

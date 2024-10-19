@@ -1,6 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
+import {
+  FaTwitter,
+  FaLinkedin,
+  FaInstagram,
+  FaFacebook,
+  FaYoutube,
+} from "react-icons/fa";
 
 export default function DarkHeadingSection() {
   return (
@@ -10,8 +16,8 @@ export default function DarkHeadingSection() {
         className="absolute sm:h-full  inset-0 z-10 "
         style={{
           backgroundImage: `
-            linear-gradient(to right, rgba(0, 255, 0, 0.3), rgba(0, 128, 0, 0.3)),
-            url('https://plus.unsplash.com/premium_photo-1707029171056-fe5ef2b558f0?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')
+            linear-gradient(to right, rgba(28,122,63, 0.3), rgba(0, 128, 0, 0.6)),
+            url('https://images.unsplash.com/photo-1478828799736-c41c2e82eaef?q=80&w=1969&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')
           `,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -56,29 +62,34 @@ export default function DarkHeadingSection() {
             className="flex justify-between items-center py-4"
           >
             {/* Logo */}
-            <a href="/" className="text-white text-2xl font-bold">
-              ZEP Research
+            <a href="/" className="flex  items-center   gap-1">
+              {/* Zep LOGO  src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1726731577/il2wr5yxd2w1sarnj3it.svg" */}
+              <img
+                src="./singleLogo.png"
+                className="h-16 w-16 drop-shadow-2xl"
+                alt=""
+              />
+              <br />
+              <h1 className="font-bold font-sans text-3xl bg-gradient-to-r from-emerald-500 to-lime-500 text-transparent bg-clip-text drop-shadow-2xl">
+                ICSIFT
+              </h1>
             </a>
-
             {/* Social Icons */}
-            <div className="flex space-x-4">
-              <a
-                href="#"
-                className="text-white hover:text-gray-300 transition-colors"
-              >
-                <FaTwitter size={24} />
+            <div className="flex space-x-4 text-white">
+              <a href="https://www.instagram.com/zepresearch/">
+                <FaInstagram className="h-6 w-6 hover:scale-105" />
               </a>
-              <a
-                href="#"
-                className="text-white hover:text-gray-300 transition-colors"
-              >
-                <FaLinkedin size={24} />
+              <a href="https://x.com/Zepresearch">
+                <FaTwitter className="h-6 w-6 hover:scale-105" />
               </a>
-              <a
-                href="#"
-                className="text-white hover:text-gray-300 transition-colors"
-              >
-                <FaInstagram size={24} />
+              <a href="https://www.facebook.com/profile.php?id=61561809783777">
+                <FaFacebook className="h-6 w-6 hover:scale-105" />
+              </a>
+              <a href="https://www.linkedin.com/company/zep-research/">
+                <FaLinkedin className="h-6 w-6 hover:scale-105" />
+              </a>
+              <a href="https://www.youtube.com/@Zepresearch">
+                <FaYoutube className="h-6 w-6 hover:scale-105  " />
               </a>
             </div>
           </motion.div>

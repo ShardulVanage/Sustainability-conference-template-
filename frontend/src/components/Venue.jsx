@@ -67,7 +67,7 @@ export default function VenueSection() {
         style={{ opacity, scale }}
       >
         <img
-          src="https://plus.unsplash.com/premium_photo-1690959653734-08f745b7c8b7?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://images.unsplash.com/photo-1462557661829-6a1129313bbb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="Manila Skyline"
           className="w-full h-full object-cover"
         />

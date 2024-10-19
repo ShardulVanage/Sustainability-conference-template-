@@ -142,12 +142,12 @@ export default function ConferenceHighlights() {
         </div>
         <AnimatedSection>
           <div className="mt-12 text-center">
-            <a
+            {/* <a
               href="#"
               className="inline-block bg-green-600 text-white font-bold py-3 px-8 rounded-full hover:bg-green-700 transition-colors duration-300 transform hover:scale-105"
             >
               Call for Papers
-            </a>
+            </a> */}
           </div>
         </AnimatedSection>
       </motion.div>
