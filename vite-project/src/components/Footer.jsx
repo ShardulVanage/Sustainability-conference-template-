@@ -45,9 +45,10 @@ export default function Footer() {
 
   const legalSections = [
     {
-      name: "Terms and Conditions",
+      name: "Terms & Conditions",
       content:
         "Our terms and conditions outline the rules and regulations for the use of ZEP Research's conference website and services.",
+      link: "/Terms-&-Conditions",
     },
     {
       name: "Cancellation Policy",
@@ -59,6 +60,7 @@ export default function Footer() {
       name: "Privacy Policy",
       content:
         "We respect your privacy and are committed to protecting your personal data. Our privacy policy details how we collect, use, and store your information.",
+      link: "/Privacy-Policy",
     },
   ];
 

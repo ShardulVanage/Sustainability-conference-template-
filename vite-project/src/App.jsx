@@ -38,6 +38,8 @@ import SpeakerSection from "./components/Speakers";
 import ConferenceHighlights from "./components/ConferenceHighlights";
 import Success from "./pages/Piricing/components/Success";
 import Failed from "./pages/Piricing/components/Failed";
+import TermsCondition from "./pages/Terms & Conditions/TermsCondition";
+import PrivacyPolicy from "./pages/Privacy Policy/PrivacyPolicy";
 
 // Import new components for routes
 
@@ -124,8 +126,11 @@ function App() {
 
         <Route path="/awards" element={<Award />} />
         <Route path="/sponsorship" element={<SponserShip />} />
-        <Route path="/cancellation-policy" element={<CancellationPolicy />} />
         <Route path="/venue" element={<DetailVenue />} />
+
+        <Route path="/cancellation-policy" element={<CancellationPolicy />} />
+        <Route path="/Terms-&-Conditions" element={<TermsCondition />} />
+        <Route path="/Privacy-Policy" element={<PrivacyPolicy />} />
 
         <Route path="*" element={<NotFound />} />
 
