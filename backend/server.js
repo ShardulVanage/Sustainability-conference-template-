@@ -13,6 +13,11 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// Add this new health check endpoint
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'Server is awake' });
+});
+
 app.use('/api', ccavenueRoutes);
 app.use('/api', contactRoutes);
 app.use('/api', paperSubmissionRoutes);

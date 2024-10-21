@@ -9,7 +9,7 @@ import StatsSection from "./components/Stats";
 import Timeline from "./components/Timeline";
 import { FloatingDock } from "./components/ui/floating-dock";
 import VenueSection from "./components/Venue";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   IconBrandCashapp,
   IconBrandGithub,
@@ -106,6 +106,19 @@ function MainContent() {
 }
 
 function App() {
+  useEffect(() => {
+    const wakeUpServer = async () => {
+      try {
+        await fetch("https://icsift.onrender.com/api/health");
+        console.log("Server pinged successfully");
+      } catch (error) {
+        console.error("Error pinging server:", error);
+      }
+    };
+
+    wakeUpServer();
+  }, []); // Empty dependency array means this runs once when component mounts
+
   return (
     <Router>
       <div className="flex items-center justify-center w-full">
