@@ -9,8 +9,7 @@ import {
   FaTwitter,
   FaYoutube,
 } from "react-icons/fa";
-
-gsap.registerPlugin(ScrollTrigger);
+import logo from "../../public/singleLogo.png";
 
 export default function Footer() {
   const [activeSection, setActiveSection] = useState(null);
@@ -65,20 +64,13 @@ export default function Footer() {
   ];
 
   return (
-    <footer
-      ref={footerRef}
-      className="bg-gradient-to-br from-green-900 to-green-700 text-white pt-16 sm:pb-24 pb-20  "
-    >
+    <footer className="bg-gradient-to-br from-green-900 to-green-700 text-white pt-16 sm:pb-24 pb-20  ">
       <div className="container mx-auto px-4">
         <div className="footer-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-4">
             <a href="/" className="flex  items-end gap-1">
               {/* Zep LOGO  src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1726731577/il2wr5yxd2w1sarnj3it.svg" */}
-              <img
-                src="./singleLogo.png"
-                className="h-16 w-16 drop-shadow-2xl"
-                alt=""
-              />
+              <img src={logo} className="h-16 w-16 drop-shadow-2xl" alt="" />
               <br />
               <h1 className="font-bold font-sans text-3xl bg-gradient-to-r from-emerald-500 to-lime-500 text-transparent bg-clip-text drop-shadow-2xl">
                 ICSIFT

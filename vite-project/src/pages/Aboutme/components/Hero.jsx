@@ -1,52 +1,76 @@
-import React from "react";
 import { motion } from "framer-motion";
+import { ArrowRight, Leaf, Globe, Zap } from "lucide-react";
 
-const HeroSection = () => {
+export default function AboutZepResearch() {
   return (
-    <div className="relative isolate -z-10 overflow-hidden bg-gradient-to-b from-green-100/20 to-green-50 pt-14">
-      <div
-        className="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl shadow-green-600/10 ring-1 ring-green-50 sm:-mr-80 lg:-mr-96"
-        aria-hidden="true"
-      />
-      <div className="mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
-          <motion.h1
-            className="max-w-2xl text-4xl font-bold tracking-tight text-green-800 sm:text-6xl lg:col-span-2 xl:col-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            Shaping a Sustainable Future Through Global Collaboration and
-            Innovation
-          </motion.h1>
-          <motion.div
-            className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <p className="text-lg leading-8 text-gray-700">
-              Join us at the forefront of sustainable development. Our
-              conference brings together world-renowned experts, innovative
-              researchers, and passionate advocates to address the most pressing
-              environmental challenges of our time. Together, we'll explore
-              cutting-edge solutions and forge partnerships that will shape a
-              greener, more sustainable world.
-            </p>
-          </motion.div>
-          <motion.img
-            src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Sustainable city concept"
-            className="mt-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-36"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          />
+    <div className="min-h-ful bg-gradient-to-br from-green-50 to-green-100 py-12 px-4 sm:px-6 lg:px-8">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="max-w-4xl mx-auto"
+      >
+        <h1 className="text-5xl font-extrabold text-green-800 mb-8 text-center">
+          About Zep Research
+        </h1>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="bg-white rounded-lg shadow-xl p-8 mb-8"
+        >
+          <p className="text-lg text-green-700 leading-relaxed mb-6">
+            Zep Research is at the forefront of sustainable development
+            research, pioneering innovative solutions for a greener future. Our
+            team of dedicated scientists and researchers work tirelessly to
+            address the most pressing environmental challenges of our time.
+          </p>
+          <div className="flex justify-center">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-green-600 text-white px-6 py-3 rounded-full font-semibold flex items-center"
+            >
+              Learn More <ArrowRight className="ml-2" />
+            </motion.button>
+          </div>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            {
+              icon: Leaf,
+              title: "Eco-Innovation",
+              description: "Developing cutting-edge green technologies",
+            },
+            {
+              icon: Globe,
+              title: "Global Impact",
+              description: "Implementing solutions on a worldwide scale",
+            },
+            {
+              icon: Zap,
+              title: "Energy Solutions",
+              description: "Advancing renewable energy research",
+            },
+          ].map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+              className="bg-white rounded-lg shadow-lg p-6 text-center"
+            >
+              <item.icon className="w-12 h-12 text-green-600 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold text-green-800 mb-2">
+                {item.title}
+              </h3>
+              <p className="text-green-600">{item.description}</p>
+            </motion.div>
+          ))}
         </div>
-      </div>
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-green-50 sm:h-32" />
+      </motion.div>
     </div>
   );
-};
-
-export default HeroSection;
+}

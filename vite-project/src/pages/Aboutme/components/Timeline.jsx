@@ -6,28 +6,28 @@ const timeline = [
     name: "Call for Papers",
     description:
       "Submit your research on sustainable development innovations and practices.",
-    date: "Jan 2024",
+    date: "Nov 2024",
     dateTime: "2024-01",
   },
   {
     name: "Early Bird Registration",
     description:
       "Register early to secure your spot and enjoy discounted rates.",
-    date: "Mar 2024",
+    date: "Dec 2024",
     dateTime: "2024-03",
   },
   {
     name: "Pre-Conference Workshops",
     description: "Participate in hands-on workshops led by industry experts.",
-    date: "May 2024",
-    dateTime: "2024-05",
+    date: "Jan 2025",
+    dateTime: "2025-05",
   },
   {
     name: "Conference Days",
     description:
       "Join us for keynote speeches, panel discussions, and networking events.",
-    date: "Jun 2024",
-    dateTime: "2024-06",
+    date: "Feb 2025",
+    dateTime: "2025-06",
   },
 ];
 

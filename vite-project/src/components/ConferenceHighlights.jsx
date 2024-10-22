@@ -1,44 +1,25 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const highlights = [
   {
     title: "Sustainable Technologies and Practices",
-    topics: [
-      "Renewable Energy Systems and Innovations",
-      "Green Technologies for Environmental Sustainability",
-      "Sustainable Urban Planning and Smart Cities",
-      "Circular Economy and Waste Management",
-      "Sustainability in Industry 4.0",
-      "Energy Efficiency in Industrial Processes",
-      "Eco-friendly Materials and Manufacturing",
-      "Social and Economic Aspects of Sustainability",
-      "Water, Food, and Agriculture Sustainability",
-    ],
+    image:
+      "https://res.cloudinary.com/dwlhesiyi/image/upload/v1729524343/gijdqmbcnajuopkz7sex.jpg",
+    slug: "sustainable-technologies",
   },
   {
     title: "Innovation for a Sustainable Future",
-    topics: [
-      "Emerging Technologies for Sustainability",
-      "Disruptive Innovations in Clean Technology",
-      "Innovative Approaches to Sustainable Business Models",
-      "Role of AI and Big Data in Sustainability",
-      "Innovation in Agriculture for Sustainability",
-      "Sustainable Design and Innovation in Architecture",
-      "Innovation in Education and Research for Sustainability",
-    ],
+    image:
+      "https://res.cloudinary.com/dwlhesiyi/image/upload/v1729524429/hoorqjk2k8pj8rcrogjb.jpg",
+    slug: "innovation-sustainable-future",
   },
   {
     title: "Smart and Future Technologies",
-    topics: [
-      "Internet of Things (IoT) and Sustainability",
-      "AI and Machine Learning for Smart Cities",
-      "Future Mobility and Transportation",
-      "Autonomous Systems and Robotics for Sustainability",
-      "Blockchain Technology for Sustainable Development",
-      "5G and Communication Technologies in Green Solutions",
-      "Sustainable Healthcare and Biotechnology",
-    ],
+    image:
+      "https://res.cloudinary.com/dwlhesiyi/image/upload/v1729524556/wvo8pdmcjpgjentmo036.webp",
+    slug: "smart-future-technologies",
   },
 ];
 
@@ -66,7 +47,7 @@ const itemVariants = {
 
 function AnimatedSection({ children }) {
   const controls = useAnimation();
-  const ref = React.useRef(null);
+  const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
 
   useEffect(() => {
@@ -104,52 +85,24 @@ export default function ConferenceHighlights() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {highlights.map((section, index) => (
             <AnimatedSection key={index}>
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 h-full flex flex-col">
-                <div className="bg-green-600 py-4 px-6">
-                  <h3 className="text-xl font-semibold text-white">
-                    {section.title}
-                  </h3>
+              <Link to={`/highlights/${section.slug}`} className="block">
+                <div className="relative h-64 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer">
+                  <img
+                    src={section.image}
+                    alt={section.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-green-500 bg-opacity-30"></div>
+                  <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4">
+                    <h3 className="text-xl font-semibold text-white text-center">
+                      {section.title}
+                    </h3>
+                  </div>
                 </div>
-                <ul className="py-6 px-6 space-y-2 flex-grow">
-                  {section.topics.map((topic, topicIndex) => (
-                    <motion.li
-                      key={topicIndex}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: topicIndex * 0.1 }}
-                      className="flex items-start"
-                    >
-                      <svg
-                        className="h-6 w-6 text-green-500 mr-2 flex-shrink-0"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <span className="text-gray-700">{topic}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-              </div>
+              </Link>
             </AnimatedSection>
           ))}
         </div>
-        <AnimatedSection>
-          <div className="mt-12 text-center">
-            {/* <a
-              href="#"
-              className="inline-block bg-green-600 text-white font-bold py-3 px-8 rounded-full hover:bg-green-700 transition-colors duration-300 transform hover:scale-105"
-            >
-              Call for Papers
-            </a> */}
-          </div>
-        </AnimatedSection>
       </motion.div>
     </div>
   );

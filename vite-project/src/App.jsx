@@ -41,6 +41,10 @@ import Failed from "./pages/Piricing/components/Failed";
 import TermsCondition from "./pages/Terms & Conditions/TermsCondition";
 import PrivacyPolicy from "./pages/Privacy Policy/PrivacyPolicy";
 
+import DetailPage from "./pages/highlightdetail/HighlightDetail";
+import HighlightDetail from "./pages/highlightdetail/HighlightDetail";
+import FAQSection from "./components/Faq";
+
 // Import new components for routes
 
 const links = [
@@ -69,7 +73,7 @@ const links = [
         alt="Aceternity Logo"
       />
     ),
-    href: "/home",
+    href: "/AboutUs",
   },
   {
     title: "Schedule",
@@ -100,6 +104,7 @@ function MainContent() {
       <CtaRegister />
       <Timeline />
       <VenueSection />
+      <FAQSection />
       <ContactUs />
     </>
   );
@@ -130,7 +135,7 @@ function App() {
       </div>
       <Routes>
         <Route path="/" element={<MainContent />} />
-        <Route path="/home" element={<Aboutme />} />
+        <Route path="/AboutUs" element={<Aboutme />} />
         <Route path="/committee" element={<Committe />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/schedule" element={<Schedule />} />
@@ -144,7 +149,7 @@ function App() {
         <Route path="/cancellation-policy" element={<CancellationPolicy />} />
         <Route path="/Terms-&-Conditions" element={<TermsCondition />} />
         <Route path="/Privacy-Policy" element={<PrivacyPolicy />} />
-
+        <Route path="/highlights/:slug" element={<HighlightDetail />} />
         <Route path="*" element={<NotFound />} />
 
         <Route path="/Success" element={<Success />} />

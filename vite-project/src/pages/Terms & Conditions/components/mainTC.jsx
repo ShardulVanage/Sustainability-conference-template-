@@ -7,39 +7,45 @@ export default function MainTC() {
 
   const sections = [
     {
-      title: "1. Acceptance of Terms",
+      title: "1. Agreement to Terms",
       content:
-        "By registering for the International Conference on Sustainability, Innovation and Future Technologies, you agree to comply with and be bound by these Terms and Conditions.",
+        "By participating in this conference, all attendees, speakers, sponsors, and exhibitors agree to the terms outlined here. These terms must be followed throughout the event and in all associated activities.",
     },
     {
-      title: "2. Registration and Attendance",
-      content:
-        "Registration is required for attendance. The conference organizers reserve the right to refuse entry or remove any person from the event at any time. Participants are expected to conduct themselves professionally and ethically throughout the conference.",
+      title: "2. Registration and Participation",
+      content: `Registration should be completed on the official website.
+        Full payment is required at the time of registration to confirm participation.
+        Cancellation requests must be submitted in writing. Refund policies are as follows:
+        - 75% refund for cancellations made 60 days prior to the conference.
+        - 50% refund for cancellations made 30 days prior to the event.
+        - No refunds for cancellations within 30 days.
+        Participants must wear their identification badges throughout the event to gain access to sessions and activities.`,
     },
     {
-      title: "3. Intellectual Property",
-      content:
-        "All content presented at the conference is protected by copyright. Attendees may not record, photograph, or reproduce any materials without express permission from the presenters and organizers. Any innovations or technologies discussed remain the property of their respective owners or presenters.",
+      title: "3. Ownership of Intellectual Property",
+      content: `All research and presentation content presented at the conference remain the exclusive property of the authors.
+        Reproducing or distributing this content without permission is not allowed.
+        By submitting material for presentation, you grant the conference organizers permission to use it in related publications or promotional materials, with appropriate credit given to the author.`,
     },
     {
-      title: "4. Liability",
-      content:
-        "The conference organizers are not responsible for any loss, injury, or damage to person or property, regardless of cause. Participants are advised to take necessary precautions to ensure their own safety and the security of their belongings.",
+      title: "4. Responsibility and Liability",
+      content: `Zep Research is not responsible for personal injury, loss, or damage to property during the event.
+        Participants are responsible for safeguarding their belongings and may consider securing personal or travel insurance as needed.`,
     },
     {
-      title: "5. Changes to Event",
-      content:
-        "The organizers reserve the right to make changes to the program, speakers, date, or venue at any time without liability. In the event of unforeseen circumstances, the conference may be held virtually or postponed, with registered participants being notified of any changes.",
+      title: "5. Event Modifications",
+      content: `The organizers reserve the right to make changes to the event schedule, venue, or dates if necessary due to unforeseen events or circumstances.
+        In the case of force majeure events (such as natural disasters or government restrictions), we will notify participants, and any fees may be refunded or transferred to future events.`,
     },
     {
-      title: "6. Privacy Policy",
-      content:
-        "Attendee information will be handled in accordance with our Privacy Policy, which can be found on our website. We are committed to protecting your personal data and using it only for purposes related to the conference and future event notifications.",
+      title: "6. Data Protection",
+      content: `Any personal information collected during the registration process will only be used for event-related communication and management.
+        Your data will not be shared with third parties without your consent, unless required by law.`,
     },
     {
-      title: "7. Sustainable Practices",
-      content:
-        "As a conference focused on sustainability, we encourage all participants to adhere to environmentally friendly practices during the event. This includes minimizing waste, using digital resources where possible, and respecting any eco-friendly initiatives implemented by the organizers.",
+      title: "7. Commitment to Sustainability",
+      content: `We are dedicated to ensuring this event is sustainable.
+        Participants are encouraged to adopt eco-friendly behaviors during the conference, such as reducing waste, conserving energy, and using reusable materials wherever possible.`,
     },
   ];
 
@@ -94,7 +100,9 @@ export default function MainTC() {
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden"
               >
-                <p className="p-6 text-green-800">{section.content}</p>
+                <p className="p-6 text-green-800 whitespace-pre-line">
+                  {section.content}
+                </p>
               </motion.div>
             </motion.div>
           ))}
