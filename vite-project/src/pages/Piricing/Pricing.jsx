@@ -6,6 +6,7 @@ import DarkHeadingSection from "../DarkHeader";
 import RegistrationProcess from "./components/Process";
 import CancleCTA from "./components/canclepolicy";
 import PricingCard from "./components/NormalPass";
+import { Helmet } from "react-helmet";
 
 gsap.registerPlugin(ScrollTrigger);
 const pricingTiers = [
@@ -145,9 +146,34 @@ export default function Pricing() {
       }
     );
   }, []);
+  const pageTitle =
+    "Pricing | International Conference on Sustainability, Innovation and Future Technologies";
+  const pageDescription =
+    "Explore the pricing options for attending our conference, including ticket categories, early-bird discounts, and group rates.";
 
   return (
     <>
+      <Helmet>
+        {/* Essential Meta Tags */}
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        {/* Open Graph (for social sharing) */}
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:type" content="website" />
+
+        {/* Basic Schema.org markup */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "ICSIFT",
+            description: pageDescription,
+          })}
+        </script>
+      </Helmet>
       <DarkHeadingSection />
       <div ref={sectionRef} className="bg-green-950 py-12  sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">

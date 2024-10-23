@@ -82,7 +82,7 @@ export default function AboutSection() {
   }, [controls]);
 
   return (
-    <section ref={sectionRef} className="py-16 bg-green-200 sm:py-36">
+    <section ref={sectionRef} className="py-16 bg-green-50 sm:py-36">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
