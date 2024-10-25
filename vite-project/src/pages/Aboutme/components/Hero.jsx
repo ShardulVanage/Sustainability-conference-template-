@@ -26,7 +26,7 @@ export default function AboutZepResearch() {
             team of dedicated scientists and researchers work tirelessly to
             address the most pressing environmental challenges of our time.
           </p>
-          <div className="flex justify-center">
+          {/* <div className="flex justify-center">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -34,7 +34,7 @@ export default function AboutZepResearch() {
             >
               Learn More <ArrowRight className="ml-2" />
             </motion.button>
-          </div>
+          </div> */}
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

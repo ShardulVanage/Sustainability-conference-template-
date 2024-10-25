@@ -35,7 +35,7 @@ export default function Footer() {
   }, []);
 
   const navItems = [
-    { name: "About Me", href: "/about" },
+    { name: "About Us", href: "/AboutUs" },
     { name: "Committee", href: "/committee" },
     { name: "Gallery", href: "/gallery" },
     { name: "Pricing", href: "/pricing" },

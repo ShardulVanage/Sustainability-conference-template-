@@ -118,7 +118,7 @@ export default function Form() {
       setPdfFile(null);
 
       // Show success toast
-      toast.success("Form submitted successfully!", {
+      toast.success(" Paper submitted successfully!", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
