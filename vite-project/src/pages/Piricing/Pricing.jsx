@@ -16,10 +16,10 @@ const pricingTiers = [
       "Perfect for individuals looking to experience the basics of our sustainable conference.",
     price: "219",
     features: [
-      "Access to keynote speeches",
-      "Basic networking opportunities",
-      "Digital conference materials",
-      "Carbon-neutral certificate",
+      "Conference Tickets",
+      "Certificates",
+      "Easy Access",
+      "Paid Membership",
     ],
     priceSubtext: "Begin your sustainable journey",
     theme: {
@@ -34,10 +34,10 @@ const pricingTiers = [
       "Perfect for individuals looking to experience the basics of our sustainable conference.",
     price: "319",
     features: [
-      "Access to keynote speeches",
-      "Basic networking opportunities",
-      "Digital conference materials",
-      "Carbon-neutral certificate",
+      "Conference Tickets",
+      "Certificates",
+      "Easy Access",
+      "Paid Membership",
     ],
     priceSubtext: "Begin your sustainable journey",
     theme: {
