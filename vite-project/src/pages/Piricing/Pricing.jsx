@@ -11,10 +11,10 @@ import { Helmet } from "react-helmet";
 gsap.registerPlugin(ScrollTrigger);
 const pricingTiers = [
   {
-    title: "Testing Pass",
+    title: "Virtual Registration",
     description:
       "Perfect for individuals looking to experience the basics of our sustainable conference.",
-    price: "1",
+    price: "219",
     features: [
       "Access to keynote speeches",
       "Basic networking opportunities",
@@ -29,10 +29,10 @@ const pricingTiers = [
     },
   },
   {
-    title: "Starter Pass",
+    title: "Physical presentation",
     description:
       "Perfect for individuals looking to experience the basics of our sustainable conference.",
-    price: "299",
+    price: "319",
     features: [
       "Access to keynote speeches",
       "Basic networking opportunities",
@@ -46,45 +46,46 @@ const pricingTiers = [
       accent: "white",
     },
   },
-  {
-    title: "Professional Pass",
-    description:
-      "Ideal for professionals seeking comprehensive conference experience with added benefits.",
-    price: "599",
-    features: [
-      "All Starter Pass features",
-      "VIP networking sessions",
-      "Workshop participation",
-      "Exclusive Q&A sessions",
-      "Premium catering",
-    ],
-    priceSubtext: "Elevate your experience",
-    theme: {
-      primary: "green",
-      secondary: "gray",
-      accent: "white",
-    },
-  },
-  {
-    title: "Enterprise Pass",
-    description:
-      "The ultimate conference experience with exclusive benefits and premium features.",
-    price: "999",
-    features: [
-      "All Professional Pass features",
-      "Private meeting room access",
-      "1-on-1 sessions with speakers",
-      "Priority seating",
-      "Executive networking dinner",
-      "Full conference recordings",
-    ],
-    priceSubtext: "Maximum impact",
-    theme: {
-      primary: "purple",
-      secondary: "gray",
-      accent: "white",
-    },
-  },
+
+  // {
+  //   title: "Professional Pass",
+  //   description:
+  //     "Ideal for professionals seeking comprehensive conference experience with added benefits.",
+  //   price: "599",
+  //   features: [
+  //     "All Starter Pass features",
+  //     "VIP networking sessions",
+  //     "Workshop participation",
+  //     "Exclusive Q&A sessions",
+  //     "Premium catering",
+  //   ],
+  //   priceSubtext: "Elevate your experience",
+  //   theme: {
+  //     primary: "green",
+  //     secondary: "gray",
+  //     accent: "white",
+  //   },
+  // },
+  // {
+  //   title: "Enterprise Pass",
+  //   description:
+  //     "The ultimate conference experience with exclusive benefits and premium features.",
+  //   price: "999",
+  //   features: [
+  //     "All Professional Pass features",
+  //     "Private meeting room access",
+  //     "1-on-1 sessions with speakers",
+  //     "Priority seating",
+  //     "Executive networking dinner",
+  //     "Full conference recordings",
+  //   ],
+  //   priceSubtext: "Maximum impact",
+  //   theme: {
+  //     primary: "purple",
+  //     secondary: "gray",
+  //     accent: "white",
+  //   },
+  // },
 ];
 export default function Pricing() {
   const sectionRef = useRef(null);

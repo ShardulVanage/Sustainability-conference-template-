@@ -10,8 +10,8 @@ const timeline = [
     name: "Early bird registration deadline",
     description:
       "Submit your research papers on sustainable development and green technologies.",
-    date: "Jan 2024",
-    dateTime: "2024-01",
+    date: "December 23rd",
+    dateTime: "2024-12",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -33,8 +33,8 @@ const timeline = [
     name: "Abstract submission deadline",
     description:
       "Register using our paperless system and receive a virtual conference kit.",
-    date: "Mar 2024",
-    dateTime: "2024-03",
+    date: " January 9th",
+    dateTime: "2025-01",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -56,8 +56,8 @@ const timeline = [
     name: "Full paper submission Deadline",
     description:
       "Selected papers will be featured in our special Green Innovation Showcase.",
-    date: "May 2024",
-    dateTime: "2024-05",
+    date: " January 25th",
+    dateTime: "2025-01",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -79,8 +79,8 @@ const timeline = [
     name: "Registration Deadline",
     description:
       "Join us for three days of insights on sustainable development and networking.",
-    date: "Sep 2024",
-    dateTime: "2024-09",
+    date: " February 10th",
+    dateTime: "2025-02",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"

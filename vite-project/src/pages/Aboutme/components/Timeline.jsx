@@ -3,30 +3,30 @@ import { motion } from "framer-motion";
 
 const timeline = [
   {
-    name: "Call for Papers",
+    name: "Early brird registration deadline",
     description:
       "Submit your research on sustainable development innovations and practices.",
-    date: "Nov 2024",
+    date: "Dec 23rd",
     dateTime: "2024-01",
   },
   {
-    name: "Early Bird Registration",
+    name: "Abstract submission deadline",
     description:
       "Register early to secure your spot and enjoy discounted rates.",
-    date: "Dec 2024",
+    date: "Jan 9th",
     dateTime: "2024-03",
   },
   {
-    name: "Pre-Conference Workshops",
+    name: "Full paper submission deadline",
     description: "Participate in hands-on workshops led by industry experts.",
-    date: "Jan 2025",
+    date: " Jan 25th",
     dateTime: "2025-05",
   },
   {
-    name: "Conference Days",
+    name: "Registration deadline",
     description:
       "Join us for keynote speeches, panel discussions, and networking events.",
-    date: "Feb 2025",
+    date: " Feb 10th",
     dateTime: "2025-06",
   },
 ];

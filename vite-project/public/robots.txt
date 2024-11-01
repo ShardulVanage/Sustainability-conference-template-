@@ -1,0 +1,20 @@
+# Global rules
+User-agent: *
+Allow: /
+
+# Disallow API endpoints and sensitive routes
+Disallow: /api/
+Disallow: /ccavenue/
+Disallow: /payment/
+Disallow: /admin/
+Disallow: /login/
+Disallow: /callback/
+
+# Prevent crawling of query parameters
+Disallow: /*?*
+
+# Crawl delay to prevent server overload
+Crawl-delay: 10
+
+# Main domain sitemap
+Sitemap: https://www.icsift.com/sitemap.xml

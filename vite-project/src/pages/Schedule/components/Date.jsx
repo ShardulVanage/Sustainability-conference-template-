@@ -2,7 +2,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 
 const months = [
   {
-    name: "February",
+    name: "March ",
     days: [
       { date: "2021-12-27" },
       { date: "2021-12-28" },
@@ -29,14 +29,14 @@ const months = [
       { date: "2022-01-18", isCurrentMonth: true },
       { date: "2022-01-19", isCurrentMonth: true },
       { date: "2022-01-20", isCurrentMonth: true },
-      { date: "2022-01-21", isCurrentMonth: true },
-      { date: "2022-01-22", isCurrentMonth: true },
-      { date: "2022-01-23", isCurrentMonth: true },
+      { date: "2022-01-21", isCurrentMonth: true, isToday: true },
+      { date: "2022-01-22", isCurrentMonth: true, isToday: true },
+      { date: "2022-01-23", isCurrentMonth: true, isToday: true },
       { date: "2022-01-24", isCurrentMonth: true },
       { date: "2022-01-25", isCurrentMonth: true },
       { date: "2022-01-26", isCurrentMonth: true },
-      { date: "2022-01-27", isCurrentMonth: true, isToday: true },
-      { date: "2022-01-28", isCurrentMonth: true, isToday: true },
+      { date: "2022-01-27", isCurrentMonth: true },
+      { date: "2022-01-28", isCurrentMonth: true },
       //   { date: "2022-01-29", isCurrentMonth: true },
       //   { date: "2022-01-30", isCurrentMonth: true },
       //   { date: "2022-01-31", isCurrentMonth: true },
@@ -110,7 +110,7 @@ export default function Date() {
           Shaping Tomorrow's Sustainable Landscape
         </h1>
         <p className="text-gray-700 text-center">
-          Join us February 27-28 for three days of cutting-edge insights and
+          Join us March 21st-23rd for three days of cutting-edge insights and
           networking. Reserve your spot today!
         </p>
       </div>
@@ -169,7 +169,7 @@ export default function Date() {
 
       <section className="mt-12 px-12 max-w-4xl mx-auto">
         <h2 className="text-xl font-bold leading-6 text-green-900">
-          February - 27 | Sustainable stability Goals
+          March - 21 | Sustainable stability Goals
         </h2>
         <ol className="mt-2 divide-y divide-gray-200 text-sm leading-6 text-gray-500">
           {ScheduleList.map((iteam) => (
@@ -191,10 +191,10 @@ export default function Date() {
       <hr />
       <section className="mt-12 px-12 max-w-4xl mx-auto">
         <h2 className="text-xl font-bold leading-6 text-green-900">
-          February - 28 | Sustainable stability Goals
+          March - 22-23 | Sustainable stability Goals
         </h2>
         <ol className="mt-2 divide-y divide-gray-200 text-sm leading-6 text-gray-500">
-          {ScheduleList.map((iteam) => (
+          {/* {ScheduleList.map((iteam) => (
             <li className="py-4 sm:flex">
               <time dateTime="2022-01-19" className="w-28 flex-none">
                 {iteam.name}
@@ -207,7 +207,8 @@ export default function Date() {
                 <time dateTime="2022-01-13T16:30">{iteam.timeend}</time>
               </p>
             </li>
-          ))}
+          ))} */}{" "}
+          <h1>Coming Soon</h1>
         </ol>
       </section>
     </div>

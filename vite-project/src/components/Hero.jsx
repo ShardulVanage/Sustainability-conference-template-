@@ -130,7 +130,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <IconCalendarMonth className="text-green-800 mr-2" />
-            February 27th-28th, 2025
+            March 21st - 23rd, 2025
           </motion.p>
         </div>
         <div className="flex sm:flex-row flex-col-reverse  items-start sm:items-center justify-start gap-3 px-4">
