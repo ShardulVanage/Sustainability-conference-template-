@@ -100,7 +100,7 @@ function MainContent() {
       <AboutSection />
       <ObjectivesSection />
       <ConferenceHighlights />
-      <SpeakerSection />
+      {/* <SpeakerSection /> */}
       <CtaRegister />
       <Timeline />
       <VenueSection />
