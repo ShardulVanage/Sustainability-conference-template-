@@ -16,12 +16,10 @@ const VenueInfo = () => (
   >
     <h2 className="text-3xl font-bold text-green-800 mb-4">Conference Venue</h2>
     <p className="text-green-700 text-lg mb-4">
-      Join us in the vibrant city of Manila, Philippines for our Sustainable
-      Development Conference.
+      Join us in the Philippine Christian University 
+      1648 Taft Ave, Malate, Manila, 1004 Metro Manilafor our ICSIFT
     </p>
-    <p className="text-green-700 text-lg">
-      Exact venue details will be announced soon. Stay tuned for updates!
-    </p>
+
   </motion.div>
 );
 
