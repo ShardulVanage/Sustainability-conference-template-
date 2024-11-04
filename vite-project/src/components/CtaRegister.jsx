@@ -1,12 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import gsap from "gsap";
-import { IconHeartHandshake } from "@tabler/icons-react";
+import { IconHeartHandshake, IconMapPin } from "@tabler/icons-react";
 
 export default function CtaRegister() {
   const controls = useAnimation();
   const trophyRef = useRef(null);
   const handshakeRef = useRef(null);
+  const mapPinRef = useRef(null);
   const leafRef = useRef(null);
   const titleRef = useRef(null);
 
@@ -32,6 +33,16 @@ export default function CtaRegister() {
         gsap.to(handshakeRef.current, {
           rotation: 5,
           duration: 0.8,
+          repeat: -1,
+          yoyo: true,
+          ease: "power1.inOut",
+        });
+      }
+
+      if (mapPinRef.current) {
+        gsap.to(mapPinRef.current, {
+          y: -5,
+          duration: 1,
           repeat: -1,
           yoyo: true,
           ease: "power1.inOut",
@@ -141,7 +152,7 @@ export default function CtaRegister() {
           Celebrate & Support Sustainability
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={controls}
@@ -204,12 +215,38 @@ export default function CtaRegister() {
               Become a Sponsor
             </motion.a>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={controls}
+            custom={3}
+            className="bg-green-50 p-6 rounded-lg shadow-md"
+          >
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-2xl font-semibold text-green-700">Venue</h3>
+              <div ref={mapPinRef}>
+                <IconMapPin className="w-12 h-12 text-green-500" />
+              </div>
+            </div>
+            <p className="text-green-600 mb-4">
+              Explore our eco-friendly conference venue and accommodation
+              options.
+            </p>
+            <motion.a
+              href="/venue"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="block w-full py-2 px-4 text-center text-white font-semibold bg-green-600 rounded-lg shadow-md hover:bg-green-700 transition duration-300"
+            >
+              View Venue
+            </motion.a>
+          </motion.div>
         </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={controls}
-          custom={3}
+          custom={4}
           className="mt-8 text-center"
         >
           <p className="text-green-700 font-semibold mb-2">

@@ -8,18 +8,64 @@ const fadeIn = {
 
 const VenueInfo = () => (
   <motion.div
-    className="bg-green-100 p-8 rounded-lg shadow-lg mb-12"
+    className="bg-green-200 p-8 rounded-lg shadow-lg mb-12"
     variants={fadeIn}
     initial="hidden"
     animate="visible"
     transition={{ duration: 0.5 }}
   >
-    <h2 className="text-3xl font-bold text-green-800 mb-4">Conference Venue</h2>
-    <p className="text-green-700 text-lg mb-4">
-      Join us in the Philippine Christian University 
-      1648 Taft Ave, Malate, Manila, 1004 Metro Manilafor our ICSIFT
-    </p>
+    <h2 className="text-3xl font-bold text-green-900 ">Conference Venue</h2>
+  </motion.div>
+);
 
+const VenueSection = () => (
+  <motion.div
+    className="bg-white rounded-lg shadow-lg overflow-hidden mb-12"
+    variants={fadeIn}
+    initial="hidden"
+    animate="visible"
+    transition={{ duration: 0.5 }}
+  >
+    <div className="flex flex-col md:flex-row">
+      <motion.div
+        className="w-full md:w-1/2 h-64 md:h-auto"
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4650.779787687322!2d120.98611237579703!3d14.576029577676367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c9870b4c7d31%3A0x63befba461d3a32!2sPhilippine%20Christian%20University!5e1!3m2!1sen!2sin!4v1730745589618!5m2!1sen!2sin"
+          height="100%"
+          width="100%"
+          style={{ border: 0 }}
+          allowFullScreen=""
+          loading="lazy"
+          title="Venue Map"
+        ></iframe>
+      </motion.div>
+      <motion.div
+        className="w-full md:w-1/2 p-6 flex flex-col justify-center"
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h3 className="text-2xl font-bold text-green-800 mb-4">Address</h3>
+        <p className="text-green-700 text-lg mb-2">
+          Philippine Christian University
+        </p>
+        <p className="text-green-700 mb-2">1648 Taft Ave, Malate</p>
+        <p className="text-green-700 mb-2">Manila, 1004 Metro Manila</p>
+        <p className="text-green-700 mb-4">Philippines</p>
+        <a
+          href="https://maps.app.goo.gl/pW8BtHDdtQbVhvYz9"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-green-600 text-white font-semibold py-2 px-4 rounded hover:bg-green-700 transition-colors duration-300"
+        >
+          Get Directions
+        </a>
+      </motion.div>
+    </div>
   </motion.div>
 );
 
@@ -89,6 +135,8 @@ export default function VenueContent() {
         </motion.h1>
 
         <VenueInfo />
+
+        <VenueSection />
 
         <h2 className="text-3xl font-bold text-green-800 mb-8 text-center">
           Explore Manila

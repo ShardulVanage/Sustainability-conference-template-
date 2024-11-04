@@ -8,6 +8,8 @@ import {
   FaLinkedin,
   FaTwitter,
   FaYoutube,
+  FaEnvelope,
+  FaPhone,
 } from "react-icons/fa";
 import logo from "../../public/singleLogo.png";
 
@@ -16,6 +18,7 @@ export default function Footer() {
   const footerRef = useRef(null);
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
       gsap.from(".footer-content", {
         y: 100,
@@ -64,14 +67,19 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-green-900 to-green-700 text-white pt-16 sm:pb-24 pb-20  ">
+    <footer
+      ref={footerRef}
+      className="bg-gradient-to-br from-green-900 to-green-700 text-white pt-16 sm:pb-24 pb-20"
+    >
       <div className="container mx-auto px-4">
         <div className="footer-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <a href="/" className="flex  items-end gap-1">
-              {/* Zep LOGO  src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1726731577/il2wr5yxd2w1sarnj3it.svg" */}
-              <img src={logo} className="h-16 w-16 drop-shadow-2xl" alt="" />
-              <br />
+            <a href="/" className="flex items-end gap-1">
+              <img
+                src={logo}
+                className="h-16 w-16 drop-shadow-2xl"
+                alt="ICSIFT Logo"
+              />
               <h1 className="font-bold font-sans text-3xl bg-gradient-to-r from-emerald-500 to-lime-500 text-transparent bg-clip-text drop-shadow-2xl">
                 ICSIFT
               </h1>
@@ -79,21 +87,46 @@ export default function Footer() {
             <p className="text-green-50">
               Advancing knowledge through innovative conferences
             </p>
-            <div className="flex space-x-4 ">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="space-y-2"
+            >
+              <div className="flex items-center space-x-2">
+                <FaEnvelope className="h-4 w-4 text-green-300" />
+                <a
+                  href="mailto:info@icsift.com"
+                  className="text-green-200 hover:text-white transition-colors"
+                >
+                  info@icsift.com
+                </a>
+              </div>
+              <div className="flex items-center space-x-2">
+                <FaPhone className="h-4 w-4 text-green-300" />
+                <a
+                  href="tel:+918260080050"
+                  className="text-green-200 hover:text-white transition-colors"
+                >
+                  +91 82600 80050
+                </a>
+              </div>
+            </motion.div>
+            <div className="flex space-x-4">
               <a href="https://www.instagram.com/zepresearch/">
-                <FaInstagram className="h-6 w-6 hover:scale-105" />
+                <FaInstagram className="h-6 w-6 hover:scale-105 transition-transform" />
               </a>
               <a href="https://x.com/Zepresearch">
-                <FaTwitter className="h-6 w-6 hover:scale-105" />
+                <FaTwitter className="h-6 w-6 hover:scale-105 transition-transform" />
               </a>
               <a href="https://www.facebook.com/profile.php?id=61561809783777">
-                <FaFacebook className="h-6 w-6 hover:scale-105" />
+                <FaFacebook className="h-6 w-6 hover:scale-105 transition-transform" />
               </a>
               <a href="https://www.linkedin.com/company/zep-research/">
-                <FaLinkedin className="h-6 w-6 hover:scale-105" />
+                <FaLinkedin className="h-6 w-6 hover:scale-105 transition-transform" />
               </a>
               <a href="https://www.youtube.com/@Zepresearch">
-                <FaYoutube className="h-6 w-6 hover:scale-105   " />
+                <FaYoutube className="h-6 w-6 hover:scale-105 transition-transform" />
               </a>
             </div>
           </div>
