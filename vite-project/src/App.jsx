@@ -97,6 +97,7 @@ function MainContent() {
   return (
     <>
       <h1 className="sr-only">ICSIFT Conference 2024</h1>
+      <h2 className="sr-only">ICSIFT Conference 2024</h2>
       <Hero />
       <StatsSection />
       <Organization />
