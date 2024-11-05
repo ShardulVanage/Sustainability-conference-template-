@@ -96,6 +96,7 @@ const links = [
 function MainContent() {
   return (
     <>
+      <h1 className="sr-only">ICSIFT Conference 2024</h1>
       <Hero />
       <StatsSection />
       <Organization />
