@@ -10,11 +10,14 @@ import {
   FaYoutube,
   FaEnvelope,
   FaPhone,
+  FaMapMarkerAlt,
+  FaCalendarAlt,
 } from "react-icons/fa";
 import logo from "../../public/singleLogo.png";
 
 export default function Footer() {
   const [activeSection, setActiveSection] = useState(null);
+  const [email, setEmail] = useState("");
   const footerRef = useRef(null);
 
   useEffect(() => {
@@ -43,6 +46,17 @@ export default function Footer() {
     { name: "Gallery", href: "/gallery" },
     { name: "Pricing", href: "/pricing" },
     { name: "Submission", href: "/submission" },
+
+    { name: "Conference Schedule", href: "/schedule" },
+    { name: "Registration", href: "/pricing" },
+  ];
+
+  const resourceLinks = [
+    { name: "Research Papers", href: "/" },
+    { name: "Conference Guidelines", href: "/" },
+    { name: "Past Proceedings", href: "/" },
+    { name: "FAQs", href: "/" },
+    { name: "Contact Support", href: "/" },
   ];
 
   const legalSections = [
@@ -64,7 +78,20 @@ export default function Footer() {
         "We respect your privacy and are committed to protecting your personal data. Our privacy policy details how we collect, use, and store your information.",
       link: "/Privacy-Policy",
     },
+    {
+      name: "Cookie Policy",
+      content:
+        "Our cookie policy explains how we use cookies and similar technologies to improve your browsing experience.",
+      link: "/cookie-policy",
+    },
   ];
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    // Add your newsletter subscription logic here
+    console.log("Subscribing email:", email);
+    setEmail("");
+  };
 
   return (
     <footer
@@ -73,8 +100,12 @@ export default function Footer() {
     >
       <div className="container mx-auto px-4">
         <div className="footer-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Company Info Section */}
           <div className="space-y-4">
-            <a href="/" className="flex items-end gap-1">
+            <a
+              href="/"
+              className="flex items-end gap-1 hover:opacity-90 transition-opacity"
+            >
               <img
                 src={logo}
                 className="h-16 w-16 drop-shadow-2xl"
@@ -111,25 +142,28 @@ export default function Footer() {
                   +91 82600 80050
                 </a>
               </div>
+              <div className="flex items-center space-x-2">
+                <FaMapMarkerAlt className="h-4 w-4 text-green-300" />
+                <a
+                  href="/location"
+                  className="text-green-200 hover:text-white transition-colors"
+                >
+                  Conference Venue
+                </a>
+              </div>
+              <div className="flex items-center space-x-2">
+                <FaCalendarAlt className="h-4 w-4 text-green-300" />
+                <a
+                  href="/schedule"
+                  className="text-green-200 hover:text-white transition-colors"
+                >
+                  Event Calendar
+                </a>
+              </div>
             </motion.div>
-            <div className="flex space-x-4">
-              <a href="https://www.instagram.com/zepresearch/">
-                <FaInstagram className="h-6 w-6 hover:scale-105 transition-transform" />
-              </a>
-              <a href="https://x.com/Zepresearch">
-                <FaTwitter className="h-6 w-6 hover:scale-105 transition-transform" />
-              </a>
-              <a href="https://www.facebook.com/profile.php?id=61561809783777">
-                <FaFacebook className="h-6 w-6 hover:scale-105 transition-transform" />
-              </a>
-              <a href="https://www.linkedin.com/company/zep-research/">
-                <FaLinkedin className="h-6 w-6 hover:scale-105 transition-transform" />
-              </a>
-              <a href="https://www.youtube.com/@Zepresearch">
-                <FaYoutube className="h-6 w-6 hover:scale-105 transition-transform" />
-              </a>
-            </div>
           </div>
+
+          {/* Quick Links Section */}
           <nav>
             <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
@@ -141,7 +175,7 @@ export default function Footer() {
                 >
                   <a
                     href={item.href}
-                    className="text-green-200 hover:text-white transition-colors"
+                    className="text-green-200 hover:text-white transition-colors inline-block"
                   >
                     {item.name}
                   </a>
@@ -149,8 +183,32 @@ export default function Footer() {
               ))}
             </ul>
           </nav>
+
+          {/* Resources Section */}
+          {/* <div>
+            <h3 className="text-xl font-semibold mb-4">Resources</h3>
+            <ul className="space-y-2">
+              {resourceLinks.map((item) => (
+                <motion.li
+                  key={item.name}
+                  whileHover={{ x: 5 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <a
+                    href={item.href}
+                    className="text-green-200 hover:text-white transition-colors inline-block"
+                  >
+                    {item.name}
+                  </a>
+                </motion.li>
+              ))}
+            </ul>
+          </div> */}
+
+          {/* Newsletter Section */}
+
           <div>
-            <h3 className="text-xl font-semibold mb-4">Legal</h3>
+            <h3 className="text-xl font-semibold mb-4 ">Legal</h3>
             <ul className="space-y-2">
               {legalSections.map((section) => (
                 <motion.li
@@ -158,34 +216,33 @@ export default function Footer() {
                   whileHover={{ x: 5 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <a href={section.link}>
-                    <button
-                      onClick={() =>
-                        setActiveSection(
-                          activeSection === section.name ? null : section.name
-                        )
-                      }
-                      className="text-green-200 hover:text-white transition-colors text-left"
-                    >
-                      {section.name}
-                    </button>
+                  <a
+                    href={section.link}
+                    className="text-green-200 hover:text-white transition-colors inline-block"
+                  >
+                    {section.name}
                   </a>
                 </motion.li>
               ))}
             </ul>
           </div>
+
           <div>
             <h3 className="text-xl font-semibold mb-4">Newsletter</h3>
             <p className="text-green-200 mb-4">
               Stay updated with our latest news and events
             </p>
-            <form className="space-y-2">
+            <form onSubmit={handleSubscribe} className="space-y-2">
               <input
                 type="email"
                 placeholder="Your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-3 py-2 bg-green-800 text-white placeholder-green-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                required
               />
               <motion.button
+                type="submit"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="w-full px-3 py-2 bg-green-500 text-white rounded hover:bg-green-400 transition-colors"
@@ -193,8 +250,47 @@ export default function Footer() {
                 Subscribe
               </motion.button>
             </form>
+            <div className="flex space-x-4 py-4 justify-center items-end">
+              <a
+                href="https://www.instagram.com/zepresearch/"
+                aria-label="Instagram"
+                className="hover:text-green-300 transition-colors"
+              >
+                <FaInstagram className="h-6 w-6 hover:scale-105 transition-transform" />
+              </a>
+              <a
+                href="https://x.com/Zepresearch"
+                aria-label="Twitter"
+                className="hover:text-green-300 transition-colors"
+              >
+                <FaTwitter className="h-6 w-6 hover:scale-105 transition-transform" />
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=61561809783777"
+                aria-label="Facebook"
+                className="hover:text-green-300 transition-colors"
+              >
+                <FaFacebook className="h-6 w-6 hover:scale-105 transition-transform" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/zep-research/"
+                aria-label="LinkedIn"
+                className="hover:text-green-300 transition-colors"
+              >
+                <FaLinkedin className="h-6 w-6 hover:scale-105 transition-transform" />
+              </a>
+              <a
+                href="https://www.youtube.com/@Zepresearch"
+                aria-label="YouTube"
+                className="hover:text-green-300 transition-colors"
+              >
+                <FaYoutube className="h-6 w-6 hover:scale-105 transition-transform" />
+              </a>
+            </div>
           </div>
         </div>
+
+        {/* Legal Content Expansion */}
         <AnimatePresence>
           {activeSection && (
             <motion.div
@@ -215,8 +311,32 @@ export default function Footer() {
             </motion.div>
           )}
         </AnimatePresence>
-        <div className="mt-12 pt-8 border-t border-green-600 text-center text-green-300">
-          <p>&copy; {new Date().getFullYear()} icsift. All rights reserved.</p>
+
+        {/* Copyright Section */}
+        <div className="mt-12 pt-8 border-t border-green-600 text-center">
+          <div className="flex flex-wrap justify-center gap-4 mb-4">
+            <a
+              href="/sitemap"
+              className="text-green-200 hover:text-white transition-colors"
+            >
+              Sitemap
+            </a>
+            <a
+              href="/accessibility"
+              className="text-green-200 hover:text-white transition-colors"
+            >
+              Accessibility
+            </a>
+            <a
+              href="/contact"
+              className="text-green-200 hover:text-white transition-colors"
+            >
+              Contact Us
+            </a>
+          </div>
+          <p className="text-green-300">
+            &copy; {new Date().getFullYear()} ICSIFT. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
