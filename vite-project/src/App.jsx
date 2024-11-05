@@ -44,6 +44,7 @@ import PrivacyPolicy from "./pages/Privacy Policy/PrivacyPolicy";
 import DetailPage from "./pages/highlightdetail/HighlightDetail";
 import HighlightDetail from "./pages/highlightdetail/HighlightDetail";
 import FAQSection from "./components/Faq";
+import Organization from "./components/Organization";
 
 // Import new components for routes
 
@@ -97,6 +98,7 @@ function MainContent() {
     <>
       <Hero />
       <StatsSection />
+      <Organization />
       <AboutSection />
       <ObjectivesSection />
       <ConferenceHighlights />
