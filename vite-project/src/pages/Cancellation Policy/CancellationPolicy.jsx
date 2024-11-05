@@ -16,7 +16,7 @@ function CancellationPolicy() {
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+        <link rel="canonical" href="https://www.icsift.com/" />
         {/* Open Graph (for social sharing) */}
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />

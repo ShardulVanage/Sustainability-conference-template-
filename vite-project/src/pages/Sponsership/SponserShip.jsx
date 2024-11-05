@@ -21,7 +21,7 @@ function SponserShip() {
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
         <meta property="og:type" content="website" />
-
+        <link rel="canonical" href="https://www.icsift.com/" />
         {/* Basic Schema.org markup */}
         <script type="application/ld+json">
           {JSON.stringify({
