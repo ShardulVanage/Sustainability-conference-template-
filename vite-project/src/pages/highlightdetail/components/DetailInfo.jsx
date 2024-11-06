@@ -31,6 +31,7 @@ const highlights = {
       "Innovation in Agriculture for Sustainability",
       "Sustainable Design and Innovation in Architecture",
       "Innovation in Education and Research for Sustainability",
+      "Business Management",
     ],
   },
   "smart-future-technologies": {
