@@ -34,7 +34,11 @@ export default function AboutConferenceObjective() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {[
-            { icon: Calendar, title: "Date", content: "September 15-17, 2024" },
+            {
+              icon: Calendar,
+              title: "Date",
+              content: "March 21st - 23rd, 2025",
+            },
             {
               icon: Users,
               title: "Attendees",
