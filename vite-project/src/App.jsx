@@ -46,6 +46,7 @@ import HighlightDetail from "./pages/highlightdetail/HighlightDetail";
 import FAQSection from "./components/Faq";
 import Organization from "./components/Organization";
 import AboutConference from "./pages/About-Conference/About-Conference";
+import Header from "./components/Header";
 
 // Import new components for routes
 
@@ -99,6 +100,7 @@ function MainContent() {
     <>
       <h1 className="sr-only">ICSIFT Conference 2024</h1>
       <h2 className="sr-only">ICSIFT Conference 2024</h2>
+      <Header />
       <Hero />
       <StatsSection />
       <Organization />
