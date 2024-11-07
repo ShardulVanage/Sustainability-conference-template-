@@ -72,7 +72,7 @@ export default function Hero() {
   return (
     <div
       ref={heroRef}
-      className="sm:h-full w-full flex flex-col-reverse lg:flex-row items-center justify-center mx-auto bg-[#F5F7F2] p-6 pt-36 sm:px-24"
+      className="sm:h-full w-full flex flex-col-reverse lg:flex-row items-center justify-center mx-auto bg-[#F5F7F2] p-6 pt-24 sm:px-24"
       style={{ position: "relative" }}
     >
       <div className="space-y-6 mb-12 lg:mb-0">

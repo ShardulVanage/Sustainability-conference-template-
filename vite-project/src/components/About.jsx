@@ -125,7 +125,7 @@ export default function AboutSection() {
               cutting-edge developments in their fields.
             </motion.p>
             */}
-            <a href="/AboutUs">
+            <a href="/AboutConference">
               <motion.p
                 className="text-green-800 leading-relaxed text-base font-bold underline underline-offset-4"
                 initial={{ opacity: 0 }}

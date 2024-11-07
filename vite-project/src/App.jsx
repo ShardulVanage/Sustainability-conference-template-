@@ -45,6 +45,7 @@ import DetailPage from "./pages/highlightdetail/HighlightDetail";
 import HighlightDetail from "./pages/highlightdetail/HighlightDetail";
 import FAQSection from "./components/Faq";
 import Organization from "./components/Organization";
+import AboutConference from "./pages/About-Conference/About-Conference";
 
 // Import new components for routes
 
@@ -158,6 +159,8 @@ function App() {
 
         <Route path="/Success" element={<Success />} />
         <Route path="/Failed" element={<Failed />} />
+
+        <Route path="/AboutConference" element={<AboutConference />} />
       </Routes>
       <Footer />
     </Router>

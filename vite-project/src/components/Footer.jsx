@@ -313,31 +313,10 @@ export default function Footer() {
         </AnimatePresence>
 
         {/* Copyright Section */}
-        <div className="mt-12 pt-8 border-t border-green-600 text-center">
-          <div className="flex flex-wrap justify-center gap-4 mb-4">
-            <a
-              href="/sitemap"
-              className="text-green-200 hover:text-white transition-colors"
-            >
-              Sitemap
-            </a>
-            <a
-              href="/accessibility"
-              className="text-green-200 hover:text-white transition-colors"
-            >
-              Accessibility
-            </a>
-            <a
-              href="/contact"
-              className="text-green-200 hover:text-white transition-colors"
-            >
-              Contact Us
-            </a>
-          </div>
-          <p className="text-green-300">
-            &copy; {new Date().getFullYear()} ICSIFT. All rights reserved.
-          </p>
-        </div>
+        <div className="mt-12 pt-8 border-t border-green-600 text-center"></div>
+        <p className="text-green-300">
+          &copy; {new Date().getFullYear()} ICSIFT. All rights reserved.
+        </p>
       </div>
     </footer>
   );
