@@ -55,49 +55,166 @@ const months = [
 
 const ScheduleList = [
   {
-    name: "Dr. Emma Green",
-    Topic: "Introduction to Sustainable Development Goals",
+    event: "Registration",
+    Topic: "Event Check-in",
     timestart: "9:00 AM",
+    timeend: "9:15 AM",
+  },
+  {
+    event: "Inaugural Function",
+    Topic: "Opening Ceremony",
+    timestart: "9:15 AM",
+    timeend: "9:30 AM",
+  },
+  {
+    event: "Keynote Speech",
+    Topic: "Session 1",
+    timestart: "9:30 AM",
+    timeend: "10:00 AM",
+  },
+  {
+    event: "Coffee Break",
+    Topic: "Networking Opportunity",
+    timestart: "10:00 AM",
+    timeend: "10:15 AM",
+  },
+  {
+    event: "Introduction to the Session Chairs",
+    Topic: "Meet the Experts",
+    timestart: "10:15 AM",
     timeend: "10:30 AM",
   },
   {
-    name: "Prof. Rajesh Patel",
-    Topic: "Renewable Energy Technologies",
-    timestart: "11:00 AM",
-    timeend: "12:30 PM",
+    event: "1st Session",
+    Topic: "Main Conference Proceedings",
+    timestart: "10:30 AM",
+    timeend: "1:00 PM",
   },
   {
-    name: "Lunch Break",
-    Topic: "Sustainable Catering Showcase",
-    timestart: "12:30 PM",
-    timeend: "1:30 PM",
+    event: "Lunch Break",
+    Topic: "Midday Refreshments",
+    timestart: "1:00 PM",
+    timeend: "2:00 PM",
   },
   {
-    name: "Maria Sanchez",
-    Topic: "Circular Economy Principles",
-    timestart: "1:30 PM",
-    timeend: "3:00 PM",
+    event: "Keynote Speech",
+    Topic: "Afternoon Session",
+    timestart: "2:00 PM",
+    timeend: "2:30 PM",
   },
   {
-    name: "John Doe",
-    Topic: "Energy Efficiency in Buildings",
-    timestart: "3:30 PM",
+    event: "2nd Session",
+    Topic: "Continued Conference Proceedings",
+    timestart: "2:30 PM",
     timeend: "5:00 PM",
-  },
-  {
-    name: "Dr. Aisha Kwesi",
-    Topic: "Sustainable Agriculture Practices",
-    timestart: "5:30 PM",
-    timeend: "7:00 PM",
-  },
-  {
-    name: "Panel Discussion",
-    Topic: "Future of Sustainable Cities",
-    timestart: "7:30 PM",
-    timeend: "9:00 PM",
   },
 ];
 
+const ScheduleList2 = [
+  {
+    event: "Registration",
+    timestart: "9:00 AM",
+    timeend: "9:15 AM",
+  },
+  {
+    event: "Inaugural Function",
+    timestart: "9:15 AM",
+    timeend: "9:30 AM",
+  },
+  {
+    event: "Keynote Speech (Session 3)",
+    timestart: "9:30 AM",
+    timeend: "10:00 AM",
+  },
+  {
+    event: "Coffee Break",
+    timestart: "10:00 AM",
+    timeend: "10:15 AM",
+  },
+  {
+    event: "Introduction to the Session Chairs",
+    timestart: "10:15 AM",
+    timeend: "10:30 AM",
+  },
+  {
+    event: "3rd Session",
+    timestart: "10:30 AM",
+    timeend: "1:00 PM",
+  },
+  {
+    event: "Lunch Break",
+    timestart: "1:00 PM",
+    timeend: "2:00 PM",
+  },
+  {
+    event: "Keynote Speech (Session 4)",
+    timestart: "2:00 PM",
+    timeend: "2:30 PM",
+  },
+  {
+    event: "4th Session",
+    timestart: "2:30 PM",
+    timeend: "5:00 PM",
+  },
+  {
+    event: "Continued Conference Proceeding",
+    timestart: "5:00 PM",
+    timeend: "5:30 PM",
+  },
+];
+
+const ScheduleList3 = [
+  {
+    event: "Registration",
+    timestart: "9:00 AM",
+    timeend: "9:15 AM",
+  },
+  {
+    event: "Inaugural Function",
+    timestart: "9:15 AM",
+    timeend: "9:30 AM",
+  },
+  {
+    event: "Keynote Speech (Session 5)",
+    timestart: "9:30 AM",
+    timeend: "10:00 AM",
+  },
+  {
+    event: "Coffee Break",
+    timestart: "10:00 AM",
+    timeend: "10:15 AM",
+  },
+  {
+    event: "Introduction to the Session Chairs",
+    timestart: "10:15 AM",
+    timeend: "10:30 AM",
+  },
+  {
+    event: "3rd Session",
+    timestart: "10:30 AM",
+    timeend: "1:00 PM",
+  },
+  {
+    event: "Lunch Break",
+    timestart: "1:00 PM",
+    timeend: "2:00 PM",
+  },
+  {
+    event: "Keynote Speech (Session 6)",
+    timestart: "2:00 PM",
+    timeend: "2:30 PM",
+  },
+  {
+    event: "4th Session",
+    timestart: "2:30 PM",
+    timeend: "5:00 PM",
+  },
+  {
+    event: "Valedictory Function",
+    timestart: "5:00 PM",
+    timeend: "5:30 PM",
+  },
+];
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -169,14 +286,14 @@ export default function Date() {
 
       <section className="mt-12 px-12 max-w-4xl mx-auto">
         <h2 className="text-xl font-bold leading-6 text-green-900">
-          March - 21 | Sustainable stability Goals
+          March - 21 | Resilient Prosperity Objectives
         </h2>
         <ol className="mt-2 divide-y divide-gray-200 text-sm leading-6 text-gray-500">
           {ScheduleList.map((iteam) => (
             <li className="py-4 sm:flex">
-              <time dateTime="2022-01-19" className="w-28 flex-none">
+              {/* <time dateTime="2022-01-19" className="w-28 flex-none">
                 {iteam.name}
-              </time>
+              </time> */}
               <p className="mt-2 flex-auto font-semibold text-gray-900 pl-3 sm:mt-0">
                 {iteam.Topic}
               </p>
@@ -191,24 +308,46 @@ export default function Date() {
       <hr />
       <section className="mt-12 px-12 max-w-4xl mx-auto">
         <h2 className="text-xl font-bold leading-6 text-green-900">
-          March - 22-23 | Sustainable stability Goals
+          March - 22 | Enduring Balance Initiatives
         </h2>
         <ol className="mt-2 divide-y divide-gray-200 text-sm leading-6 text-gray-500">
-          {/* {ScheduleList.map((iteam) => (
+          {ScheduleList2.map((iteam) => (
             <li className="py-4 sm:flex">
-              <time dateTime="2022-01-19" className="w-28 flex-none">
+              {/* <time dateTime="2022-01-19" className="w-28 flex-none">
                 {iteam.name}
-              </time>
+              </time> */}
               <p className="mt-2 flex-auto font-semibold text-gray-900 pl-3 sm:mt-0">
-                {iteam.Topic}
+                {iteam.event}
               </p>
               <p className="flex-none sm:ml-6">
                 <time dateTime="2022-01-13T14:30">{iteam.timestart}</time> -{" "}
                 <time dateTime="2022-01-13T16:30">{iteam.timeend}</time>
               </p>
             </li>
-          ))} */}{" "}
-          <h1>Coming Soon</h1>
+          ))}{" "}
+        </ol>
+      </section>
+
+      <hr />
+      <section className="mt-12 px-12 max-w-4xl mx-auto">
+        <h2 className="text-xl font-bold leading-6 text-green-900">
+          March - 23 | Sustainable stability Goals
+        </h2>
+        <ol className="mt-2 divide-y divide-gray-200 text-sm leading-6 text-gray-500">
+          {ScheduleList3.map((iteam) => (
+            <li className="py-4 sm:flex">
+              {/* <time dateTime="2022-01-19" className="w-28 flex-none">
+                {iteam.name}
+              </time> */}
+              <p className="mt-2 flex-auto font-semibold text-gray-900 pl-3 sm:mt-0">
+                {iteam.event}
+              </p>
+              <p className="flex-none sm:ml-6">
+                <time dateTime="2022-01-13T14:30">{iteam.timestart}</time> -{" "}
+                <time dateTime="2022-01-13T16:30">{iteam.timeend}</time>
+              </p>
+            </li>
+          ))}{" "}
         </ol>
       </section>
     </div>

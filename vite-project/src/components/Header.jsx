@@ -2,16 +2,39 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaLinkedin,
+  FaInstagram,
+  FaYoutube,
+} from "react-icons/fa";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const socialLinks = [
-    { icon: FaFacebook, href: "#", label: "Facebook" },
-    { icon: FaTwitter, href: "#", label: "Twitter" },
-    { icon: FaLinkedin, href: "#", label: "LinkedIn" },
-    { icon: FaInstagram, href: "#", label: "Instagram" },
+    {
+      icon: FaFacebook,
+      href: "https://www.facebook.com/profile.php?id=61561809783777",
+      label: "Facebook",
+    },
+    { icon: FaTwitter, href: "https://x.com/Zepresearch", label: "Twitter" },
+    {
+      icon: FaLinkedin,
+      href: "https://www.linkedin.com/company/zep-research/",
+      label: "LinkedIn",
+    },
+    {
+      icon: FaInstagram,
+      href: "https://www.instagram.com/zepresearch/",
+      label: "Instagram",
+    },
+    {
+      icon: FaYoutube,
+      href: "https://www.youtube.com/@Zepresearch",
+      label: "Instagram",
+    },
   ];
 
   return (
@@ -54,7 +77,7 @@ export default function Header() {
           </div>
 
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="ml-4 flex items-baseline space-x-1">
               {socialLinks.map((link, index) => (
                 <motion.a
                   key={link.label}

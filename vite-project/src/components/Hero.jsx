@@ -209,7 +209,7 @@ export default function Hero() {
             enableZoom={false}
             p
           />
-          <Environment preset="forest" />
+          <Environment preset="city" />
         </Canvas>
       </div>
     </div>
