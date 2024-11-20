@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .content {
+            padding: 20px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>New Payment Initiation</h2>
+        </div>
+        <div class="content">
+            <p>A user has initiated a payment with the following details:</p>
+            <ul>
+                <li><strong>Name:</strong> {{name}}</li>
+                <li><strong>Email:</strong> {{email}}</li>
+                <li><strong>Phone:</strong> {{phone}}</li>
+                <li><strong>Address:</strong> {{address}}</li>
+                <li><strong>City:</strong> {{city}}</li>
+                <li><strong>State:</strong> {{state}}</li>
+                <li><strong>Country:</strong> {{country}}</li>
+                <li><strong>Amount:</strong> {{currency}} {{amount}}</li>
+                <li><strong>Order ID:</strong> {{order_id}}</li>
+            </ul>
+        </div>
+        <div class="footer">
+            <p>This is an automated notification from your website.</p>
+        </div>
+    </div>
+</body>
+</html>

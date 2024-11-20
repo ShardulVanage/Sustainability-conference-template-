@@ -64,8 +64,25 @@ const sendPaperSubmissionNotification = async (formData) => {
   }
 };
 
+const sendPaymentInitiationEmail = async (paymentData) => {
+  try {
+    const template = await loadTemplate('paymentInitiationNotification.html');
+    const html = template(paymentData);
+
+    await resend.emails.send({
+      from: 'icsift|Zepresearch <info@icsift.com>',
+      to: 'info@icsift.com',
+      subject: 'New Payment Initiation',
+      html: html
+    });
+  } catch (error) {
+    console.error('Error sending payment initiation email:', error);
+    throw error;
+  }
+};
 module.exports = {
   sendContactEmail,
   sendPaperSubmissionEmail,
-  sendPaperSubmissionNotification
+  sendPaperSubmissionNotification,
+  sendPaymentInitiationEmail
 };
