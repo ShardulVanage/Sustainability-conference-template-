@@ -60,6 +60,14 @@ export default function RegistrationDialog({
     };
 
     try {
+
+      await axios.post(`${backendHost}/api/payment-notification`, {
+        ...formData,
+        amount: price,
+        currency: currency,
+        order_id: paymentData.order_id
+      });
+      
       const response = await axios.post(
         `${backendHost}/api/ccavenue-initiate`,
         paymentData
