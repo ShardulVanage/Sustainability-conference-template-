@@ -6,6 +6,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import Phone from "./phone";
+import PhoneNumberInput from "./phone";
 
 const cld = new Cloudinary({
   cloud: {
@@ -204,20 +206,26 @@ export default function Form() {
               </div>
 
               <div className="sm:col-span-3">
-                <label
+                {/* <label
                   htmlFor="number"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
                   Phone / Whatsapp.no
-                </label>
-                <div className="mt-2">
-                  <PhoneInput
+                </label> */}
+                <div className="">
+                  {/* <PhoneInput
                     country={"us"}
                     value={formData.number}
                     onChange={handlePhoneChange}
                     inputClass="!w-full !py-1.5 !px-2 !rounded-md !border-0 !shadow-sm !ring-1 !ring-inset !ring-gray-300"
                     containerClass="!w-full"
                     required
+                  /> */}
+                  <PhoneNumberInput
+                  value={formData.number}
+                  onChange={handlePhoneChange}
+                  required
+
                   />
                 </div>
               </div>
