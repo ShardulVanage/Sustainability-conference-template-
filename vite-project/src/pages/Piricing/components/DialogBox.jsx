@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 import { motion, AnimatePresence } from "framer-motion";
 import {
   X,
@@ -33,6 +36,9 @@ export default function RegistrationDialog({
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+  const handlePhoneChange = (value) => {
+    setFormData({ ...formData, phone: value });
+  };
 
   const backendHost = "https://icsift.onrender.com"; //change this to your backend host
 
@@ -65,7 +71,8 @@ export default function RegistrationDialog({
         ...formData,
         amount: price,
         currency: currency,
-        order_id: paymentData.order_id
+        order_id: paymentData.order_id,
+       phone:paymentData.billing_tel
       });
       
       const response = await axios.post(
@@ -82,7 +89,7 @@ export default function RegistrationDialog({
   };
 
   const inputClasses =
-    "mt-1 block w-full py-1.5 px-1 rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm transition-all duration-200 ease-in-out";
+    "mt-1 block w-full py-1.5 px-1 rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm transition-all duration-200 ease-in-out border-2";
   const labelClasses = "block text-sm font-medium text-gray-700 mb-1";
 
   return (
@@ -114,8 +121,8 @@ export default function RegistrationDialog({
                 </p>
               </div>
               <hr />
-              <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                <form className="space-y-4">
+              <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 [&>input]:bg-slate-100">
+                <form className="space-y-4  ">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -132,6 +139,7 @@ export default function RegistrationDialog({
                       value={formData.name}
                       onChange={handleInputChange}
                       className={inputClasses}
+                      required
                     />
                   </motion.div>
                   <motion.div
@@ -150,6 +158,7 @@ export default function RegistrationDialog({
                       value={formData.email}
                       onChange={handleInputChange}
                       className={inputClasses}
+                      required
                     />
                   </motion.div>
                   <motion.div
@@ -161,14 +170,21 @@ export default function RegistrationDialog({
                       <Phone className="inline-block w-4 h-4 mr-2" />
                       Phone
                     </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      id="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className={inputClasses}
-                    />
+                    <PhoneInput
+                    value={formData.phone}
+                    onChange={handlePhoneChange}
+                    inputClass="!rounded-md !border-0 !shadow-sm !ring-1 !ring-inset !ring-gray-300"
+                    className="w-full  px-2 border-2  [&>input]:py-1 [&>input]:border-l-2 "
+                    required
+                  />
+                      {/* <input
+                        type="tel"
+                        name="phone"
+                        id="phone"
+                        value={formData.}
+                        onChange={}
+                        className={inputClasses}
+                      /> */}
                   </motion.div>
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -241,6 +257,7 @@ export default function RegistrationDialog({
                         value={formData.zip}
                         onChange={handleInputChange}
                         className={inputClasses}
+                        required
                       />
                     </motion.div>
                     <motion.div
@@ -259,6 +276,7 @@ export default function RegistrationDialog({
                         value={formData.country}
                         onChange={handleInputChange}
                         className={inputClasses}
+                        required
                       />
                     </motion.div>
                   </div>

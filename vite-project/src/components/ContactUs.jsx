@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -125,10 +125,11 @@ export default function ContactUs() {
                       country={"us"}
                       value={formData.number}
                       onChange={handlePhoneChange}
-                      inputClass="!w-full !py-1.5 !px-2 !rounded-md !drop-shadow-sm !border-gray-300 !shadow-sm focus:!border-indigo-300 focus:!ring focus:!ring-indigo-200 focus:!ring-opacity-50"
+                      className="w-full border-2 px-2  [&>input]:py-1 [&>input]:border-l-2 "
                       containerClass="!w-full"
                       required
                     />
+                    
                   </div>
                 </div>
 

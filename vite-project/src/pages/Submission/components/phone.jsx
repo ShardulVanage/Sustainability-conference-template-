@@ -1,12 +1,54 @@
 "use client";
 
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import * as RPNInput from "react-phone-number-input";
-import flags from "react-phone-number-input/flags";
-import { ChevronDown, Phone } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
-// Add props for value and onChange
 const PhoneNumberInput = ({ value, onChange, required = false }) => {
+  const [internalValue, setInternalValue] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState("US");
+  
+  // Function to format the phone number with country code
+  const formatPhoneWithCountry = (phoneNumber, country) => {
+    if (!phoneNumber) return "";
+    // Clean the phone number to only digits
+    const cleanNumber = phoneNumber.replace(/\D/g, '');
+    // Get country code
+    const countryCode = country ? RPNInput.getCountryCallingCode(country) : "";
+    return countryCode ? `${countryCode}${cleanNumber}` : cleanNumber;
+  };
+
+  // Handle internal value change
+  const handleChange = (newValue, country) => {
+    setInternalValue(newValue);
+    if (country) {
+      setSelectedCountry(country);
+    }
+    // Pass formatted number with country code to parent
+    if (onChange) {
+      onChange(formatPhoneWithCountry(newValue, selectedCountry));
+    }
+  };
+
+  // Custom country select component that tracks country changes
+  const CustomCountrySelect = (props) => {
+    const handleCountryChange = (newCountry) => {
+      setSelectedCountry(newCountry);
+      props.onChange(newCountry);
+      // Update the full number when country changes
+      handleChange(internalValue, newCountry);
+    };
+    
+    return <CountrySelect {...props} onChange={handleCountryChange} />;
+  };
+
+  // Update internal value if external value changes
+  useEffect(() => {
+    if (value && value !== formatPhoneWithCountry(internalValue, selectedCountry)) {
+      setInternalValue(value);
+    }
+  }, [value]);
+
   return (
     <div className="space-y-2" dir="ltr">
       <label 
@@ -18,13 +60,12 @@ const PhoneNumberInput = ({ value, onChange, required = false }) => {
       <RPNInput.default
         className="flex rounded-lg shadow-sm"
         international
-        flagComponent={FlagComponent}
-        countrySelectComponent={CountrySelect}
+        countrySelectComponent={CustomCountrySelect}
         inputComponent={PhoneInputComponent}
         id="input-46"
         placeholder="Enter phone number"
-        value={value}
-        onChange={onChange}
+        value={internalValue}
+        onChange={handleChange}
         required={required}
         defaultCountry="us"
       />
@@ -62,7 +103,7 @@ const CountrySelect = ({ disabled, value, onChange, options }) => {
       hover:bg-gray-50 hover:text-gray-900 
       disabled:pointer-events-none disabled:opacity-50">
       <div className="inline-flex items-center gap-1" aria-hidden="true">
-        <FlagComponent country={value} countryName={value} aria-hidden="true" />
+        <span className="text-sm">+{value ? RPNInput.getCountryCallingCode(value) : ""}</span>
         <span className="text-gray-400">
           <ChevronDown size={16} strokeWidth={2} aria-hidden="true" />
         </span>
@@ -81,20 +122,10 @@ const CountrySelect = ({ disabled, value, onChange, options }) => {
           .filter((x) => x.value)
           .map((option, i) => (
             <option key={option.value ?? `empty-${i}`} value={option.value}>
-              {option.label} {option.value && `+${RPNInput.getCountryCallingCode(option.value)}`}
+              {option.value} +{RPNInput.getCountryCallingCode(option.value)}
             </option>
           ))}
       </select>
     </div>
-  );
-};
-
-const FlagComponent = ({ country, countryName }) => {
-  const Flag = flags[country];
-
-  return (
-    <span className="w-5 overflow-hidden rounded-sm">
-      {Flag ? <Flag title={countryName} /> : <Phone size={16} aria-hidden="true" />}
-    </span>
   );
 };
