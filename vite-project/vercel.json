@@ -29,15 +29,11 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self' https://icsift.onrender.com https://raw.githack.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live/_next-live/ https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob: *.google.com *.googleapis.com *.gstatic.com; font-src 'self' data: https: https://fonts.gstatic.com; connect-src 'self' https://icsift.onrender.com https://raw.githack.com blob: https: https://*.google.com; media-src 'self' blob:; worker-src 'self' blob:; frame-src 'self' https://vercel.live https://www.google.com; object-src 'none'default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval';style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https:; media-src 'self' blob: data:; connect-src 'self' blob: data: https:; font-src 'self'; object-src 'none';base-uri 'self';form-action 'self';frame-ancestors 'none';block-all-mixed-content; upgrade-insecure-requests;" 
+          "value": "default-src 'self' 'unsafe-inline' 'unsafe-eval' https:; img-src 'self' data: https:; connect-src 'self' https: wss://*.tawk.to; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.tawk.to https://cdn.jsdelivr.net; https: blob: data:; img-src 'self' https: data: blob:; media-src 'self' https: blob: data:; worker-src 'self' blob:;" 
         },
         {
           "key": "Permissions-Policy",
           "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()"
-        },
-        {
-          "key": "Content-Security-Policy",
-          "value": "default-src 'self' https://icsift.onrender.com https://raw.githack.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live/_next-live/ https://maps.googleapis.com https://*.tawk.to https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob: *.google.com *.googleapis.com *.gstatic.com; font-src 'self' data: https: https://fonts.gstatic.com; connect-src 'self' https://icsift.onrender.com https://raw.githack.com blob: https: https://*.google.com wss://*.tawk.to; media-src 'self' blob:; worker-src 'self' blob:; frame-src 'self' https://vercel.live https://www.google.com https://*.tawk.to; object-src 'none'"
         }
       ]
     }
