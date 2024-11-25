@@ -33,7 +33,7 @@ export default function Header() {
     {
       icon: FaYoutube,
       href: "https://www.youtube.com/@Zepresearch",
-      label: "Instagram",
+      label: "youtube",
     },
   ];
 

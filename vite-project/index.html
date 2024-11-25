@@ -42,8 +42,9 @@
   <meta http-equiv="X-Frame-Options" content="DENY">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
-  <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https:; img-src 'self' data: https:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https:; img-src 'self' data: https:; connect-src 'self' https: wss://*.tawk.to; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.tawk.to https://cdn.jsdelivr.net; https: blob: data:; img-src 'self' https: data: blob:; media-src 'self' https: blob: data:; worker-src 'self' blob:;">
+
+  
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 
   <!-- Apple Mobile Web App Meta -->
@@ -54,23 +55,11 @@
 
   <!-- Theme Color -->
   <meta name="theme-color" content="#ffffff">
-
 </head>
-
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
-  <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/673f143b4304e3196ae649bd/1id76e275';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
+  
     
 </body>
 

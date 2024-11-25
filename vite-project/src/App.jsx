@@ -47,6 +47,8 @@ import FAQSection from "./components/Faq";
 import Organization from "./components/Organization";
 import AboutConference from "./pages/About-Conference/About-Conference";
 import Header from "./components/Header";
+import TawkTo from "./components/TawkTo";
+import WhatsAppButton from "./components/ui/whatsapp";
 
 // Import new components for routes
 
@@ -113,6 +115,9 @@ function MainContent() {
       <VenueSection />
       <FAQSection />
       <ContactUs />
+    
+     
+     
     </>
   );
 }
@@ -135,10 +140,12 @@ function App() {
     <Router>
       <div className="flex items-center justify-center w-full">
         <FloatingDock
-          mobileClassName="translate-y-20 relative z-50 fixed bottom-24 right-4"
+          mobileClassName="translate-y-20 relative z-50 fixed bottom-40 left-4 drop-shadow-md"
           desktopClassName="translate-y-20 relative z-50 fixed bottom-24"
           items={links}
         />
+         <TawkTo className="absolute"/>
+         <WhatsAppButton phoneNumber="+918260080050" />
       </div>
       <Routes>
         <Route path="/" element={<MainContent />} />

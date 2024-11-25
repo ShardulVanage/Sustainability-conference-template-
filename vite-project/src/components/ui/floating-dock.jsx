@@ -27,7 +27,7 @@ export const FloatingDock = ({ items, desktopClassName, mobileClassName }) => {
 const FloatingDockMobile = ({ items, className }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className={cn("relative block md:hidden", className)}>
+    <div className={cn("relative block md:hidden ", className)}>
       <AnimatePresence>
         {open && (
           <motion.div
@@ -54,9 +54,9 @@ const FloatingDockMobile = ({ items, className }) => {
                 <a
                   href={item.href}
                   key={item.title}
-                  className="h-10 w-10 rounded-full bg-green-800  flex items-center justify-center"
+                  className="h-11 w-11 rounded-full bg-green-800  flex items-center justify-center"
                 >
-                  <div className="h-4 w-4">{item.icon}</div>
+                  <div className="h-5 w-5">{item.icon}</div>
                 </a>
               </motion.div>
             ))}
@@ -65,9 +65,9 @@ const FloatingDockMobile = ({ items, className }) => {
       </AnimatePresence>
       <button
         onClick={() => setOpen(!open)}
-        className="h-10 w-10 rounded-full bg-green-800  flex items-center justify-center"
+        className="h-12 w-12   rounded-full bg-green-800  flex items-center justify-center"
       >
-        <IconLayoutNavbarCollapse className="h-5 w-5 text-gray-50 " />
+        <IconLayoutNavbarCollapse className="h-6 w-6 text-gray-50 " />
       </button>
     </div>
   );

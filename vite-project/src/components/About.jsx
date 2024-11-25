@@ -35,50 +35,59 @@ const itemVariants = {
     },
   },
 };
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutSection() {
   const controls = useAnimation();
   const sectionRef = useRef(null);
+  const contentRef = useRef(null);
+  const imageRef = useRef(null);
 
   useEffect(() => {
-    const section = sectionRef.current;
+    // Check if refs are available
+    if (!sectionRef.current || !contentRef.current || !imageRef.current) return;
 
-    gsap.fromTo(
-      section.querySelector(".content"),
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: section,
-          start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        contentRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
 
-    gsap.fromTo(
-      section.querySelector(".image"),
-      { opacity: 0, x: 50 },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: section,
-          start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
+      gsap.fromTo(
+        imageRef.current,
+        { opacity: 0, x: 50 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    }, sectionRef);
 
     controls.start({ opacity: 1, y: 0 });
+
+    // Cleanup
+    return () => ctx.revert();
   }, [controls]);
 
   return (
@@ -92,7 +101,7 @@ export default function AboutSection() {
           About Conference
         </motion.h2>
         <div className="flex flex-col-reverse lg:flex-row items-center justify-evenly mx-auto gap-8">
-          <div className=" lg:w-1/3 space-y-4">
+          <div ref={contentRef} className="lg:w-1/3 space-y-4">
             <motion.p
               className="text-green-800 leading-relaxed text-base sm:text-lg"
               initial={{ opacity: 0 }}
@@ -112,19 +121,6 @@ export default function AboutSection() {
               transition={{ delay: 0.4 }}
             ></motion.p>
 
-            {/* <motion.p
-              className="text-green-800 leading-relaxed text-base"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-            >
-               Our services extend beyond conference organization, offering
-              expert peer review, research grant assistance, and publication
-              management. At Zep Research, we aim to facilitate meaningful
-              academic interactions and empower researchers to contribute to
-              cutting-edge developments in their fields.
-            </motion.p>
-            */}
             <a href="/AboutConference">
               <motion.p
                 className="text-green-800 leading-relaxed text-base font-bold underline underline-offset-4"
@@ -137,11 +133,11 @@ export default function AboutSection() {
             </a>
           </div>
 
-          <div className="image lg:w-1/3 p-8 ">
+          <div ref={imageRef} className="lg:w-1/3 p-8">
             <motion.img
               src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1727429207/imov05ja3gtwvvwduqek.png"
               alt="Zep Research Conference"
-              className="rounded-lg   object-cover"
+              className="rounded-lg object-cover"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300, damping: 10 }}
             />
@@ -152,7 +148,7 @@ export default function AboutSection() {
             Download Conference Materials <IconFileDownload />
           </h1>
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-7xl   justify-center items-center "
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-7xl justify-center items-center"
             variants={containerVariants}
             initial="hidden"
             animate="visible"

@@ -1,4 +1,5 @@
-import Gmodel from "../assets/sustainable_globe.glb";
+// Instead of direct import
+import Gmodel from "../assets/sustainable_globe.glb?url";
 import React, { useRef, useEffect, Suspense, useState } from "react";
 import { motion } from "framer-motion";
 import { Canvas, useFrame } from "@react-three/fiber";

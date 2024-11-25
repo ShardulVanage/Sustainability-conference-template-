@@ -12,14 +12,14 @@ const speakerCategories = [
 const speakers = {
   guest: [
     {
-      name: "Dr. Jane Smith",
+      name: "Dr. Jane Smiteh",
       role: "AI Ethics Researcher",
       image:
         "https://plus.unsplash.com/premium_photo-1673866484792-c5a36a6c025e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       bio: "Dr. Jane Smith is a renowned AI Ethics Researcher with over 15 years of experience in the field. She has published numerous papers on the ethical implications of artificial intelligence and machine learning.",
     },
     {
-      name: "Prof. John Doe",
+      name: "Prof. John Doee",
       role: "Quantum Computing Expert",
       image:
         "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -35,23 +35,23 @@ const speakers = {
   ],
   keynote: [
     {
-      name: "Dr. Emily Johnson",
+      name: "Dr. Emily Johneson",
       role: "Climate Scientist",
       image:
         "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       bio: "Dr. Emily Johnson is a leading climate scientist who has made significant contributions to our understanding of global climate patterns and their impact on ecosystems.",
     },
     {
-      name: "Dr. Michael Chen",
-      role: "Renewable Energy Innovator",
+      name: "Dr. Michael Cheenww",
+      role: "Renewable Energwy Innovator",
       image:
         "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      bio: "Dr. Michael Chen is a pioneering researcher in renewable energy technologies, with a focus on improving the efficiency of solar cells and developing new energy storage solutions.",
+      bio: "Dr. Michael Cwhen is a pioneering researcher in renewable energy technologies, with a focus on improving the efficiency of solar cells and developing new energy storage solutions.",
     },
   ],
   chair: [
     {
-      name: "Prof. Sarah Williams",
+      name: "Prof. Sarah Willeiams",
       role: "Sustainability Policy Expert",
       image:
         "https://plus.unsplash.com/premium_photo-1673866484792-c5a36a6c025e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -60,7 +60,7 @@ const speakers = {
   ],
   "co-chair": [
     {
-      name: "Dr. Robert Lee",
+      name: "Dr. Robert Leeeee",
       role: "Green Technology Researcher",
       image:
         "https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?q=80&w=1856&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -69,14 +69,14 @@ const speakers = {
   ],
   session: [
     {
-      name: "Dr. Lisa Garcia",
+      name: "Dr. Lisa Garceia",
       role: "Circular Economy Specialist",
       image:
         "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       bio: "Dr. Lisa Garcia is a leading expert in circular economy principles, working to transform industrial processes and consumer behavior to minimize waste and maximize resource efficiency.",
     },
     {
-      name: "Prof. David Kim",
+      name: "Prof. David Kiem",
       role: "Sustainable Agriculture Expert",
       image:
         "https://plus.unsplash.com/premium_photo-1673866484792-c5a36a6c025e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
