@@ -145,7 +145,7 @@ export default function Footer() {
               <div className="flex items-center space-x-2">
                 <FaMapMarkerAlt className="h-4 w-4 text-green-300" />
                 <a
-                  href="/location"
+                  href="/venue"
                   className="text-green-200 hover:text-white transition-colors"
                 >
                   Conference Venue

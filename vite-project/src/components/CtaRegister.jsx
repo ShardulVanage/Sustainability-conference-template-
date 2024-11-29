@@ -112,7 +112,7 @@ export default function CtaRegister() {
           className="mb-6"
         >
           <a
-            href="#register"
+            href="/pricing"
             className="block w-full py-3 px-6 text-center text-white font-semibold bg-green-500 rounded-lg shadow-md hover:bg-green-600 transition duration-300"
           >
             Register Now

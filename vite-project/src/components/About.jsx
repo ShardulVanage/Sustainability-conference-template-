@@ -108,11 +108,10 @@ export default function AboutSection() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
-              Zep Research is a leading academic conference organizer, known for
-              delivering top-tier events that promote academic growth and
-              professional excellence. We specialize in connecting scholars,
-              researchers, and practitioners through impactful conferences and
-              publication opportunities.
+              The International Conference on Sustainability, Innovation, and Future Technologies (ICSIFT) is a premier global event bringing together experts,
+              researchers, and industry leaders to explore groundbreaking advancements. The conference focuses on sustainable development, cutting-edge innovations, 
+              and transformative technologies shaping the future. ICSIFT aims to inspire collaboration, foster innovation,
+                and drive actionable solutions for a sustainable and technologically advanced world.  
             </motion.p>
             <motion.p
               className="text-green-800 leading-relaxed text-balance sm:text-base"
