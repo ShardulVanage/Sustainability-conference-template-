@@ -1,42 +1,75 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Leaf, Award, Users, TreePine, Globe, Zap } from "lucide-react";
+import { Diamond, Award, Crown, Coins, Store } from 'lucide-react';
 
 const sponsorshipLevels = [
   {
-    title: "Silver Eco-Innovator",
-    price: "$5,000",
+    title: "Platinum Package",
+    price: "$15,000",
     benefits: [
-      "Logo placement on conference materials",
-      "Exhibition space",
-      "2 complimentary conference passes",
-      "Participation in sponsor panel discussion",
+      "1 VIP participating in the conference",
+      "Complementary registration for 12 Students and 5 Faculties",
+      "Stage honor to the Sponsor Party",
+      "Full Page ad in the conference proceeding book",
+      "Brand carried in all website and promotional activities",
+      "Event called by title sponsor",
+      "Networking opportunities with different delegates",
+      "Media Coverage",
+      "2 Feedback video bites featured on organizer's YouTube channel",
     ],
-    icon: <Zap className="w-12 h-12" />,
+    icon: <Crown className="w-12 h-12" />,
   },
   {
-    title: "Gold Sustainer",
-    price: "$7,500",
+    title: "Diamond Package",
+    price: "$12,000",
     benefits: [
-      "Prominent logo placement on conference website",
-      "Exhibition booth in prime location",
-      "3 complimentary conference passes",
-      "Sponsored workshop session",
+      "1 Session Chair participating from the sponsor side",
+      "Complementary registration for 10 Students and 3 Faculties",
+      "Full Page ad in the conference proceeding book",
+      "Brand carried in all website and promotional activities",
+      "Public announcement recognizing the Sponsor",
+      "Networking opportunities with different delegates",
+      "Logo used on all website activities and campaigns",
+      "5 minutes slot for media Coverage",
+      "1 Feedback video featured on the YouTube channel",
     ],
-    icon: <Leaf className="w-12 h-12" />,
+    icon: <Diamond className="w-12 h-12" />,
   },
-
   {
-    title: "Platinum Green",
+    title: "Gold Package",
     price: "$10,000",
     benefits: [
-      "Prime logo placement on all conference materials",
-      "VIP access to all conference events",
-      "Dedicated exhibition space",
-      "5 complimentary conference passes",
-      "Sponsored keynote session",
+      "Complementary registration for 8 Students and 2 Faculties",
+      "Full page ad in conference proceedings",
+      "Announcement recognition of the sponsor during the valedictory function",
+      "Logos used in all promotional materials",
+      "One anchor can join from the sponsor side",
+      "Networking opportunities with different delegates",
+      "A standee of the sponsor side on the registration desk",
     ],
-    icon: <Globe className="w-12 h-12" />,
+    icon: <Award className="w-12 h-12" />,
+  },
+  {
+    title: "Silver Package",
+    price: "$7,500",
+    benefits: [
+      "Complementary registration for 5 Students and 1 Faculty",
+      "2 volunteers at the registration desk from the sponsor side",
+      "Half page ad in Conference proceeding book",
+      "Brand carried out in few promotional activities",
+      "Networking opportunities with different delegates",
+      "Print media coverage",
+    ],
+    icon: <Coins className="w-12 h-12" />,
+  },
+  {
+    title: "Exhibitor Package",
+    price: "Contact Us",
+    benefits: [
+      "One stall allowed in the conference area",
+      "Advertise products at the conference",
+    ],
+    icon: <Store className="w-12 h-12" />,
   },
 ];
 
@@ -45,12 +78,11 @@ const SponsorshipCard = ({ title, price, benefits, icon, index }) => (
     initial={{ opacity: 0, y: 50 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay: index * 0.2 }}
-    className="bg-gradient-to-br from-green-100 to-green-200 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+    className="bg-gradient-to-br from-green-100 to-green-200 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col justify-between"
   >
     <motion.div
-      whileHover={{ scale: 1.1, rotate: 360 }}
-      transition={{ type: "spring", stiffness: 260, damping: 20 }}
-      className="bg-green-500 text-white p-4 rounded-full mb-6 inline-block"
+     
+      className="bg-green-500 text-white p-4 rounded-full mb-6 inline-block w-1/ w-1/3  "
     >
       {icon}
     </motion.div>
@@ -59,7 +91,7 @@ const SponsorshipCard = ({ title, price, benefits, icon, index }) => (
     <ul className="text-green-700 mb-6">
       {benefits.map((benefit, index) => (
         <li key={index} className="mb-2 flex items-start">
-          <TreePine className="w-5 h-5 mr-2 flex-shrink-0 text-green-500" />
+          <Award className="w-5 h-5 mr-2 flex-shrink-0 text-green-500" />
           <span>{benefit}</span>
         </li>
       ))}
@@ -152,3 +184,4 @@ export default function SponsorshipPage() {
     </div>
   );
 }
+

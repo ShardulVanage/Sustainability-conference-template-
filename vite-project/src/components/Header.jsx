@@ -51,7 +51,7 @@ export default function Header() {
               transition={{ duration: 0.5 }}
             />
             <motion.span
-              className="ml-2 text-xl font-bold"
+              className="ml-2 sm:text-xl text-sm font-bold"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -67,7 +67,7 @@ export default function Header() {
               transition={{ duration: 0.5, delay: 0.4 }}
             />
             <motion.span
-              className=" text-xl font-bold"
+              className=" sm:text-xl text-sm font-bold"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -76,7 +76,11 @@ export default function Header() {
             </motion.span>
           </div>
 
-          <div className="hidden md:block">
+        
+          <div className="hidden md:flex flex-row justify-center items-center">
+          <div>
+          <a href="/sponsorship" className=" py-2 border-2 border-green-100 p-2 rounded-lg">Exhibit & Sponsor</a>
+        </div>
             <div className="ml-4 flex items-baseline space-x-1">
               {socialLinks.map((link, index) => (
                 <motion.a
@@ -141,7 +145,7 @@ export default function Header() {
         </div>
       </div>
 
-      <motion.div
+      <motion.div 
         className="md:hidden"
         id="mobile-menu"
         initial={false}
@@ -149,7 +153,9 @@ export default function Header() {
         transition={{ duration: 0.3 }}
         style={{ overflow: "hidden" }}
       >
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        
+        <div className="px-2 pt-4 pb-3 space-y-1 sm:px-3">
+        
           {socialLinks.map((link) => (
             <a
               key={link.label}
@@ -160,6 +166,9 @@ export default function Header() {
               {link.label}
             </a>
           ))}
+          <div className="flex flex-row justify-end items-end">
+           <a href="/sponsorship" className=" py-2 border-2 border-green-100 p-2 rounded-lg  ">Exhibit & Sponsor</a>
+        </div>
         </div>
       </motion.div>
     </header>
