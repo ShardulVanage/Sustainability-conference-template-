@@ -44,7 +44,7 @@ export default function RegistrationDialog({
 
   const paymentCCAvenue = async () => {
     let paymentData = {
-      merchant_id: "350427",
+      merchant_id: "3697787",
       order_id: "ORD" + Date.now(),
       amount: price,
       currency: currency,
