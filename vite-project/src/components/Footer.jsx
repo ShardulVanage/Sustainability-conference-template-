@@ -13,7 +13,7 @@ import {
   FaMapMarkerAlt,
   FaCalendarAlt,
 } from "react-icons/fa";
-import logo from "../../public/singleLogo.png";
+import logo from "../../public/singleLogo.svg";
 
 export default function Footer() {
   const [activeSection, setActiveSection] = useState(null);

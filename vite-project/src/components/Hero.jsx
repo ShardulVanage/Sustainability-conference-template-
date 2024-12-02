@@ -80,7 +80,7 @@ export default function Hero() {
         <div className="flex  items-end gap-1">
           {/* Zep LOGO  src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1726731577/il2wr5yxd2w1sarnj3it.svg" */}
           <img
-            src="./singleLogo.png"
+            src="./singleLogo.svg"
             className="h-16 w-16 drop-shadow-lg"
             alt=""
           />

@@ -43,9 +43,9 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <motion.img
-              src="./singleLogo.png"
+              src="./singleLogo.svg"
               alt="ICSIFT Logo"
-              className="h-10 w-auto"
+              className="h-16 w-auto"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}

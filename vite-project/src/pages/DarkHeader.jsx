@@ -65,7 +65,7 @@ export default function DarkHeadingSection() {
             <a href="/" className="flex  items-center   gap-1">
               {/* Zep LOGO  src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1726731577/il2wr5yxd2w1sarnj3it.svg" */}
               <img
-                src="./singleLogo.png"
+                src="./singleLogo.svg"
                 className="h-16 w-16 drop-shadow-2xl"
                 alt=""
               />

@@ -33,7 +33,7 @@ function Gallery() {
         </script>
       </Helmet>
       <HeadingSection />
-      <MultiImg />
+      <MultiImg/>
     </div>
   );
 }
