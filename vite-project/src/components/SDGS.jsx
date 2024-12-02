@@ -73,7 +73,7 @@ export default function SDGSection() {
     <section className="w-full bg-white py-16 px-4">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-center text-3xl md:text-5xl font-bold mb-12 text-emerald-800">
-          <span className="text-green-500">ICSIFT 2025</span> IS DEDICATED TO ADVANCING THE
+          <span className="text-green-500">ICSIFT  2025</span> IS DEDICATED TO ADVANCING THE
            NATIONS SUSTAINABLE DEVELOPMENT GOALS (SDGS)
         </h1>
         
