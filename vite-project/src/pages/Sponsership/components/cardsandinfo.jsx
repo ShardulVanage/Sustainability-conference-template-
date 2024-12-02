@@ -63,15 +63,15 @@ const sponsorshipLevels = [
     ],
     icon: <Coins className="w-12 h-12" />,
   },
-  {
-    title: "Exhibitor Package",
-    price: "Contact Us",
-    benefits: [
-      "One stall allowed in the conference area",
-      "Advertise products at the conference",
-    ],
-    icon: <Store className="w-12 h-12" />,
-  },
+  // {
+  //   title: "Exhibitor Package",
+  //   price: "Contact Us",
+  //   benefits: [
+  //     "One stall allowed in the conference area",
+  //     "Advertise products at the conference",
+  //   ],
+  //   icon: <Store className="w-12 h-12" />,
+  // },
 ];
 
 const initiateCCAvenue = async (price) => {
