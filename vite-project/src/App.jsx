@@ -54,6 +54,7 @@ import { useCoOrganizers } from './hooks/useCoOrganizers';
 import { usedownloadButtons } from "./hooks/useDownloadButtons";
 import { useSpeakers } from "./hooks/useSpeakers";
 import { useCommittee } from "./hooks/useCommitte";
+import SDGSection from "./components/SDGS";
 // Import new components for routes
 
 const links = [
@@ -114,7 +115,8 @@ function MainContent({ coOrganizers ,downloadButtons,speakers}) {
       <AboutSection downloadButtons={downloadButtons}/>
       <ObjectivesSection />
       <ConferenceHighlights />
-      <SpeakerSection speakers={speakers} />
+      <SDGSection/>
+      {/* <SpeakerSection speakers={speakers} /> */}
       <CtaRegister />
       <Timeline />
       <VenueSection />
