@@ -4,7 +4,7 @@ import IACommittee from "./components/IACommitte";
 import ScientificCommittee from "./components/ScientificCommittee";
 import HeadingSection from "../Header";
 import { Helmet } from "react-helmet";
-function Committe() {
+function Committe({committee}) {
   const pageTitle =
     "Committee | International Conference on Sustainability, Innovation and Future Technologies";
   const pageDescription =
@@ -34,9 +34,9 @@ function Committe() {
         </script>
       </Helmet>
       <HeadingSection />
-      <OrganizingCommittee />
-      <ScientificCommittee />
-      <IACommittee />
+      <OrganizingCommittee committee={committee} />
+      {/* <ScientificCommittee /> */}
+      {/* <IACommittee /> */}
     </div>
   );
 }

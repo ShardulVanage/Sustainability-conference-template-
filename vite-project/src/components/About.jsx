@@ -38,7 +38,7 @@ const itemVariants = {
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function AboutSection() {
+export default function AboutSection({downloadButtons}) {
   const controls = useAnimation();
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
@@ -152,16 +152,16 @@ export default function AboutSection() {
             initial="hidden"
             animate="visible"
           >
-            {buttons.map((button, index) => (
+            {downloadButtons.map((button, index) => (
               <motion.a
                 key={index}
-                // href={button.href}
+                href={button.link}
                 className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors duration-300 text-sm sm:text-sm text-center"
                 variants={itemVariants}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {button.text}
+                {button.title}
               </motion.a>
             ))}
           </motion.div>

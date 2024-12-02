@@ -7,7 +7,7 @@ const speakers = [
     name: "Dr. Emily Green",
     role: "Environmental Scientist",
     imageUrl:
-      "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
+      "https://drive.google.com/file/d/1hTRGiHhYNwBvW2JT1Md_r63GV77f8ErM/view",
     twitterUrl: "#",
     linkedinUrl: "#",
   },
@@ -27,9 +27,10 @@ const speakers = [
     twitterUrl: "#",
     linkedinUrl: "#",
   },
+  
 ];
 
-export default function OrganizingCommittee() {
+export default function OrganizingCommittee({committee}) {
   return (
     <>
       <div className="bg-green-50 py-12 pt-32">
@@ -52,7 +53,7 @@ export default function OrganizingCommittee() {
             role="list"
             className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
           >
-            {speakers.map((speaker, index) => (
+            {committee.map((speaker, index) => (
               <motion.li
                 key={speaker.name}
                 initial={{ opacity: 0, y: 20 }}
@@ -60,36 +61,20 @@ export default function OrganizingCommittee() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <img
-                  className="mx-auto h-56 w-56 rounded-full"
-                  src={speaker.imageUrl}
+                  className="mx-auto h-56 w-56 rounded-full drop-shadow-sm bg-white"
+                  src={speaker.img}
                   alt={speaker.name}
                 />
                 <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-green-900">
                   {speaker.name}
                 </h3>
                 <p className="text-sm leading-6 text-gray-600">
-                  {speaker.role}
+                  {speaker.designation}
                 </p>
-                <ul role="list" className="mt-6 flex justify-center gap-x-6">
-                  <li>
-                    <a
-                      href={speaker.twitterUrl}
-                      className="text-green-400 hover:text-green-500"
-                    >
-                      <span className="sr-only">Twitter</span>
-                      <Twitter className="h-5 w-5" />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={speaker.linkedinUrl}
-                      className="text-green-400 hover:text-green-500"
-                    >
-                      <span className="sr-only">LinkedIn</span>
-                      <Linkedin className="h-5 w-5" />
-                    </a>
-                  </li>
-                </ul>
+                <p className="text-base leading-6 text-gray-800 underline underline-offset-2">{speaker.country}</p>
+                <p className="px-4 ">
+                  {speaker.details}
+                </p>
               </motion.li>
             ))}
           </ul>

@@ -49,7 +49,11 @@ import AboutConference from "./pages/About-Conference/About-Conference";
 import Header from "./components/Header";
 import TawkTo from "./components/TawkTo";
 import WhatsAppButton from "./components/ui/whatsapp";
-
+//pocketbase collections
+import { useCoOrganizers } from './hooks/useCoOrganizers';
+import { usedownloadButtons } from "./hooks/useDownloadButtons";
+import { useSpeakers } from "./hooks/useSpeakers";
+import { useCommittee } from "./hooks/useCommitte";
 // Import new components for routes
 
 const links = [
@@ -97,7 +101,8 @@ const links = [
   },
 ];
 
-function MainContent() {
+function MainContent({ coOrganizers ,downloadButtons,speakers}) {
+
   return (
     <>
       <h1 className="sr-only">ICSIFT Conference 2024</h1>
@@ -105,11 +110,11 @@ function MainContent() {
       <Header />
       <Hero />
       <StatsSection />
-      <Organization />
-      <AboutSection />
+      <Organization coOrganizers={coOrganizers} />
+      <AboutSection downloadButtons={downloadButtons}/>
       <ObjectivesSection />
       <ConferenceHighlights />
-      {/* <SpeakerSection /> */}
+      <SpeakerSection speakers={speakers} />
       <CtaRegister />
       <Timeline />
       <VenueSection />
@@ -123,6 +128,10 @@ function MainContent() {
 }
 
 function App() {
+  const { coOrganizers } = useCoOrganizers();
+  const {speakers} =useSpeakers()
+  const {downloadButtons} = usedownloadButtons();
+  const {committee}=useCommittee();
   useEffect(() => {
     const wakeUpServer = async () => {
       try {
@@ -148,9 +157,9 @@ function App() {
          <WhatsAppButton phoneNumber="+918260080050" />
       </div>
       <Routes>
-        <Route path="/" element={<MainContent />} />
+        <Route path="/" element={<MainContent coOrganizers={coOrganizers} downloadButtons={downloadButtons} speakers={speakers}  />} />
         <Route path="/AboutUs" element={<Aboutme />} />
-        <Route path="/committee" element={<Committe />} />
+        <Route path="/committee" element={<Committe committee={committee} />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/pricing" element={<Pricing />} />

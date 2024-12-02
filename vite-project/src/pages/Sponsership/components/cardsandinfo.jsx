@@ -1,11 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Diamond, Award, Crown, Coins, Store } from 'lucide-react';
+import axios from "axios";
 
 const sponsorshipLevels = [
   {
     title: "Platinum Package",
-    price: "$15,000",
+    price: "15000",
     benefits: [
       "1 VIP participating in the conference",
       "Complementary registration for 12 Students and 5 Faculties",
@@ -21,7 +22,7 @@ const sponsorshipLevels = [
   },
   {
     title: "Diamond Package",
-    price: "$12,000",
+    price: "12000",
     benefits: [
       "1 Session Chair participating from the sponsor side",
       "Complementary registration for 10 Students and 3 Faculties",
@@ -37,7 +38,7 @@ const sponsorshipLevels = [
   },
   {
     title: "Gold Package",
-    price: "$10,000",
+    price: "10000",
     benefits: [
       "Complementary registration for 8 Students and 2 Faculties",
       "Full page ad in conference proceedings",
@@ -51,7 +52,7 @@ const sponsorshipLevels = [
   },
   {
     title: "Silver Package",
-    price: "$7,500",
+    price: "7500",
     benefits: [
       "Complementary registration for 5 Students and 1 Faculty",
       "2 volunteers at the registration desk from the sponsor side",
@@ -73,6 +74,31 @@ const sponsorshipLevels = [
   },
 ];
 
+const initiateCCAvenue = async (price) => {
+  const backendHost = "https://icsift.onrender.com"; // Replace with your backend URL
+  const paymentData = {
+    merchant_id: "350427", // Replace with your CCAvenue merchant ID
+    order_id: "ORD" + Date.now(),
+    amount: price,
+    currency: "USD",
+    redirect_url: `${backendHost}/api/ccavenue-handle`,
+    cancel_url: `${backendHost}/api/ccavenue-handle`,
+    language: "EN",
+  };
+
+  try {
+    const response = await axios.post(
+      `${backendHost}/api/ccavenue-initiate`,
+      paymentData
+    );
+    const { encRequest, accessCode } = response.data;
+    const URL = `https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction&merchant_id=${paymentData.merchant_id}&encRequest=${encRequest}&access_code=${accessCode}`;
+    window.location.href = URL;
+  } catch (error) {
+    console.error("Error initiating payment:", error);
+  }
+};
+
 const SponsorshipCard = ({ title, price, benefits, icon, index }) => (
   <motion.div
     initial={{ opacity: 0, y: 50 }}
@@ -81,13 +107,12 @@ const SponsorshipCard = ({ title, price, benefits, icon, index }) => (
     className="bg-gradient-to-br from-green-100 to-green-200 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col justify-between"
   >
     <motion.div
-     
-      className="bg-green-500 text-white p-4 rounded-full mb-6 inline-block w-1/ w-1/3  "
+      className="bg-green-500 text-white p-4 rounded-full mb-6 inline-block w-1/3"
     >
       {icon}
     </motion.div>
     <h3 className="text-2xl font-bold text-green-800 mb-2">{title}</h3>
-    <p className="text-3xl font-bold text-green-600 mb-4">{price}</p>
+    <p className="text-3xl font-bold text-green-600 mb-4">${price}</p>
     <ul className="text-green-700 mb-6">
       {benefits.map((benefit, index) => (
         <li key={index} className="mb-2 flex items-start">
@@ -100,6 +125,7 @@ const SponsorshipCard = ({ title, price, benefits, icon, index }) => (
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       className="w-full bg-green-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-green-700 transition-colors duration-300"
+      onClick={() => initiateCCAvenue(price)}
     >
       Become a Sponsor
     </motion.button>
@@ -139,7 +165,7 @@ export default function SponsorshipPage() {
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.8 }}
+        transition={{ duration: 0.5, delay: 0.8 }} 
         className="max-w-3xl mx-auto mt-16 text-center"
       >
         <h2 className="text-3xl font-bold text-green-800 mb-4">Why Sponsor?</h2>

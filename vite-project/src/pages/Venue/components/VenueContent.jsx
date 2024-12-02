@@ -158,12 +158,12 @@ export default function VenueContent() {
             We look forward to welcoming you to Manila for an inspiring
             conference on sustainable development!
           </p>
-          <a
+          {/* <a
             href="#"
             className="inline-block mt-4 px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors duration-300"
           >
             Register Now
-          </a>
+          </a> */}
         </motion.div>
       </motion.div>
     </div>

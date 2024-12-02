@@ -51,24 +51,24 @@ const people = [
   },
 ];
 
-function Organization() {
+function Organization({ coOrganizers }) {
   return (
     <>
       <ul
         role="list"
         className="mx-auto pt-16 pb-2 bg-green-600 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-16 text-center sm:grid-cols-3 md:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-8 xl:grid-cols-8"
       >
-        {people.map((person, index) => (
+        {coOrganizers.map((organizer, index) => (
           <motion.li
-            key={person.name}
+            key={organizer.id}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
             <img
               className="mx-auto h-24 w-24 rounded-full select-none "
-              src={person.imageUrl}
-              alt={person.name}
+              src={organizer.img_url}
+              alt={organizer.img_title}
             />
             {/* <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-green-900">
                 {person.name}

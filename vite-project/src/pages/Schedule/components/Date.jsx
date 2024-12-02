@@ -1,4 +1,6 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
+import { pb } from "../../../libs/pocketbase";
+import { useEffect, useState } from "react";
 
 const months = [
   {
@@ -53,173 +55,45 @@ const months = [
   },
 ];
 
-const ScheduleList = [
-  {
-    event: "Registration",
-    Topic: "Event Check-in",
-    timestart: "9:00 AM",
-    timeend: "9:15 AM",
-  },
-  {
-    event: "Inaugural Function",
-    Topic: "Opening Ceremony",
-    timestart: "9:15 AM",
-    timeend: "9:30 AM",
-  },
-  {
-    event: "Keynote Speech",
-    Topic: "Session 1",
-    timestart: "9:30 AM",
-    timeend: "10:00 AM",
-  },
-  {
-    event: "Coffee Break",
-    Topic: "Networking Opportunity",
-    timestart: "10:00 AM",
-    timeend: "10:15 AM",
-  },
-  {
-    event: "Introduction to the Session Chairs",
-    Topic: "Meet the Experts",
-    timestart: "10:15 AM",
-    timeend: "10:30 AM",
-  },
-  {
-    event: "1st Session",
-    Topic: "Main Conference Proceedings",
-    timestart: "10:30 AM",
-    timeend: "1:00 PM",
-  },
-  {
-    event: "Lunch Break",
-    Topic: "Midday Refreshments",
-    timestart: "1:00 PM",
-    timeend: "2:00 PM",
-  },
-  {
-    event: "Keynote Speech",
-    Topic: "Afternoon Session",
-    timestart: "2:00 PM",
-    timeend: "2:30 PM",
-  },
-  {
-    event: "2nd Session",
-    Topic: "Continued Conference Proceedings",
-    timestart: "2:30 PM",
-    timeend: "5:00 PM",
-  },
-];
 
-const ScheduleList2 = [
-  {
-    event: "Registration",
-    timestart: "9:00 AM",
-    timeend: "9:15 AM",
-  },
-  {
-    event: "Inaugural Function",
-    timestart: "9:15 AM",
-    timeend: "9:30 AM",
-  },
-  {
-    event: "Keynote Speech (Session 3)",
-    timestart: "9:30 AM",
-    timeend: "10:00 AM",
-  },
-  {
-    event: "Coffee Break",
-    timestart: "10:00 AM",
-    timeend: "10:15 AM",
-  },
-  {
-    event: "Introduction to the Session Chairs",
-    timestart: "10:15 AM",
-    timeend: "10:30 AM",
-  },
-  {
-    event: "3rd Session",
-    timestart: "10:30 AM",
-    timeend: "1:00 PM",
-  },
-  {
-    event: "Lunch Break",
-    timestart: "1:00 PM",
-    timeend: "2:00 PM",
-  },
-  {
-    event: "Keynote Speech (Session 4)",
-    timestart: "2:00 PM",
-    timeend: "2:30 PM",
-  },
-  {
-    event: "4th Session",
-    timestart: "2:30 PM",
-    timeend: "5:00 PM",
-  },
-  {
-    event: "Continued Conference Proceeding",
-    timestart: "5:00 PM",
-    timeend: "5:30 PM",
-  },
-];
-
-const ScheduleList3 = [
-  {
-    event: "Registration",
-    timestart: "9:00 AM",
-    timeend: "9:15 AM",
-  },
-  {
-    event: "Inaugural Function",
-    timestart: "9:15 AM",
-    timeend: "9:30 AM",
-  },
-  {
-    event: "Keynote Speech (Session 5)",
-    timestart: "9:30 AM",
-    timeend: "10:00 AM",
-  },
-  {
-    event: "Coffee Break",
-    timestart: "10:00 AM",
-    timeend: "10:15 AM",
-  },
-  {
-    event: "Introduction to the Session Chairs",
-    timestart: "10:15 AM",
-    timeend: "10:30 AM",
-  },
-  {
-    event: "3rd Session",
-    timestart: "10:30 AM",
-    timeend: "1:00 PM",
-  },
-  {
-    event: "Lunch Break",
-    timestart: "1:00 PM",
-    timeend: "2:00 PM",
-  },
-  {
-    event: "Keynote Speech (Session 6)",
-    timestart: "2:00 PM",
-    timeend: "2:30 PM",
-  },
-  {
-    event: "4th Session",
-    timestart: "2:30 PM",
-    timeend: "5:00 PM",
-  },
-  {
-    event: "Valedictory Function",
-    timestart: "5:00 PM",
-    timeend: "5:30 PM",
-  },
-];
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Date() {
+  const [scheduleData, setScheduleData] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchSchedule() {
+      try {
+        const records = await pb  .collection('schedule').getFullList({
+          sort: 'starting_time',
+        });
+
+        // Group records by date
+        const grouped = records.reduce((acc, item) => {
+          if (!acc[item.date]) {
+            acc[item.date] = [];
+          }
+          acc[item.date].push(item);
+          return acc;
+        }, {});
+
+        setScheduleData(grouped);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching schedule:', error);
+        setLoading(false);
+      }
+    }
+
+    fetchSchedule();
+  }, []);
+
+  if (loading) {
+    return <div className="p-4 text-center">Loading schedule...</div>;
+  }
   return (
     <div className="mx-auto py-12 bg-green-50 ">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 py-4 mb-8">
@@ -284,72 +158,32 @@ export default function Date() {
         ))}
       </div>
 
-      <section className="mt-12 px-12 max-w-4xl mx-auto">
-        <h2 className="text-xl font-bold leading-6 text-green-900">
-          March - 21 | Resilient Prosperity Objectives
-        </h2>
-        <ol className="mt-2 divide-y divide-gray-200 text-sm leading-6 text-gray-500">
-          {ScheduleList.map((iteam) => (
-            <li className="py-4 sm:flex">
-              {/* <time dateTime="2022-01-19" className="w-28 flex-none">
-                {iteam.name}
-              </time> */}
-              <p className="mt-2 flex-auto font-semibold text-gray-900 pl-3 sm:mt-0">
-                {iteam.Topic}
-              </p>
-              <p className="flex-none sm:ml-6">
-                <time dateTime="2022-01-13T14:30">{iteam.timestart}</time> -{" "}
-                <time dateTime="2022-01-13T16:30">{iteam.timeend}</time>
-              </p>
-            </li>
-          ))}
-        </ol>
-      </section>
-      <hr />
-      <section className="mt-12 px-12 max-w-4xl mx-auto">
-        <h2 className="text-xl font-bold leading-6 text-green-900">
-          March - 22 | Enduring Balance Initiatives
-        </h2>
-        <ol className="mt-2 divide-y divide-gray-200 text-sm leading-6 text-gray-500">
-          {ScheduleList2.map((iteam) => (
-            <li className="py-4 sm:flex">
-              {/* <time dateTime="2022-01-19" className="w-28 flex-none">
-                {iteam.name}
-              </time> */}
-              <p className="mt-2 flex-auto font-semibold text-gray-900 pl-3 sm:mt-0">
-                {iteam.event}
-              </p>
-              <p className="flex-none sm:ml-6">
-                <time dateTime="2022-01-13T14:30">{iteam.timestart}</time> -{" "}
-                <time dateTime="2022-01-13T16:30">{iteam.timeend}</time>
-              </p>
-            </li>
-          ))}{" "}
-        </ol>
-      </section>
-
-      <hr />
-      <section className="mt-12 px-12 max-w-4xl mx-auto">
-        <h2 className="text-xl font-bold leading-6 text-green-900">
-          March - 23 | Sustainable stability Goals
-        </h2>
-        <ol className="mt-2 divide-y divide-gray-200 text-sm leading-6 text-gray-500">
-          {ScheduleList3.map((iteam) => (
-            <li className="py-4 sm:flex">
-              {/* <time dateTime="2022-01-19" className="w-28 flex-none">
-                {iteam.name}
-              </time> */}
-              <p className="mt-2 flex-auto font-semibold text-gray-900 pl-3 sm:mt-0">
-                {iteam.event}
-              </p>
-              <p className="flex-none sm:ml-6">
-                <time dateTime="2022-01-13T14:30">{iteam.timestart}</time> -{" "}
-                <time dateTime="2022-01-13T16:30">{iteam.timeend}</time>
-              </p>
-            </li>
-          ))}{" "}
-        </ol>
-      </section>
+      <div className="max-w-4xl mx-auto p-4 space-y-8">
+      {Object.entries(scheduleData).map(([date, items]) => (
+        <div
+          key={date}
+          className="rounded-lg bg-green-100 p-6 space-y-4"
+        >
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">
+            March - {date} | {items[0]?.program_name.split('-')[0]}
+          </h2>
+          
+          <div className="space-y-3 flex  flex-col-reverse">
+            {items.map((item) => (
+              <div
+                key={item.id}
+                className="flex justify-between items-center text-sm hover:bg-white/50 p-2 rounded transition-colors"
+              >
+                <span className="text-gray-700">{item.program_name}</span>
+                <span className="text-gray-600 tabular-nums">
+                  {item.starting_time} - {item.ending_time}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
     </div>
   );
 }
