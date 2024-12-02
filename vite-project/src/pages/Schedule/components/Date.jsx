@@ -68,7 +68,7 @@ export default function Date() {
     async function fetchSchedule() {
       try {
         const records = await pb  .collection('schedule').getFullList({
-          sort: 'starting_time',
+          sort: 'created',
         });
 
         // Group records by date
@@ -168,7 +168,7 @@ export default function Date() {
             March - {date} | {items[0]?.program_name.split('-')[0]}
           </h2>
           
-          <div className="space-y-3 flex  flex-col-reverse">
+          <div className="space-y-3 flex  flex-col">
             {items.map((item) => (
               <div
                 key={item.id}
