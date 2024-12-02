@@ -47,7 +47,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom', 'framer-motion'],
-          gallery: ['./src/components/gallery/MultiImg.jsx']
+          gallery: ['./src/pages/Gallery/components/MultiImg.jsx']
         }
       }
     },
