@@ -70,7 +70,7 @@ export default function HeadingSection() {
                 alt=""
               />
               <br />
-              <h1 className="font-bold font-sans text-3xl bg-gradient-to-r from-emerald-500 to-lime-500 text-transparent bg-clip-text drop-shadow-2xl">
+              <h1 className="font-bold font-sans text-3xl bg-gradient-to-r from-emerald-100 to-lime-100 text-transparent bg-clip-text drop-shadow-2xl">
                 ICSIFT
               </h1>
             </a>
