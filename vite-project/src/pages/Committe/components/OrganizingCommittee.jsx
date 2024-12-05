@@ -59,10 +59,10 @@ export default function OrganizingCommittee({ committee }) {
                   <p className="text-sm leading-6 text-gray-600">
                     {speaker.designation}
                   </p>
+                  <p className="px-4">{speaker.details}</p>
                   <p className="text-base leading-6 text-gray-800 underline underline-offset-2">
                     {speaker.country}
                   </p>
-                  <p className="px-4">{speaker.details}</p>
                 </motion.li>
               ))}
         </ul>
