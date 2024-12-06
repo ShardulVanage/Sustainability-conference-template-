@@ -77,7 +77,7 @@ const sponsorshipLevels = [
 const initiateCCAvenue = async (price) => {
   const backendHost = "https://icsift.onrender.com"; // Replace with your backend URL
   const paymentData = {
-    merchant_id: "3697787", // Replace with your CCAvenue merchant ID
+    merchant_id: "350427", // Replace with your CCAvenue merchant ID
     order_id: "ORD" + Date.now(),
     amount: price,
     currency: "USD",
