@@ -116,7 +116,7 @@ function MainContent({ coOrganizers ,downloadButtons,speakers}) {
       <ObjectivesSection />
       <ConferenceHighlights />
       <SDGSection/>
-      {/* <SpeakerSection speakers={speakers} /> */}
+      <SpeakerSection speakers={speakers} />
       <CtaRegister />
       <Timeline />
       <VenueSection />
