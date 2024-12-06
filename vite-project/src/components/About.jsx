@@ -43,7 +43,37 @@ export default function AboutSection({downloadButtons}) {
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
   const imageRef = useRef(null);
+ console.log(downloadButtons)
+ const handleDownload = async (button) => {
+  try {
+    // Construct the full file URL using PocketBase URL and collection information
+    const fileUrl = `https://icsift.pockethost.io/api/files/${button.collectionId}/${button.id}/${button.link}`;
 
+    
+      // Fetch the file as a blob
+      const response = await fetch(fileUrl);
+      const blob = await response.blob();
+      
+      // Create a blob URL
+      const blobUrl = window.URL.createObjectURL(blob);
+      
+      // Create temporary link element
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = button.link; // Set the download filename
+      
+      // Trigger download
+      document.body.appendChild(link);
+      link.click();
+      
+      // Cleanup
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(blobUrl);
+    } catch (error) {
+      console.error('Download failed:', error);
+      alert('Failed to download file. Please try again.');
+    }
+  };
   useEffect(() => {
     // Check if refs are available
     if (!sectionRef.current || !contentRef.current || !imageRef.current) return;
@@ -152,17 +182,17 @@ export default function AboutSection({downloadButtons}) {
             initial="hidden"
             animate="visible"
           >
-            {downloadButtons.map((button, index) => (
-              <motion.a
-                key={index}
-                href={button.link}
+            {downloadButtons?.map((button) => (
+              <motion.button
+                key={button.id}
+                onClick={() => handleDownload(button)}
                 className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors duration-300 text-sm sm:text-sm text-center"
                 variants={itemVariants}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {button.title}
-              </motion.a>
+                {button.title.trim()} {/* Added trim() to remove any whitespace */}
+              </motion.button>
             ))}
           </motion.div>
         </div>
