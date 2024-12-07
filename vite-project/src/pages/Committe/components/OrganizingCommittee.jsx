@@ -49,14 +49,14 @@ export default function OrganizingCommittee({ committee }) {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
                   <img
-                    className="mx-auto h-56 w-56 rounded-full drop-shadow-sm bg-white object-cover"
+                    className="mx-auto h-56 w-56 rounded-full drop-shadow-sm bg-white object-cover "
                     src={speaker.img}
                     alt={speaker.name}
                   />
-                  <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-green-900">
+                  <h3 className="mt-6 text-lg leading-7 tracking-tight text-green-900 font-bold ">
                     {speaker.name}
                   </h3>
-                  <p className="text-sm leading-6 text-gray-600">
+                  <p className="text-base leading-6 text-gray-600">
                     {speaker.designation}
                   </p>
                   <p className="px-4">{speaker.details}</p>
