@@ -173,7 +173,7 @@ export default function AboutSection({downloadButtons}) {
           </div>
         </div>
         <div className="flex flex-col justify-center items-center w-full py-12">
-          <h1 className="text-center text-xl pb-3 inline-flex justify-center items-center gap-3 font-medium text-green-800">
+          <h1 className="text-center text-2xl pb-3 inline-flex justify-center items-center gap-3 font-medium text-green-800">
             Download Conference Materials <IconFileDownload />
           </h1>
           <motion.div

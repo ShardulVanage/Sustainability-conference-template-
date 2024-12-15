@@ -251,6 +251,13 @@ export default function Footer() {
               </motion.button>
             </form>
             <div className="flex space-x-4 py-4 justify-center items-end">
+            <a
+                href="https://www.facebook.com/profile.php?id=61561809783777"
+                aria-label="Facebook"
+                className="hover:text-green-300 transition-colors"
+              >
+                <FaFacebook className="h-6 w-6 hover:scale-105 transition-transform" />
+              </a>
               <a
                 href="https://www.instagram.com/zepresearch/"
                 aria-label="Instagram"
@@ -265,13 +272,7 @@ export default function Footer() {
               >
                 <FaTwitter className="h-6 w-6 hover:scale-105 transition-transform" />
               </a>
-              <a
-                href="https://www.facebook.com/profile.php?id=61561809783777"
-                aria-label="Facebook"
-                className="hover:text-green-300 transition-colors"
-              >
-                <FaFacebook className="h-6 w-6 hover:scale-105 transition-transform" />
-              </a>
+              
               <a
                 href="https://www.linkedin.com/company/zep-research/"
                 aria-label="LinkedIn"

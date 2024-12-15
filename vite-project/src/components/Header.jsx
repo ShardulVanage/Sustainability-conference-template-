@@ -19,16 +19,16 @@ export default function Header() {
       href: "https://www.facebook.com/profile.php?id=61561809783777",
       label: "Facebook",
     },
+    {
+      icon: FaInstagram,
+      href: "https://www.instagram.com/zepresearch/",
+      label: "Instagram",
+    },
     { icon: FaTwitter, href: "https://x.com/Zepresearch", label: "Twitter" },
     {
       icon: FaLinkedin,
       href: "https://www.linkedin.com/company/zep-research/",
       label: "LinkedIn",
-    },
-    {
-      icon: FaInstagram,
-      href: "https://www.instagram.com/zepresearch/",
-      label: "Instagram",
     },
     {
       icon: FaYoutube,
@@ -41,7 +41,7 @@ export default function Header() {
     <header className="bg-green-700 text-white py-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
+          <div className="flex items-end">
             <motion.img
               src="./singleLogo.svg"
               alt="ICSIFT Logo"
@@ -51,29 +51,32 @@ export default function Header() {
               transition={{ duration: 0.5 }}
             />
             <motion.span
-              className="ml-2 sm:text-xl text-sm font-bold"
+              className="ml-2 sm:text-2xl text-sm font-bold"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               ICSIFT
             </motion.span>
+            <div className="inline-flex justify-center items-center">
             <motion.img
               src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1726731577/il2wr5yxd2w1sarnj3it.svg"
+              
               alt="ZEP RESEARCH Logo"
               className="h-16 w-auto "
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-            />
+              />
             <motion.span
               className=" sm:text-xl text-sm font-bold"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-            >
+              >
               ZEP RESEARCH
             </motion.span>
+              </div>
           </div>
 
         

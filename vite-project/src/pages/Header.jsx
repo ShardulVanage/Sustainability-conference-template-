@@ -76,15 +76,16 @@ export default function HeadingSection() {
             </a>
             {/* Social Icons */}
             <div className="flex space-x-4 text-white">
+            <a href="https://www.facebook.com/profile.php?id=61561809783777">
+                <FaFacebook className="h-6 w-6 hover:scale-105" />
+              </a>
               <a href="https://www.instagram.com/zepresearch/">
                 <FaInstagram className="h-6 w-6 hover:scale-105" />
               </a>
               <a href="https://x.com/Zepresearch">
                 <FaTwitter className="h-6 w-6 hover:scale-105" />
               </a>
-              <a href="https://www.facebook.com/profile.php?id=61561809783777">
-                <FaFacebook className="h-6 w-6 hover:scale-105" />
-              </a>
+              
               <a href="https://www.linkedin.com/company/zep-research/">
                 <FaLinkedin className="h-6 w-6 hover:scale-105" />
               </a>
