@@ -41,7 +41,7 @@ export default function Header() {
     <header className="bg-green-700 text-white py-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-end">
+          <div className="flex items-center">
             <motion.img
               src="./singleLogo.svg"
               alt="ICSIFT Logo"

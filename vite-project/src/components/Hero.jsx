@@ -77,7 +77,7 @@ export default function Hero() {
       style={{ position: "relative" }}
     >
       <div className="space-y-6 mb-12 lg:mb-0">
-        <div className="flex  items-end gap-1">
+        <div className="flex  items-center gap-1">
           {/* Zep LOGO  src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1726731577/il2wr5yxd2w1sarnj3it.svg" */}
           <img
             src="./singleLogo.svg"

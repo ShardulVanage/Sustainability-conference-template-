@@ -104,7 +104,7 @@ export default function Footer() {
           <div className="space-y-4">
             <a
               href="/"
-              className="flex items-end gap-1 hover:opacity-90 transition-opacity"
+              className="flex items-center gap-1 hover:opacity-90 transition-opacity"
             >
               <img
                 src={logo}

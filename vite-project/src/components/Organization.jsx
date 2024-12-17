@@ -53,10 +53,13 @@ const people = [
 
 function Organization({ coOrganizers }) {
   return (
-    <>
+    <> 
+    <div className="bg-green-600 flex justify-center items-center text-4xl font-medium text-green-50 py-8 pt-4   ">
+    <h1> Our Co-organizers</h1>
+  </div>
       <ul
         role="list"
-        className="mx-auto pt-16 pb-2 bg-green-600 grid max-w-2xl grid-cols-2 gap-x-2 gap-y-16 text-center sm:grid-cols-3 md:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-9 xl:grid-cols-9 place-items-center"
+        className="mx-auto pb-16 pb-2 bg-green-600 grid max-w-2xl grid-cols-2 gap-x-2 gap-y-2 text-center sm:grid-cols-3 md:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-9 xl:grid-cols-9 place-items-center"
       >
         {coOrganizers.map((organizer, index) => (
           <motion.li
@@ -78,9 +81,7 @@ function Organization({ coOrganizers }) {
         ))}
       </ul>
       <hr className="sm:hidden flex " />
-      <div className="bg-green-600 flex justify-center items-center text-4xl font-medium text-green-50 pb-12 pt-4   ">
-        <h1> Our Co-organizers</h1>
-      </div>
+     
     </>
   );
 }
