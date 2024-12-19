@@ -49,7 +49,8 @@ export default function Form() {
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
-    accept: { "application/pdf": [".pdf"] },
+    accept: { "application/pdf": [".pdf"] ,'application/msword': ['.doc'],
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['.docx'],},
     multiple: false,
   });
 
