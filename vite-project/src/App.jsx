@@ -54,6 +54,7 @@ import { useCoOrganizers } from './hooks/useCoOrganizers';
 import { usedownloadButtons } from "./hooks/useDownloadButtons";
 import { useSpeakers } from "./hooks/useSpeakers";
 import { useCommittee } from "./hooks/useCommitte";
+import{useDate} from "./hooks/useDate";
 import SDGSection from "./components/SDGS";
 // Import new components for routes
 
@@ -102,7 +103,7 @@ const links = [
   },
 ];
 
-function MainContent({ coOrganizers ,downloadButtons,speakers}) {
+function MainContent({ coOrganizers ,downloadButtons,speakers,date}) {
 
   return (
     <>
@@ -118,7 +119,7 @@ function MainContent({ coOrganizers ,downloadButtons,speakers}) {
       <SDGSection/>
       <SpeakerSection speakers={speakers} />
       <CtaRegister />
-      <Timeline />
+      <Timeline date={date}/>
       <VenueSection />
       <FAQSection />
       <ContactUs />
@@ -134,6 +135,7 @@ function App() {
   const {speakers} =useSpeakers()
   const {downloadButtons} = usedownloadButtons();
   const {committee}=useCommittee();
+  const{date}=useDate();
   useEffect(() => {
     const wakeUpServer = async () => {
       try {
@@ -159,7 +161,7 @@ function App() {
          <WhatsAppButton phoneNumber="+918260080050" />
       </div>
       <Routes>
-        <Route path="/" element={<MainContent coOrganizers={coOrganizers} downloadButtons={downloadButtons} speakers={speakers}  />} />
+        <Route path="/" element={<MainContent coOrganizers={coOrganizers} downloadButtons={downloadButtons} speakers={speakers} date={date} />} />
         <Route path="/AboutUs" element={<Aboutme />} />
         <Route path="/committee" element={<Committe committee={committee} />} />
         <Route path="/gallery" element={<Gallery />} />
