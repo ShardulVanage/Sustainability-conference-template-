@@ -14,6 +14,7 @@ import {
 import gsap from "gsap";
 import { IconCalendarMonth, IconMapPin } from "@tabler/icons-react";
 import modelimg from "../assets/globe.png";
+import Banner from "./Banner";
 
 const modelUrl = Gmodel;
 
@@ -71,11 +72,13 @@ export default function Hero() {
   }, [isLoaded]);
 
   return (
+    <>
+      <Banner/>
     <div
       ref={heroRef}
       className="sm:h-full w-full flex flex-col-reverse lg:flex-row items-center justify-center mx-auto bg-[#F5F7F2] p-6 pt-24 sm:px-24"
       style={{ position: "relative" }}
-    >
+      >
       <div className="space-y-6 mb-12 lg:mb-0">
         <div className="flex  items-center gap-1">
           {/* Zep LOGO  src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1726731577/il2wr5yxd2w1sarnj3it.svg" */}
@@ -83,7 +86,7 @@ export default function Hero() {
             src="./singleLogo.svg"
             className="h-16 w-16 drop-shadow-lg"
             alt=""
-          />
+            />
           <br />
           <h1 className="font-bold font-sans text-3xl bg-gradient-to-r from-emerald-500 to-lime-500 text-transparent bg-clip-text drop-shadow-lg">
             ICSIFT
@@ -91,14 +94,14 @@ export default function Hero() {
           {/* <h1 className="text-xl lg:text-3xl font-bold text-white max-w-3xl">
             icsift -{" "}
             <span className="text-base">by Coreresearch Private limited</span>
-          </h1> */}
+            </h1> */}
         </div>
         <motion.h1
           className="text-3xl lg:text-5xl font-bold text-[#2E8B57] max-w-3xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-        >
+          >
           International Conference on Sustainability, Innovation and Future
           Technologies
         </motion.h1>
@@ -107,7 +110,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-        >
+          >
           Join us to shape a greener future. Explore sustainable technologies
           and future-focused research at our conference, connecting academics,
           professionals, and innovators.
@@ -119,7 +122,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-          >
+            >
             <IconMapPin className="text-green-900 mr-2" />
             Manila, Philippines
           </motion.p>
@@ -129,7 +132,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-          >
+            >
             <IconCalendarMonth className="text-green-800 mr-2" />
             March 21st - 23rd, 2025
           </motion.p>
@@ -139,18 +142,18 @@ export default function Hero() {
             src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1728043047/yqhbu4xrrwcab48qtpfw.png"
             alt=""
             className="h-12 drop-shadow-lg"
-          />
+            />
           <img
             src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1728043732/dpwtq9cenauyctsvd9vg.png"
             alt=""
             className="h-12 drop-shadow-lg"
-          />
+            />
 
           <img
             src=" https://res.cloudinary.com/dwlhesiyi/image/upload/v1729260387/erph7fml9unxiowlmrmg.png"
             alt=""
             className="h-12 drop-shadow-lg"
-          />
+            />
         </div>
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-3 ml-4">
@@ -162,7 +165,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.6 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-            >
+              >
               Register Now
             </motion.button>
           </a>
@@ -174,7 +177,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.6 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-            >
+              >
               Submit your Paper
             </motion.button>
           </a>
@@ -186,7 +189,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.6 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-            >
+              >
               Download Brochure
             </motion.button>
           </a>
@@ -196,7 +199,7 @@ export default function Hero() {
         <Canvas
           camera={{ position: [0, 0, 5], fov: 50 }}
           onCreated={() => setIsLoaded(true)}
-        >
+          >
           <ambientLight intensity={0.5} />
           <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
           <Suspense fallback={<Loader />}>
@@ -209,11 +212,12 @@ export default function Hero() {
             rotateSpeed={0.5}
             enableZoom={false}
             p
-          />
+            />
           <Environment preset="city" />
         </Canvas>
       </div>
     </div>
+            </>
   );
 }
 
