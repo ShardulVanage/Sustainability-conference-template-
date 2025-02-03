@@ -102,19 +102,39 @@ export default function Footer() {
         <div className="footer-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info Section */}
           <div className="space-y-4">
+            <div className="inline-flex" >
+
             <a
               href="/"
               className="flex items-center gap-1 hover:opacity-90 transition-opacity"
-            >
+              >
               <img
                 src={logo}
                 className="h-16 w-16 drop-shadow-2xl"
                 alt="ICSIFT Logo"
-              />
+                />
               <h1 className="font-bold font-sans text-3xl bg-gradient-to-r from-emerald-500 to-lime-500 text-transparent bg-clip-text drop-shadow-2xl">
                 ICSIFT
               </h1>
             </a>
+            <motion.img
+              src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1726731577/il2wr5yxd2w1sarnj3it.svg"
+              
+              alt="ZEP RESEARCH Logo"
+              className="h-16 w-auto "
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              />
+            <motion.span
+              className=" sm:text-xl text-sm font-bold"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              >
+              ZEP RESEARCH
+            </motion.span>
+                </div>
             <p className="text-green-50">
               Advancing knowledge through innovative conferences
             </p>

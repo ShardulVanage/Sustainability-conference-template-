@@ -87,6 +87,44 @@ const pricingTiers = [
   //   },
   // },
 ];
+const pricingTiers2 = [
+  {
+    title: "Virtual Registration",
+    description:
+      "Perfect for individuals looking to experience the basics of our sustainable conference.",
+    price: "99",
+    features: [
+      "Conference Tickets",
+      "Certificates",
+      "Easy Access",
+      "Paid Membership",
+    ],
+    priceSubtext: "Begin your sustainable journey",
+    theme: {
+      primary: "blue",
+      secondary: "gray",
+      accent: "white",
+    },
+  },
+  {
+    title: "Physical presentation",
+    description:
+      "Perfect for individuals looking to experience the basics of our sustainable conference.",
+    price: "199",
+    features: [
+      "Conference Tickets",
+      "Certificates",
+      "Easy Access",
+      "Paid Membership",
+    ],
+    priceSubtext: "Begin your sustainable journey",
+    theme: {
+      primary: "blue",
+      secondary: "gray",
+      accent: "white",
+    },
+  },
+];
 export default function Pricing() {
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
@@ -199,7 +237,12 @@ export default function Pricing() {
               Your participation makes a difference
             </p>
           </motion.div>
+          <h1  className="text-3xl font-bold tracking-tight text-green-300 sm:text-5xl mt-12 text-center" >Presenter Tickets</h1>
           {pricingTiers.map((tier, index) => (
+            <PricingCard key={tier.title} {...tier} delay={index * 0.2} />
+          ))}
+          <h1  className="text-3xl font-bold tracking-tight text-green-300 sm:text-5xl mt-12 text-center" >Listener Tickets</h1>
+          {pricingTiers2.map((tier, index) => (
             <PricingCard key={tier.title} {...tier} delay={index * 0.2} />
           ))}
           <CancleCTA />

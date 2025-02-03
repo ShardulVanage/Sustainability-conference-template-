@@ -7,12 +7,12 @@ const people = [
     imageUrl:
       "https://res.cloudinary.com/dwlhesiyi/image/upload/v1730747023/pather%20logo/g6o2riwdeghed8rw8jr1.jpg",
   },
-  {
-    name: "Prof. Michael Rivers",
-    role: "Panel Moderator",
-    imageUrl:
-      "https://res.cloudinary.com/dwlhesiyi/image/upload/v1730747074/pather%20logo/lfwclyhudaxhntxmnt59.jpg",
-  },
+  // {
+  //   name: "Prof. Michael Rivers",
+  //   role: "Panel Moderator",
+  //   imageUrl:
+  //     "https://res.cloudinary.com/dwlhesiyi/image/upload/v1730747074/pather%20logo/lfwclyhudaxhntxmnt59.jpg",
+  // },
   {
     name: "Dr. Sarah Woods",
     role: "Workshop Leader",
@@ -59,7 +59,7 @@ function Organization({ coOrganizers }) {
   </div>
       <ul
         role="list"
-        className="mx-auto pb-8  bg-green-600 grid max-w-2xl grid-cols-2 gap-x-2 gap-y-2 text-center sm:grid-cols-3 md:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-9 xl:grid-cols-9 place-items-center"
+        className="mx-auto pb-8  bg-green-600 grid max-w-2xl grid-cols-2 gap-x-2 gap-y-2 text-center sm:grid-cols-3 md:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-8 xl:grid-cols-8 place-items-center"
       >
         {coOrganizers.map((organizer, index) => (
           <motion.li
