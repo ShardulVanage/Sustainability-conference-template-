@@ -15,6 +15,7 @@ import gsap from "gsap";
 import { IconCalendarMonth, IconMapPin } from "@tabler/icons-react";
 import modelimg from "../assets/globe.png";
 import Banner from "./Banner";
+import { Headphones, MapPin } from "lucide-react";
 
 const modelUrl = Gmodel;
 
@@ -76,9 +77,32 @@ export default function Hero() {
       <Banner/>
     <div
       ref={heroRef}
-      className="sm:h-full w-full flex flex-col-reverse lg:flex-row items-center justify-center mx-auto bg-[#F5F7F2] p-6 pt-24 sm:px-24"
+      className="sm:h-full  w-full flex flex-col-reverse lg:flex-row items-center justify-center mx-auto bg-[#F5F7F2] p-6 pt-24 sm:px-24"
       style={{ position: "relative" }}
       >
+        <div
+        className="sm:absolute top-24 sm:right-12 right-5 z-10 bg-white/90 backdrop-blur-sm text-black p-4 rounded-lg object-center ml-12 w-64 my-4 shadow-2xl"
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 1, duration: 0.5 }}
+      >
+        <h3 className="font-bold text-lg mb-2">Hybrid Conference</h3>
+        <p className="text-sm mb-2">Experience the conference your way:</p>
+        <ul className="list-disc list-inside text-sm">
+          <li>Attend in person in Philippines</li>
+          <li>Join virtually from anywhere</li>
+        </ul>
+        <div className="mt-3 flex items-center justify-between text-xs">
+          <span className="flex items-center">
+            <MapPin className="w-4 h-4 mr-1" />
+            Physical
+          </span>
+          <span className="flex items-center">
+            <Headphones className="w-4 h-4 mr-1" />
+            Virtual
+          </span>
+        </div>
+      </div>
       <div className="space-y-6 mb-12 lg:mb-0">
         <div className="flex  items-center gap-1">
           {/* Zep LOGO  src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1726731577/il2wr5yxd2w1sarnj3it.svg" */}
