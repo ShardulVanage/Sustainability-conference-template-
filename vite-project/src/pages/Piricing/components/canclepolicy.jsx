@@ -29,7 +29,23 @@ export default function CancleCTA() {
   };
 
   return (
-    <div className="flex items-center justify-center pt-12  p-4">
+    <div className="flex flex-col items-center justify-center pt-12  p-4">
+      <motion.div
+        ref={ref}
+        className="max-w-3xl w-full bg-white rounded-xl shadow-lg overflow-hidden mb-5"
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
+      <h1 className=" text-center text-red-600 font-semibold  py-4 text-lg ">N.B: For journal publication separate fee would be charged.</h1>
+      <motion.div
+          className="h-2 bg-red-400"
+          variants={{
+            hidden: { scaleX: 0 },
+            visible: { scaleX: 1, transition: { duration: 0.5, delay: 0.2 } },
+          }}
+        />
+        </motion.div>
       <motion.div
         ref={ref}
         className="max-w-3xl w-full bg-white rounded-xl shadow-lg overflow-hidden"
@@ -85,6 +101,9 @@ export default function CancleCTA() {
           }}
         />
       </motion.div>
+      
+        
+
     </div>
   );
 }
