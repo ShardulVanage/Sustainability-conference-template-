@@ -29,7 +29,7 @@ const pricingTiers = [
     },
   },
   {
-    title: "Physical presentation",
+    title: "Physical Registration ",
     description:
       "Perfect for individuals looking to experience the basics of our sustainable conference.",
     price: "319",
@@ -107,7 +107,7 @@ const pricingTiers2 = [
     },
   },
   {
-    title: "Physical presentation",
+    title: "Physical Registration ",
     description:
       "Perfect for individuals looking to experience the basics of our sustainable conference.",
     price: "199",
