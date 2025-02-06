@@ -82,7 +82,7 @@ export default function IACommittee() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
+            > 
               <img
                 className="mx-auto h-24 w-24 rounded-full"
                 src={person.imageUrl}
@@ -90,8 +90,8 @@ export default function IACommittee() {
               />
               {/* <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-green-900">
                 {person.name}
-              </h3>
-              <p className="text-sm leading-6 text-gray-600">{person.role}</p> */}
+              </h3> 
+              <p className="text-sm leadin g-6 text-gray-600">{person.role}</p> */}
             </motion.li>
           ))}
         </ul>
