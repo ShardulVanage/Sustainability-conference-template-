@@ -88,7 +88,7 @@ export default function IACommittee() {
                 src={person.imageUrl}
                 alt={person.name}
               />
-              {/* <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-green-900">
+              {/* <h3 className="mt-6 text-base fo :nt-semibold leading-7 tracking-tight text-green-900">
                 {person.name}
               </h3> 
               <p className="text-sm leadin g-6 text-gray-600">{person.role}</p> */}
