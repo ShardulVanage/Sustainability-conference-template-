@@ -72,7 +72,7 @@ const Drawer = ({ isOpen, onClose, speaker }) => (
             <img
               src={speaker.image}
               alt={speaker.name}
-              className="w-full h-64 object-cover rounded-lg mb-4"
+              className="w-full h-96 object-contain rounded-lg mb-4"
             />
             <h2 className="text-2xl font-bold text-green-800 mb-2">
               {speaker.name}
