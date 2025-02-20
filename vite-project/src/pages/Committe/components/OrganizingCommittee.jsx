@@ -14,7 +14,7 @@ const CommitteeSection = ({ title, members }) => (
           className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center"
         >
           <img
-            className="mx-auto h-56 w-56 rounded-full drop-shadow-sm bg-white object-cover"
+            className="mx-auto h-56 w-56 rounded-full drop-shadow-sm bg-white object-contain"
             src={member.img || "/placeholder.svg"}
             alt={member.name}
           />
