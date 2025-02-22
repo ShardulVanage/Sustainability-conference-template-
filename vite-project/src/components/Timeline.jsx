@@ -21,10 +21,9 @@ export default function Timeline() {
       try {
         const pb = new PocketBase('https://icsift.pockethost.io');
         const records = await pb.collection('dates').getFullList({
-          sort: 'created', // Assuming you have a 'date' field
+          sort: 'created',
         });
         
-        // Transform the records into the format your component expects
         const formattedDates = records.map(record => ({
           date: record.date,
           title: record.title,
@@ -108,12 +107,22 @@ export default function Timeline() {
                       <div className="ml-4 flex flex-col">
                         <time
                           dateTime={item.date}
-                          className="text-sm font-semibold text-green-600"
+                          className={`text-sm font-semibold ${
+                            index === 0 ? 'text-gray-400' : 'text-green-600'
+                          }`}
                         >
                           {item.date}
                         </time>
-                        <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
-                        <p className="mt-1 text-sm text-gray-600">{item.description}</p>
+                        <h3 className={`text-lg font-semibold ${
+                          index === 0 ? 'text-gray-400 line-through' : 'text-gray-900'
+                        }`}>
+                          {item.title}
+                        </h3>
+                        <p className={`mt-1 text-sm ${
+                          index === 0 ? 'text-gray-400 line-through' : 'text-gray-600'
+                        }`}>
+                          {item.description}
+                        </p>
                       </div>
                     </div>
                   </motion.div>
