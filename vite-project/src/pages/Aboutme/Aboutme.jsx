@@ -43,7 +43,7 @@ function Aboutme() {
         <HeadingSection />
         <HeroSection />
         <AboutConferenceObjective />
-        <ConferenceTimeline />
+        {/* <ConferenceTimeline /> */}
         <SponsorShowcase />
         <Content />
         <Stats />
