@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { pb } from "../libs/pocketbase";
 
 const speakerCategories = [
-  { id: "guest", title: "Guest Speaker" },
+  // { id: "guest", title: "Guest Speaker" },
   { id: "keynote", title: "Keynote Speaker" },
   { id: "chair", title: "Conference Chair" },
   { id: "co-chair", title: "Conference Co-Chair" },
@@ -93,7 +93,7 @@ const Drawer = ({ isOpen, onClose, speaker }) => (
 );
 
 export default function SpeakerSection() {
-  const [activeCategory, setActiveCategory] = useState("guest");
+  const [activeCategory, setActiveCategory] = useState("keynote");
   const [selectedSpeaker, setSelectedSpeaker] = useState(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [speakers, setSpeakers] = useState({});
