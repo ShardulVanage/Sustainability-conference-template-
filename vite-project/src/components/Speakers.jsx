@@ -102,7 +102,7 @@ export default function SpeakerSection() {
     const fetchSpeakers = async () => {
       try {
         const records = await pb.collection('speakers').getFullList({
-          sort: '-created',
+          sort: 'order',
             $autoCancel: false,
         });
         const groupedSpeakers = records.reduce((acc, speaker) => {

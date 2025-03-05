@@ -10,13 +10,13 @@ export function useSpeakers() {
     async function fetchDownloadButtons() {
       try {
         const records = await pb.collection('speakers').getFullList({
-          sort: '-created',
+          sort: 'order',
           $autoCancel: false,
         });
         setSpeakers(records);
         setLoading(false);
       } catch (e) {
-        console.error('Error fetching co-organizers:', e);
+        console.error('Error fetching speaker:', e);
         setError(e);
         setLoading(false);
       }
