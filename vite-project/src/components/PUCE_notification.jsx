@@ -256,7 +256,7 @@ export default function PUCENotification() {
                 </button> */}
                 <button
                   className="px-3 py-2 text-xs bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors mt-1"
-                  onClick={() => window.open("https://www.icsift.com/", "_blank")}
+                  onClick={() => window.open("https://www.icsift.com/pricing", "_blank")}
                 >
                   Register Now
                 </button>
