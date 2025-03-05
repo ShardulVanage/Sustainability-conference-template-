@@ -105,7 +105,7 @@ export default function Date() {
           networking. Reserve your spot today!
         </p>
       </div>
-      <div className="relative grid grid-cols-1 gap-x-14  mx-auto max-w-md ">
+      {/* <div className="relative grid grid-cols-1 gap-x-14  mx-auto max-w-md ">
         {months.map((month, monthIdx) => (
           <section
             key={monthIdx}
@@ -156,33 +156,20 @@ export default function Date() {
             </div>
           </section>
         ))}
-      </div>
+      </div> */}
 
       <div className="max-w-4xl mx-auto p-4 space-y-8">
-      {Object.entries(scheduleData).map(([date, items]) => (
-        <div
-          key={date}
-          className="rounded-lg bg-green-100 p-6 space-y-4"
-        >
-          <h2 className="text-xl font-semibold text-gray-800 mb-4">
-            March - {date} | {items[0]?.program_name.split('-')[0]}
-          </h2>
-          
-          <div className="space-y-3 flex  flex-col">
-            {items.map((item) => (
-              <div
-                key={item.id}
-                className="flex justify-between items-center text-sm hover:bg-white/50 p-2 rounded transition-colors"
-              >
-                <span className="text-gray-700">{item.program_name}</span>
-                <span className="text-gray-600 tabular-nums">
-                  {item.starting_time} - {item.ending_time}
-                </span>
-              </div>
-            ))}
-          </div>
+        <div>
+          <img src="/d1p1.jpg" alt="" className="select-none pointer-events-none" />
+          <img src="/d1p2.jpg" alt=""className="select-none pointer-events-none" />
         </div>
-      ))}
+        <div>
+          <img src="/d2p1.jpg" alt=""className="select-none pointer-events-none" />
+          <img src="/d2p2.jpg" alt=""className="select-none pointer-events-none" />
+        </div>
+        <div>
+
+        </div>
     </div>
     </div>
   );

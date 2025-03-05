@@ -13,12 +13,12 @@ const people = [
   //   imageUrl:
   //     "https://res.cloudinary.com/dwlhesiyi/image/upload/v1730747074/pather%20logo/lfwclyhudaxhntxmnt59.jpg",
   // },
-  {
-    name: "Dr. Sarah Woods",
-    role: "Workshop Leader",
-    imageUrl:
-      "https://res.cloudinary.com/dwlhesiyi/image/upload/v1730747111/pather%20logo/wpp20uugpj4gegwaxqit.jpg",
-  },
+  // {
+  //   name: "Dr. Sarah Woods",
+  //   role: "Workshop Leader",
+  //   imageUrl:
+  //     "https://res.cloudinary.com/dwlhesiyi/image/upload/v1730747111/pather%20logo/wpp20uugpj4gegwaxqit.jpg",
+  // },
   {
     name: "Dr. Alex Turner",
     role: "Research Presenter",
