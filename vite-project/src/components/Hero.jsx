@@ -199,6 +199,15 @@ export default function Hero() {
             </motion.button>
           </a>
         </div>
+        <div>
+          <div className="flex flex-row gap-3 items-start border-t-2 border-b-2 border-[#2E8B57] py-2 max-w-xl rounded-2xl">
+            <img className="h-24" src='https://res.cloudinary.com/dtsuvx8dz/image/upload/v1741338963/zhyvctczmzjcmrzbml4u.png'/>
+            <div className="flex justify-start items-start flex-col gap-2">
+              <h1 className=" text-lg font-bold">Endorsed by PASUC</h1>
+              <p>Philippine Association of State Universities and Colleges (PASUC)</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="lg:w-1/2 h-[400px] lg:h-[550px]">
         <Canvas
