@@ -46,28 +46,28 @@ const CountdownTimer = () => {
 
   return (
     <div className="flex flex-col items-center justify-center mt-4 w-full">
-      <h2 className="text-xl font-bold text-green-700 mb-2">Conference Starts In:</h2>
-      <div className="flex space-x-4 text-center">
-        <div className="flex flex-col items-center">
-          <div className="bg-green-600 text-white rounded-lg w-16 h-16 flex items-center justify-center text-2xl font-bold">
+      <h2 className="text-3xl font-bold text-green-700 mb-2">Conference Starts In:</h2>
+      <div className="flex space-x-4 text-center sm:scale-100 scale-90">
+        <div className="flex flex-col items-center ">
+          <div className="bg-green-600 text-white rounded-lg w-20 h-20 flex items-center justify-center text-4xl font-bold">
             {timeLeft.days}
           </div>
           <span className="text-sm mt-1 text-green-700 font-medium">Days</span>
         </div>
         <div className="flex flex-col items-center">
-          <div className="bg-green-600 text-white rounded-lg w-16 h-16 flex items-center justify-center text-2xl font-bold">
+          <div className="bg-green-600 text-white rounded-lg w-20 h-20 flex items-center justify-center text-4xl font-bold">
             {timeLeft.hours}
           </div>
           <span className="text-sm mt-1 text-green-700 font-medium">Hours</span>
         </div>
         <div className="flex flex-col items-center">
-          <div className="bg-green-600 text-white rounded-lg w-16 h-16 flex items-center justify-center text-2xl font-bold">
+          <div className="bg-green-600 text-white rounded-lg w-20 h-20 flex items-center justify-center text-4xl font-bold">
             {timeLeft.minutes}
           </div>
           <span className="text-sm mt-1 text-green-700 font-medium">Minutes</span>
         </div>
         <div className="flex flex-col items-center">
-          <div className="bg-green-600 text-white rounded-lg w-16 h-16 flex items-center justify-center text-2xl font-bold">
+          <div className="bg-green-600 text-white rounded-lg w-20 h-20 flex items-center justify-center text-4xl font-bold">
             {timeLeft.seconds}
           </div>
           <span className="text-sm mt-1 text-green-700 font-medium">Seconds</span>
@@ -141,7 +141,7 @@ export default function Hero() {
         <div className="space-y-6 mb-12 lg:mb-0">
           <div className="flex  items-center gap-1">
             {/* Zep LOGO  src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1726731577/il2wr5yxd2w1sarnj3it.svg" */}
-            <img src="./singleLogo.svg" className="h-16 w-16 drop-shadow-lg" alt="" />
+            <img src="./singleLogo.svg" className="h-20 w-20 drop-shadow-lg" alt="" />
             <br />
             <h1 className="font-bold font-sans text-3xl bg-gradient-to-r from-emerald-500 to-lime-500 text-transparent bg-clip-text drop-shadow-lg">
               ICSIFT
@@ -279,7 +279,7 @@ export default function Hero() {
               maxPolarAngle={Math.PI / 1.5} // Limit vertical rotation (optional)
               rotateSpeed={0.5}
               enableZoom={false}
-              p
+              
             />
             <Environment preset="city" />
           </Canvas>

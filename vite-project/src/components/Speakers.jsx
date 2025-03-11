@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { pb } from "../libs/pocketbase";
 
 const speakerCategories = [
-  // { id: "guest", title: "Guest Speaker" },
+  { id: "guest", title: "Guest of Honor" },
   { id: "keynote", title: "Keynote Speaker" },
   { id: "chair", title: "Conference Chair" },
   { id: "co-chair", title: "Conference Co-Chair" },
