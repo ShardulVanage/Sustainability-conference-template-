@@ -56,6 +56,7 @@ import { useSpeakers } from "./hooks/useSpeakers";
 import { useCommittee } from "./hooks/useCommitte";
 import{useDate} from "./hooks/useDate";
 import SDGSection from "./components/SDGS";
+
 // Import new components for routes
 
 const links = [
@@ -110,6 +111,7 @@ function MainContent({ coOrganizers ,downloadButtons,speakers,date}) {
       <h1 className="sr-only">ICSIFT Conference 2024</h1>
       <h2 className="sr-only">ICSIFT Conference 2024</h2>
       <Header />
+      
       <Hero />
       <StatsSection />
       <Organization coOrganizers={coOrganizers} />

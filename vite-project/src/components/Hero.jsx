@@ -45,7 +45,7 @@ const CountdownTimer = () => {
   }, [])
 
   return (
-    <div className="flex flex-col items-center justify-center mt-4 w-full">
+    <div className="flex flex-col items-center justify-center pt-4 w-full bg-[#F5F7F2]">
       <h2 className="text-3xl font-bold text-green-700 mb-2">Conference Starts In:</h2>
       <div className="flex space-x-4 text-center sm:scale-100 scale-90">
         <div className="flex flex-col items-center ">
@@ -133,9 +133,10 @@ export default function Hero() {
   return (
     <>
       <Banner />
+      <CountdownTimer />
       <div
         ref={heroRef}
-        className="sm:h-full  w-full flex flex-col-reverse lg:flex-row items-center justify-center mx-auto bg-[#F5F7F2] p-6 pt-24 sm:px-24"
+        className="sm:h-full  w-full flex flex-col-reverse lg:flex-row items-center justify-center mx-auto bg-[#F5F7F2] p-6 pt-18 sm:px-24"
         style={{ position: "relative" }}
       >
         <div className="space-y-6 mb-12 lg:mb-0">
@@ -285,7 +286,7 @@ export default function Hero() {
           </Canvas>
 
           {/* Add the countdown timer below the globe */}
-          <CountdownTimer />
+        
         </div>
       </div>
     </>
