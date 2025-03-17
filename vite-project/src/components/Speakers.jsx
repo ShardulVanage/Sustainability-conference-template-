@@ -5,8 +5,8 @@ import { pb } from "../libs/pocketbase";
 const speakerCategories = [
   { id: "guest", title: "Guest of Honor" },
   { id: "keynote", title: "Keynote Speaker" },
-  { id: "chair", title: "Conference Chair" },
-  { id: "co-chair", title: "Conference Co-Chair" },
+ // { id: "chair", title: "Conference Chair" },
+  //{ id: "co-chair", title: "Conference Co-Chair" },
   { id: "session", title: "Session Chair" },
 ];
 
