@@ -171,7 +171,7 @@ export default function PUCENotification() {
                             <polyline points="12 6 12 12 16 14"></polyline>
                           </svg>
                           <span className="text-sm">
-                            Paper submissions due: <span className="font-medium">March 15th, 2025</span>
+                            Paper submissions due: <span className="font-medium">March 18th, 2025</span>
                           </span>
                         </div>
 
