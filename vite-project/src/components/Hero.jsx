@@ -1,19 +1,14 @@
 "use client"
 
-// Instead of direct import
-import Gmodel from "../assets/sustainable_globe.glb?url"
-import React, { useRef, useEffect, Suspense, useState } from "react"
+import React, { useRef, useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { Canvas, useFrame } from "@react-three/fiber"
-import { useGLTF, OrbitControls, Environment, useAnimations, Html, useProgress } from "@react-three/drei"
-import gsap from "gsap"
 import { IconCalendarMonth, IconMapPin } from "@tabler/icons-react"
-import modelimg from "../assets/globe.png"
+import gsap from "gsap"
 import Banner from "./Banner"
+// Import a static globe image instead of 3D model
+import globeImage from "../assets/globe.png" // Use the existing image or replace with a suitable one
 
-const modelUrl = Gmodel
-
-// Add this countdown timer component
+// Countdown timer component
 const CountdownTimer = () => {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -77,46 +72,15 @@ const CountdownTimer = () => {
   )
 }
 
-const Model = React.memo(function Model() {
-  const group = useRef()
-  const { scene, animations } = useGLTF(modelUrl)
-  const { actions } = useAnimations(animations, group)
-
-  useFrame(() => {
-    if (group.current) {
-      group.current.rotation.y += 0.002
-    }
-  })
-
-  useEffect(() => {
-    if (actions?.whater) {
-      actions.whater.play()
-    } else if (actions?.whaterAction) {
-      actions.whaterAction.play()
-    }
-  }, [actions])
-
-  return <primitive ref={group} object={scene} />
-})
-
-function Loader() {
-  const { progress } = useProgress()
-  return (
-    <Html center>
-      <div className="flex flex-col items-center h-1/2 w-screen">
-        <img src={modelimg || "/placeholder.svg"} alt="Loading" className="sm:w-3/5 select-none" />
-        <p className="text-white mt-4">Loading: {progress.toFixed(2)}%</p>
-      </div>
-    </Html>
-  )
-}
-
 export default function Hero() {
   const heroRef = useRef(null)
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
-    if (heroRef.current && isLoaded) {
+    // Set isLoaded to true immediately since we're using a static image
+    setIsLoaded(true)
+    
+    if (heroRef.current) {
       const ctx = gsap.context(() => {
         gsap.from(heroRef.current, {
           opacity: 0,
@@ -128,7 +92,7 @@ export default function Hero() {
 
       return () => ctx.revert()
     }
-  }, [isLoaded])
+  }, [])
 
   return (
     <>
@@ -136,21 +100,16 @@ export default function Hero() {
       <CountdownTimer />
       <div
         ref={heroRef}
-        className="sm:h-full  w-full flex flex-col-reverse lg:flex-row items-center justify-center mx-auto bg-[#F5F7F2] p-6 pt-18 sm:px-24"
+        className="sm:h-full w-full flex flex-col-reverse lg:flex-row items-center justify-center mx-auto bg-[#F5F7F2] p-6 pt-18 sm:px-24"
         style={{ position: "relative" }}
       >
         <div className="space-y-6 mb-12 lg:mb-0">
-          <div className="flex  items-center gap-1">
-            {/* Zep LOGO  src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1726731577/il2wr5yxd2w1sarnj3it.svg" */}
+          <div className="flex items-center gap-1">
             <img src="./singleLogo.svg" className="h-20 w-20 drop-shadow-lg" alt="" />
             <br />
             <h1 className="font-bold font-sans text-3xl bg-gradient-to-r from-emerald-500 to-lime-500 text-transparent bg-clip-text drop-shadow-lg">
               ICSIFT
             </h1>
-            {/* <h1 className="text-xl lg:text-3xl font-bold text-white max-w-3xl">
-            icsift -{" "}
-            <span className="text-base">by Coreresearch Private limited</span>
-            </h1> */}
           </div>
           <motion.h1
             className="text-3xl lg:text-5xl font-bold text-[#2E8B57] max-w-3xl"
@@ -197,7 +156,7 @@ export default function Hero() {
               March 21st - 23rd, 2025
             </motion.p>
           </div>
-          <div className="flex sm:flex-row flex-col-reverse  items-start sm:items-center justify-start gap-3 px-4">
+          <div className="flex sm:flex-row flex-col-reverse items-start sm:items-center justify-start gap-3 px-4">
             <img
               src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1728043047/yqhbu4xrrwcab48qtpfw.png"
               alt=""
@@ -208,9 +167,8 @@ export default function Hero() {
               alt=""
               className="h-12 drop-shadow-lg"
             />
-
             <img
-              src=" https://res.cloudinary.com/dwlhesiyi/image/upload/v1729260387/erph7fml9unxiowlmrmg.png"
+              src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1729260387/erph7fml9unxiowlmrmg.png"
               alt=""
               className="h-12 drop-shadow-lg"
             />
@@ -261,37 +219,41 @@ export default function Hero() {
                 src="https://res.cloudinary.com/dtsuvx8dz/image/upload/v1741338963/zhyvctczmzjcmrzbml4u.png"
               />
               <div className="flex justify-start items-start flex-col gap-2">
-                <h1 className=" text-lg font-bold">Endorsed by PASUC</h1>
-                <p>Philippine Association of State Universities and Colleges (PASUC)</p>
+                <h1 className="text-lg font-bold">Endorsed by PASUC</h1>
+                <p>Philippine Association of State Universities and Colleges (PASUC)</p>
               </div>
             </div>
           </div>
         </div>
-        <div className="lg:w-1/2 h-[400px] lg:h-[750px] flex flex-col items-center py-2">
-          <Canvas camera={{ position: [0, 0, 5], fov: 50 }} onCreated={() => setIsLoaded(true)}>
-            <ambientLight intensity={0.5} />
-            <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-            <Suspense fallback={<Loader />}>
-              <Model />
-            </Suspense>
-            <OrbitControls
-              enableRotate={true} // Changed to true to allow rotation
-              minPolarAngle={Math.PI / 4} // Limit vertical rotation (optional)
-              maxPolarAngle={Math.PI / 1.5} // Limit vertical rotation (optional)
-              rotateSpeed={0.5}
-              enableZoom={false}
-              
-            />
-            <Environment preset="city" />
-          </Canvas>
-
-          {/* Add the countdown timer below the globe */}
         
+        {/* Replaced 3D globe with static image */}
+        <div className="lg:w- h-[400px] lg:h-[750px] flex flex-col items-center justify-center py-2">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2 }}
+            className="relative"
+          >
+            <img 
+              src='/glob.png' 
+              alt="Sustainable Globe" 
+              className="w-full h-full  max-w-lg mx-auto drop-shadow-2xl rounded-full"
+            />
+            {/* Optional animation overlay to simulate rotation */}
+            <motion.div 
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-10 rounded-full"
+              animate={{ 
+                x: [0, 100, 0], 
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+            />
+          </motion.div>
         </div>
       </div>
     </>
   )
 }
-
-useGLTF.preload(modelUrl)
-
